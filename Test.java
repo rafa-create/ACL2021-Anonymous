@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 public class Test {
     int n;
     public test(int n){
@@ -6,6 +7,9 @@ public class Test {
     }
 =======
 fichier test
+=======
+modifié par charlie
+>>>>>>> 6d57dd2290ae70570a3a046b94fde474b21b4d6e
 fafa
 dqrjligljsdbgjqsdf sale ï¿½te 
 modif depuis ordi rafa
