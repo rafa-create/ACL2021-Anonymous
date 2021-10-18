@@ -9,7 +9,7 @@ public class Labyrinthe{
         this.y=y;
     }
     public String [][] Creation_labyrinthe(int n){
-        String [][]tab= String [this.n][this.n];
+        String [][]tab= new String [this.n][this.n];
         return tab;
     }
     public boolean Case_Tresor(int x , int y ){
@@ -44,7 +44,8 @@ public class Labyrinthe{
         }
         return false;
     }
-    public boolean Case_Valide(int x , int y ){
+    public boolean Case_Valide(int x , int y )
+    {
         String [][] tab=Creation_labyrinthe(this.n);
         if (tab[this.x][this.y]=="v")
         {
