@@ -1,4 +1,7 @@
 fichier test
 fafa
-dqrjligljsdbgjqsdf sale ûte 
+dqrjligljsdbgjqsdf sale ï¿½te 
 modif depuis ordi rafa
+public void name() {
+    
+}
