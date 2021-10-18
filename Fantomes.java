@@ -5,5 +5,11 @@ public class Fantomes extends Entite{
 	// traverse les murs
 	// 1 seul pv
 	
-	public Fantomes(String nom, )
+	public Fantomes(String nom, ){
+		
+		
+		
+		
+		
+	}
 }
