@@ -1,4 +1,4 @@
-public class Heros extends entite{
+public class Heros extends Entite{
 
 	
 	
