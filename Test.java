@@ -1,7 +1,6 @@
-fichier test
-fafa
-dqrjligljsdbgjqsdf sale �te 
-modif depuis ordi rafa
-public void name() {
-    
+public class Test {
+    int n;
+    public test(int n){
+        this.n=n;
+    }
 }
