@@ -20,5 +20,6 @@ public class Heros extends Entite{
 		
 		
 		
+		
 	}
 	}
