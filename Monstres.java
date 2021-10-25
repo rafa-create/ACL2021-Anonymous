@@ -5,4 +5,5 @@ public class Monstres extends Entite{
 	// fonction déplamcent proche joueur
 	// t
 	
+	
 	""
