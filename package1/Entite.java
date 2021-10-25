@@ -1,4 +1,5 @@
 package package1;
+
 public class Entite {
 	
 	// ce qui est vivant et qui peut se déplacer
@@ -34,5 +35,18 @@ public class Entite {
 	public int getPlacementInitial_y() {
 		return this.placement_initial_y = placement_initial_y;
 	}
+	
+	protected int[] crossMap() {
+		return null;
+	}
+	
+	 /**
+		*	verifie si une colision entre l'entite et une Figure (avec laquelle l'entite doit interagir)
+		*	va se rÃ©aliser cad si les coordonnees des 4 points de Entite rentre en partie
+		*	dans les coordonnees des 4 points de Figure
+		*/
+	protected boolean checkOneColision () {
+			return true;
+		}
 
 }
