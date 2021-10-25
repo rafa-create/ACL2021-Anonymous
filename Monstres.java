@@ -5,7 +5,4 @@ public class Monstres extends Entite{
 	// fonction déplamcent proche joueur
 	// t
 	
-	public Monstres (String name, String ) {
-	
-	
-}
+	""
