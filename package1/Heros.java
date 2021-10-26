@@ -7,32 +7,27 @@ public class Heros extends Entite{
 	// fonction déplacement
 	//les héros ont une certaine jauge de vie
 	
-	private int PdV
-	
+	private static final String PACMAN_COLOR = "yellow"; // the Pacman default color
+	private static final int LIFE_START = 3;//nombre de vie de pacman
+	public static final int SPEED_PACMAN = 10;//doit etre un multiple de taille de case
+	private static final int PALIER = 10000;//palier pour gagner une vie
+	private ArcCircle pac;//representation graphique de pacman
+	private boolean supra;// est ce que le hero a mangé une super gomme
+	private String dernierePosition;
+	private String toGo;// La direction que pacman veut prendre
+	private String previousMove;//Le dernier mouvement d
+	private int life;// the hero life
+	private int score;// the hero score
+	private int palier;//prochain palier pour gagner une vie
 	
 	public Heros(String nom, int attaque, int placement_x, int placement_y, int PdV) {
 		super(nom, attaque, placement_x, placement_y);
 		
 	
-		private static final String PACMAN_COLOR = "yellow"; // the Pacman default color
-		public static final int OUVERTURE_MIN = 10;//ouverture minimal de la bouche de pacman
-		public static final int OUVERTURE_MAX = 40;//ouverture maximal de la bouche de pacman
-		private static final int LIFE_START = 3;//nombre de vie de pacman
-		public static final int SPEED_PACMAN = 10;//doit etre un multiple de taille de case
-		private static final int PALIER = 10000;//palier pour gagner une vie
-		private ArcCircle pac;//representation graphique de pacman
-		private int ouverture;// ouverture de la bouche de pacman
-		private boolean mouthIsOpen;// ouverture de la bouche de pacman
-		private boolean supra;// est ce que pacman a mangÃ© une super gomme
-		private String dernierePosition;
-		private String toGo;// La direction que pacman veut prendre
-		private String previousMove;//Le dernier mouvement de pacman
-		private int life;// the pacman life
-		private int score;// the pacman score
-		private int palier;//prochain palier pour gagner une vie
+		
 
 		/**
-	   * Create a new Figure_Pacman.
+	   * Create a new Figure_hero.
 	   *
 	   * @param size taille de pacman
 		 * @param x position absolue x de pacman
