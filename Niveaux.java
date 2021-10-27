@@ -29,7 +29,7 @@ public class Niveaux extends JPanel implements ActionListener {
     private int[] dx;
     private int[] dy;
     private int[] mechant_x;
-    private int[] mechant_y;
+    private int[]mechant_y;
     private int[] mechant_dX;
     private int[] mechant_dy;
     private int[] Vitesse_mechant;
@@ -46,46 +46,62 @@ public class Niveaux extends JPanel implements ActionListener {
     private int dep_Y;
 
     private final short Niveau1[] = 
+    	// Etoile blanche sortie ok 
+    	// Violet TP ok 
+    	// Vert clé
+    	// Rouge Recupération de vie ok 
+    	// Noir piege ok 
+    	// Magie bleu 
+    	// Spawn gris 
+    	// marron  ouvre une porte
     	// Matrice du Niveau1 
         // 0 sa place un cube
         // 1 une barre verticale à gauche du point pixélisé
         // 2 une barre horizontale en haut '' '' ''
-        //4 une barre verticaile à droite '' '' ''
-        //8 une barre horizontale en bas '' '' '' 
+        // 4 une barre verticaile à droite '' '' ''
+        // 8 une barre horizontale en bas '' '' '' 
         // 16 un espace vide
+    	// 32 Point blanc 
+    	// 64 point violet
+    	//128 point rouge
+    	//256 point noire
+    	//512 point bleu
+    	//1024 point gris
+    	//2048 point vert
+        //4096 point marron
         //17 = 16 + 1 = espace vide + barre verticale
         // etc ...
-      { 19, 18, 18, 18, 26, 26, 26, 26, 26, 26, 26, 26, 18, 18, 22,
-        17, 16, 17, 17, 17, 16, 16, 16, 16, 16, 16, 16, 16, 16, 20,
+      { 1043, 18, 18, 18, 26, 26, 26, 26, 26, 26, 26, 26, 18, 18, 22,
+        17, 16, 17, 17, 81, 16, 16, 16, 16, 16, 16, 16, 16, 16, 20,
         17, 16, 17, 17, 19, 18, 18, 18, 18, 18, 18, 18, 17, 16, 20,
         17, 16, 17, 17, 17, 19, 18, 17, 16, 16, 16, 16, 16, 16, 20,
         17, 16, 18, 18, 17, 17, 16, 18, 18, 18, 18, 19, 19, 22, 20,
         17, 24, 24, 24, 17, 17, 16, 18, 18, 22, 16, 18, 19, 20, 20,
         17, 17, 16, 16, 17, 17, 19, 18, 18, 18, 18, 16, 17, 21, 20,
-        19, 17, 16, 16, 16, 16, 17, 19, 17, 19, 18, 18, 17, 17, 20,
-        17, 19, 19, 17, 19, 19, 17, 17, 17, 17, 23, 16, 17, 21, 20,
+        83, 17, 16, 16, 16, 16, 17, 19, 17, 19, 18, 18, 17, 17, 20,
+        17, 19, 19, 17, 19, 531, 17, 17, 17, 17, 23, 16, 17, 21, 20,
         17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 21, 16, 17, 21, 22,
         17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 21, 16, 17, 29, 20,
-        17, 17, 17, 17, 17, 16, 17, 17, 25, 17, 21, 16, 16, 17, 20,
+        17, 17, 17, 17, 17, 16, 17, 17, 153, 17, 21, 16, 16, 17, 20,
         17, 17, 17, 16, 17, 16, 17, 17, 17, 17, 21, 16, 25, 17, 20,
-        17, 16, 16, 16, 17, 16, 16, 17, 16, 16, 17, 16, 16, 16, 20,
-        25, 24, 24, 24, 25, 24, 24, 28, 24, 26, 26, 26, 26, 26, 30 };
+        17, 16, 16, 16, 17, 16, 16, 273, 16, 16, 17, 16, 16, 16, 20,
+        25, 24, 24, 24, 25, 24, 24, 28, 24, 26, 26, 26, 26, 26, 46 };
     private final short Niveau2[] = 
     	// Matrice du Niveau 2 
-    	{	19, 18, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 30,
+    	{	1043, 18, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 94,
             17, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 20,
-            19, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 17, 21,
+            19, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 530, 17, 21,
             17, 19, 18, 18, 18, 16, 18, 18, 18, 18, 18, 18, 18, 16, 21,
             17, 17, 16, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 17, 21,
             17, 17, 19, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 16, 21,
-            17, 16, 18, 18, 17, 17, 19, 26, 26, 26, 26, 26, 26, 25, 21,
+            17, 16, 18, 18, 273, 17, 19, 26, 26, 26, 26, 26, 2074, 25, 21,
             17, 16, 16, 16, 17, 17, 25, 24, 24, 24, 24, 24, 24, 24, 29,
             17, 16, 16, 16, 17, 17, 17, 16, 16, 16, 16, 16, 16, 16, 20,
-            19, 18, 18, 18, 17, 17, 16, 16, 16, 16, 16, 16, 16, 16, 20,
+            83, 18, 18, 18, 17, 17, 16, 16, 16, 16, 16, 16, 16, 16, 20,
             17, 16, 16, 16, 16, 19, 18, 18, 18, 18, 18, 18, 21, 22, 20,
-            19, 18, 18, 18, 18, 16, 19, 18, 18, 18, 18, 16, 21, 20, 20,
-            17, 16, 16, 16, 16, 16, 26, 26, 26, 26, 26, 24, 31, 20, 20,
-            19, 18, 26, 26, 26, 17, 25, 24, 24, 24, 16, 24, 24, 28, 20,
+            19, 18, 18, 18, 18, 16, 147, 18, 18, 18, 18, 16, 21, 20, 20,
+            17, 16, 16, 16, 16, 16, 26, 26, 26, 26, 26, 24, 63, 20, 20,
+            19, 18, 26, 26, 4122, 17, 25, 24, 24, 24, 16, 24, 24, 28, 20,
             9, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 28 };
 
     private final int Vitesse_possible[] = {1, 2, 3, 4, 6, 8};
@@ -179,10 +195,9 @@ public class Niveaux extends JPanel implements ActionListener {
     private void DessineMap(Graphics2D g2d) {
 
         short i = 0;
-        int x, y;
 
-        for (y = 0; y < Taille_ecran; y += Taille_block) {
-            for (x = 0; x < Taille_ecran; x += Taille_block) {
+        for (int y = 0; y < Taille_ecran; y += Taille_block) {
+            for (int x = 0; x < Taille_ecran; x += Taille_block) {
 
                 g2d.setColor(new Color(0,72,47));
                 g2d.setStroke(new BasicStroke(5));
@@ -209,8 +224,37 @@ public class Niveaux extends JPanel implements ActionListener {
                             y + Taille_block - 1);
                 }
 
-                if ((Donnee[i] & 16) != 0) { 
+                if ((Donnee[i] & 32) != 0) { 
                     g2d.setColor(new Color(255,255,255));
+                    g2d.fillOval(x+10, y+10, 6, 6);
+               }
+                if ((Donnee[i] & 64) != 0) { 
+                    g2d.setColor(new Color(238,130,238));
+                    g2d.fillOval(x+10, y+10, 6, 6);
+               }
+                if ((Donnee[i] & 128) != 0) { 
+                    g2d.setColor(new Color(255,0,0));
+                    g2d.fillOval(x+10, y+10, 6, 6);
+               }
+                if ((Donnee[i] & 256) != 0) { 
+                    g2d.setColor(new Color(0,0,0));
+                    g2d.fillOval(x+10, y+10, 6, 6);
+               }
+                if ((Donnee[i] & 512) != 0) { 
+                    g2d.setColor(new Color(0,0,255));
+                    g2d.fillOval(x+10, y+10, 6, 6);
+               }
+                if ((Donnee[i] & 1024) != 0) { 
+                    g2d.setColor(new Color(169,169,169));
+                    g2d.fillOval(x+10, y+10, 6, 6);
+               }
+                if ((Donnee[i] & 2048) != 0) { 
+                    g2d.setColor(new Color(0,255,0));
+                    g2d.fillOval(x+10, y+10, 6, 6);
+               }
+                if ((Donnee[i] & 4096) != 0) { 
+                    g2d.setColor(new Color(139,69,19));
+                    g2d.fillOval(x+10, y+10, 6, 6);
                }
 
                 i++;
