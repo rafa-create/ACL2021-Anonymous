@@ -1,34 +1,28 @@
 package jeu;
 
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-public class Niveaux extends JPanel implements ActionListener {
+public class Niveaux extends JPanel implements ActionListener,Runnable {
 	private Dimension d;
     private final Font smallFont = new Font("Arial", Font.BOLD, 14);
     static boolean Enjeu = true;
     private final int Taille_block = 23;
     private final int Nbre_block = 15;
     private final int Taille_ecran = Nbre_block * Taille_block;
-    private final int Max_mechant = 12;
-    private int Nbr_mechant = 6;
     private int Niveau;
-    private int[] mechant_x;
-    private int[] mechant_y;
-    private int[] mechant_dX;
-    private int[] mechant_dy;
-    private int[] Vitesse_mechant;
     private Image Coeur;
     private Image mechant;
     private Image chevalier;
     private boolean Tpok=true;
+    private int chronos=60;
+    private int Pause=1000;
+    
 
     private final short Niveau1[] = 
     	// Etoile blanche sortie ok 
@@ -70,26 +64,23 @@ public class Niveaux extends JPanel implements ActionListener {
         17, 17, 17, 16, 17, 16, 17, 17, 17, 17, 21, 16, 25, 17, 20,
         17, 16, 16, 16, 17, 16, 16, 273, 16, 16, 17, 16, 16, 16, 20,
         25, 24, 24, 24, 25, 24, 24, 28, 24, 26, 26, 26, 26, 26, 46 };
-   // private final short Niveau2[] = 
-    	// Matrice du Niveau 2 
-    //	{	1043, 18, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 94,
-          //  17, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 20,
-           // 19, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 530, 17, 21,
-            //17, 19, 18, 18, 18, 16, 18, 18, 18, 18, 18, 18, 18, 16, 21,
-            //17, 17, 16, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 17, 21,
-            //17, 17, 19, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 16, 21,
-            //17, 16, 18, 18, 273, 17, 19, 26, 26, 26, 26, 26, 2074, 25, 21,
-            //17, 16, 16, 16, 17, 17, 25, 24, 24, 24, 24, 24, 24, 24, 29,
-            //17, 16, 16, 16, 17, 17, 17, 16, 16, 16, 16, 16, 16, 16, 20,
-            //83, 18, 18, 18, 17, 17, 16, 16, 16, 16, 16, 16, 16, 16, 20,
-            //17, 16, 16, 16, 16, 19, 18, 18, 18, 18, 18, 18, 21, 22, 20,
-            //19, 18, 18, 18, 18, 16, 147, 18, 18, 18, 18, 16, 21, 20, 20,
-            //17, 16, 16, 16, 16, 16, 26, 26, 26, 26, 26, 24, 63, 20, 20,
-            //19, 18, 26, 26, 4122, 17, 25, 24, 24, 24, 16, 24, 24, 28, 20,
-          //  9, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 28 };
-
-    private final int Vitesse_possible[] = {1, 2, 3, 4, 6, 8};
-    private int Vitesse_act = 3;
+    private final short Niveau2[] = 
+    	 //Matrice du Niveau 2 
+   	{	1043, 18, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 94,
+            17, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 20,
+            19, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 530, 17, 21,
+            17, 19, 18, 18, 18, 16, 18, 18, 18, 18, 18, 18, 18, 16, 21,
+            17, 17, 16, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 17, 21,
+            17, 17, 19, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 16, 21,
+            17, 16, 18, 18, 273, 17, 19, 26, 26, 26, 26, 26, 2074, 25, 21,
+            17, 16, 16, 16, 17, 17, 25, 24, 24, 24, 24, 24, 24, 24, 29,
+            17, 16, 16, 16, 17, 17, 17, 16, 16, 16, 16, 16, 16, 16, 20,
+            83, 18, 18, 18, 17, 17, 16, 16, 16, 16, 16, 16, 16, 16, 20,
+            17, 16, 16, 16, 16, 19, 18, 18, 18, 18, 18, 18, 21, 22, 20,
+            19, 18, 18, 18, 18, 16, 147, 18, 18, 18, 18, 16, 21, 20, 20,
+            17, 16, 16, 16, 16, 16, 26, 26, 26, 26, 26, 24, 63, 20, 20,
+            19, 18, 26, 26, 4122, 17, 25, 24, 24, 24, 16, 24, 24, 28, 20,
+            9, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 28 };
     private short[] Donnee;
     private Timer temps;
     
@@ -101,7 +92,6 @@ public class Niveaux extends JPanel implements ActionListener {
         addKeyListener(new TAdapter());
         setFocusable(true);
         initJeu();
-        temps.start();
     }
     private void Verif() {
     	//Variable de position Rappel
@@ -129,6 +119,16 @@ public class Niveaux extends JPanel implements ActionListener {
     		Tpok=false;
     	}
     }
+    private void Dessine_Chrono(Graphics2D g2d) {
+    	g2d.setFont(smallFont);
+        g2d.setColor(new Color(5, 181, 79));
+        String time = "Temps " + chronos;
+        g2d.drawString(time, -Taille_ecran / 4 + 175, Taille_ecran + 16);
+    	
+    }
+    private void Diminue_temps() {
+    	chronos--;
+    }
     private void perdVie() 
 	{
 		//Perd Vie si il est sur le noir
@@ -150,11 +150,6 @@ public class Niveaux extends JPanel implements ActionListener {
 
     	Donnee = new short[Nbre_block * Nbre_block];
         d = new Dimension(400, 400);
-        mechant_x = new int[Max_mechant];
-        mechant_dX = new int[Max_mechant];
-        mechant_y = new int[Max_mechant];
-        mechant_dy = new int[Max_mechant];
-        Vitesse_mechant = new int[Max_mechant];
         temps = new Timer(40, this);
         temps.start();
     }
@@ -174,6 +169,13 @@ public class Niveaux extends JPanel implements ActionListener {
             g2d.setColor(Color.YELLOW);
             g2d.drawString(Victoire, (Taille_ecran)/4, 175);
         }
+    	else if(chronos <=0) {
+    		Enjeu=false;
+    		String Victoire = "Vous avez manqué de temps";
+            g2d.setColor(Color.YELLOW);
+            g2d.drawString(Victoire, (Taille_ecran)/4, 175);
+    		
+    	}
          else {
         	Teleportation();
         	GagneNRJ();
@@ -187,6 +189,9 @@ public class Niveaux extends JPanel implements ActionListener {
         	Dessine_jedi(g2d); 
         	//Dessine_mechant(g2d);
         	perdVie();
+        	Dessine_Chrono(g2d);
+        	Diminue_temps();
+        	Verif_mouv();
         }
     }
    // private void Dessine_mechant(Graphics2D g2d) {
@@ -197,7 +202,7 @@ public class Niveaux extends JPanel implements ActionListener {
       
     private void Dessine_jedi(Graphics2D g2d) {
     	g2d.fillOval(obi.getX(), obi.getY(), 6, 6);
-    	System.out.println("ObiX = "+obi.getX()+" / ObiY = "+ obi.getY() + " / ObiVie =" + obi.Vie+"/ ObiNRJ ="+obi.NRJ);
+    	//System.out.println("ObiX = "+obi.getX()+" / ObiY = "+ obi.getY() + " / ObiVie =" + obi.Vie+"/ ObiNRJ ="+obi.NRJ);
     }
     private void Affiche_Ecran(Graphics2D g2d) 
     {
@@ -287,8 +292,6 @@ public class Niveaux extends JPanel implements ActionListener {
     private void initJeu() {
     	Niveau = 1;
         initNiveau();
-        Nbr_mechant = 6;
-        Vitesse_act = 3;
     }
 
     private void initNiveau() {
@@ -297,6 +300,9 @@ public class Niveaux extends JPanel implements ActionListener {
         }
 
         Continue();
+    }
+    private void Verif_mouv() {
+    	
     }
 
     private void Continue() {
@@ -341,7 +347,6 @@ public class Niveaux extends JPanel implements ActionListener {
     //controls
     class TAdapter extends KeyAdapter 
     {
-
         @Override
         public void keyPressed(KeyEvent e) {
 
@@ -371,4 +376,13 @@ public class Niveaux extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         repaint();
     }
+	@Override
+	public void run() {
+		while(Enjeu) {
+			chronos--;
+			try {
+				Thread.sleep(Pause);
+			}catch(InterruptedException e) {}
+		}		
+	}
 }
