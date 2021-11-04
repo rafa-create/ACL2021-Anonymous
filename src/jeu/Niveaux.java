@@ -101,7 +101,6 @@ public class Niveaux extends JPanel implements ActionListener {
         addKeyListener(new TAdapter());
         setFocusable(true);
         initJeu();
-        Thread temps=new Thread(new Chrono());
         temps.start();
     }
     private void Verif() {
