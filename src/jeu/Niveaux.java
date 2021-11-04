@@ -22,7 +22,7 @@ public class Niveaux extends JPanel implements ActionListener,Runnable {
     private boolean Tpok=true;
     private int chronos=60;
     private int Pause=1000;
-    
+    private boolean MurPresent = false; 
 
     private final short Niveau1[] = 
     	// Etoile blanche sortie ok 
