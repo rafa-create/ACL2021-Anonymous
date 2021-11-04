@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.2.4" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
-  <class id="1" language="java" name="jeu.Sith" project="ACL2021-Anonymous" file="/ACL2021-Anonymous/src/jeu/Sith.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="236" width="161" x="263" y="7"/>    
+  <class id="1" language="java" name="jeu.Niveaux.TAdapter" project="ACL2021-Anonymous" 
+    file="/ACL2021-Anonymous/src/jeu/Niveaux.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1410" y="634"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="jeu.Niveaux.TAdapter" project="ACL2021-Anonymous" 
-    file="/ACL2021-Anonymous/src/jeu/Niveaux.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="831" y="310"/>    
+  <class id="2" language="java" name="jeu.Jedi" project="ACL2021-Anonymous" file="/ACL2021-Anonymous/src/jeu/Jedi.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="391" y="603"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -21,8 +21,8 @@
   </class>  
   <class id="3" language="java" name="jeu.Niveaux" project="ACL2021-Anonymous" 
     file="/ACL2021-Anonymous/src/jeu/Niveaux.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="858" width="416" x="1343" y="-377"/>    
-    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+    <position height="-1" width="-1" x="879" y="463"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
@@ -30,16 +30,16 @@
   </class>  
   <class id="4" language="java" name="jeu.Pion" project="ACL2021-Anonymous" file="/ACL2021-Anonymous/src/jeu/Pion.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="842" y="-148"/>    
+    <position height="-1" width="-1" x="399" y="269"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="jeu.Jedi" project="ACL2021-Anonymous" file="/ACL2021-Anonymous/src/jeu/Jedi.java" 
+  <class id="5" language="java" name="jeu.Sith" project="ACL2021-Anonymous" file="/ACL2021-Anonymous/src/jeu/Sith.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="603" y="-147"/>    
+    <position height="-1" width="-1" x="1427" y="211"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -59,12 +59,12 @@
       <attribute id="10" name="ana"/>      
       <multiplicity id="11" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
+    <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <nesting id="12">    
     <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="2"/>  
+    <end type="TARGET" refId="1"/>  
   </nesting>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
