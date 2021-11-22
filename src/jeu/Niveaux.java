@@ -10,7 +10,7 @@ import java.util.Random;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.Timer;
-public class Niveaux extends JPanel implements ActionListener,Runnable {
+public class Niveaux extends JPanel implements ActionListener {
 	private Dimension d;	
     private final Font smallFont = new Font("Arial", Font.BOLD, 14);
     static boolean Enjeu = false;
