@@ -8,7 +8,8 @@ import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.Timer;
-public class Niveaux extends JPanel implements ActionListener,Runnable {
+public class Niveaux extends JPanel implements ActionListener {
+
 	private static final long serialVersionUID = 1L;
 	private Dimension d;	
     private final Font smallFont = new Font("Arial", Font.BOLD, 14);
@@ -501,10 +502,4 @@ public class Niveaux extends JPanel implements ActionListener,Runnable {
     public void actionPerformed(ActionEvent e) {
         repaint();
     }
-
-	@Override
-	public void run() {
-		// TODO Auto-generated method stub
-		
-	}
 }
