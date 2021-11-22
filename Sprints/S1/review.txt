@@ -1,0 +1,5 @@
+Review : 
+Les fonctionnalités que l'on voulait implémenter au S1 fonctionnent.
+On a aussi ajouté d'autres fonctionnalités (nous nous sommes sous-estimé au début du S1)
+
+Notre objectif principal durant le S2 est de se tenir strictement au Backlog S2.
