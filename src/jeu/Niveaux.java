@@ -5,12 +5,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.util.Random;
-
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 public class Niveaux extends JPanel implements ActionListener,Runnable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Dimension d;	
     private final Font smallFont = new Font("Arial", Font.BOLD, 14);
     static boolean Enjeu = false;
@@ -502,4 +504,10 @@ public class Niveaux extends JPanel implements ActionListener,Runnable {
     public void actionPerformed(ActionEvent e) {
         repaint();
     }
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
+	}
 }
