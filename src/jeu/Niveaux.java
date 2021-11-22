@@ -10,7 +10,7 @@ import java.util.Random;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.Timer;
-public class Niveaux extends JPanel implements ActionListener,Runnable {
+public class Niveaux extends JPanel implements ActionListener {
 	private Dimension d;	
     private final Font smallFont = new Font("Arial", Font.BOLD, 14);
     static boolean Enjeu = false;
@@ -25,6 +25,8 @@ public class Niveaux extends JPanel implements ActionListener,Runnable {
     private boolean Mouv_XG=true;
     private boolean Mouv_XB=true;
     private boolean Mouv_XH=true;
+    
+    
     private ImageIcon heros1=new ImageIcon(getClass().getResource(("/jeu/giphy.gif")));
     private Image heros;
     
@@ -211,7 +213,7 @@ public class Niveaux extends JPanel implements ActionListener,Runnable {
     	if((obi.getX()==10 && (obi.getY()==148 && obi.getY()+23==171))
     	   || (obi.getX()==33 &&(obi.getY()==125&& obi.getY()+23==148||obi.getY()==171 && obi.getY()+23==194))
     	   || (obi.getX()==56 &&(obi.getY()==79 && obi.getY()+23==102 || obi.getY()==125 && obi.getY()+23==148 || obi.getY()==171 & obi.getY()+23==194))
-    	   || (obi.getX()==79 &&(obi.getY()==79 && obi.getY()+23==102 || obi.getY()==102 && obi.getY()+23==125 || obi.getY()==125 && obi.getY()+23==148))
+    	   || (obi.getX()==79 &&(obi.getY()==79 && obi.getY()+23==102 || obi.getY()==125 && obi.getY()+23==148))
     	   || (obi.getX()== 102 &&(obi.getY()==10 && obi.getY()+23==33|| obi.getY()==33 && obi.getY()+23==56 || obi.getY()==171 && obi.getY()+23==194))
     	   || (obi.getX()== 125 &&(obi.getY()==10 && obi.getY()+23==33|| obi.getY()==33 && obi.getY()+23==56 || obi.getY()==56 && obi.getY()+23==79))
     	   || (obi.getX()==148 && (obi.getY()==10 && obi.getY()+23==33 ||obi.getY()==56 && obi.getY()+23==79 || obi.getY()==33 && obi.getY()+23==56|| obi.getY()==56 && obi.getY()+23==79|| obi.getY()==125 && obi.getY()+23==148))
@@ -233,7 +235,7 @@ public class Niveaux extends JPanel implements ActionListener,Runnable {
     	if((obi.getX()==10 && (obi.getY()-23==148 && obi.getY()==171))
     	    	   || (obi.getX()==33 &&(obi.getY()-23==125&& obi.getY()==148||obi.getY()-23==171 && obi.getY()==194))
     	    	   || (obi.getX()==56 &&(obi.getY()-23==79 && obi.getY()==102 || obi.getY()-23==125 && obi.getY()==148 || obi.getY()-23==171 & obi.getY()==194))
-    	    	   || (obi.getX()==79 &&(obi.getY()-23==79 && obi.getY()==102 || obi.getY()-23==102 && obi.getY()==125 || obi.getY()-23==125 && obi.getY()==148))
+    	    	   || (obi.getX()==79 &&(obi.getY()-23==79 && obi.getY()==102 || obi.getY()-23==125 && obi.getY()==148))
     	    	   || (obi.getX()== 102 &&(obi.getY()-23==10 && obi.getY()==33|| obi.getY()-23==33 && obi.getY()==56 || obi.getY()-23==171 && obi.getY()==194))
     	    	   || (obi.getX()== 125 &&(obi.getY()-23==10 && obi.getY()==33|| obi.getY()-23==33 && obi.getY()==56 || obi.getY()-23==56 && obi.getY()==79))
     	    	   || (obi.getX()==148 && (obi.getY()-23==10 && obi.getY()==33 ||obi.getY()-23==56 && obi.getY()==79 || obi.getY()-23==33 && obi.getY()==56|| obi.getY()-23==56 && obi.getY()==79|| obi.getY()-23==125 && obi.getY()==148))
@@ -285,6 +287,7 @@ public class Niveaux extends JPanel implements ActionListener,Runnable {
     		
     	}
          else {
+        	/// Urgent  Niveau 1 pas touché ///
         	Teleportation();
         	Verif();
         	Dessine_jedi(g2d); 
@@ -297,16 +300,21 @@ public class Niveaux extends JPanel implements ActionListener,Runnable {
         	Mouvement1XY();
         	Mouvement2XY();
         	Dessine_Vie(g2d);
+        	 
+        	/// Niveau 2  faire fonction ///
+        	 
         }
     }
     private void Dessine_mechant(Graphics2D g2d) {
-    	g2d.drawImage(heros,ana.getX1(), ana.getY1(),this);
+    	this.heros=this.heros1.getImage();
+    	g2d.drawImage(this.heros, ana.getX1()-7, ana.getY1()-7, 18, 18, null);
+    	//g2d.drawImage(heros,ana.getX1()-7, ana.getY1()-7,this);
     	//System.out.println(ana.getX1()+"/ "+ ana.getY1());
     }
      
     private void Dessine_jedi(Graphics2D g2d) {
     	this.heros=this.heros1.getImage();
-    	g2d.drawImage(this.heros, obi.getX(), obi.getY(), 10, 10, null);
+    	g2d.drawImage(this.heros, obi.getX()-7, obi.getY()-7, 18, 18, null);
     	//g2d.fillOval(obi.getX(), obi.getY(), 6, 6);
     	System.out.println("ObiX = "+obi.getX()+" / ObiY = "+ obi.getY() + " / ObiVie =" + obi.Vie);
     }
@@ -430,7 +438,7 @@ public class Niveaux extends JPanel implements ActionListener,Runnable {
         
         Graphics2D g2d = (Graphics2D) g;
 
-        g2d.setColor(Color.orange);
+        g2d.setColor(Color.green);
         g2d.fillRect(0, 0, d.width, d.height);
 
         DessineMap(g2d);
