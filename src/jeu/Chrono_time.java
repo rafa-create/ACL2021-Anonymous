@@ -24,10 +24,10 @@ public class Chrono_time extends Thread
     {
         int milliTime = (int) (System.currentTimeMillis() - this.startTime);
         int[] out = new int[]{0, 0, 0, 0};
-        out[0] = (int)(milliTime / 3600000      );
+        out[0] = (int)(milliTime / 3600000      )     ;
         out[1] = (int)(milliTime / 60000        ) % 60;
         out[2] = (int)(milliTime / 1000         ) % 60;
-        out[3] = ((int)(milliTime)/ 1000);
+        out[3] = ((int)(milliTime)/ 1000)             ;
         String s ="";
         s=s+out[3];
         s.substring(0, s.length()-1);
