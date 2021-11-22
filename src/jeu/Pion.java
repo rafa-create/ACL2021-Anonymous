@@ -4,13 +4,11 @@ public class Pion {
 	int X;
 	int Y;
 	int Vie;
-	int NRJ;
 	
-	public Pion(int X, int Y,int Vie,int N) {
+	public Pion(int X, int Y,int Vie) {
 		this.X=X;
 		this.Y=Y;
 		this.Vie=Vie;
-		this.NRJ=N;
 	}
 	public int getX() {
 		return(this.X);
@@ -29,11 +27,5 @@ public class Pion {
 	}
 	public void setV(int v) {
 		this.Vie=this.Vie+v;
-	}
-	public int getNRJ() {
-		return(this.NRJ);
-	}
-	public void setN(int n) {
-		this.NRJ=this.NRJ+n;
 	}
 }
