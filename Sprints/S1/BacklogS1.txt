@@ -1,0 +1,9 @@
+Backlog S1 :
+
+1)	Faire le niveau 1
+2)	Déplacer le héros dans le labyrinthe 
+3)	Trouver la sortie sans mourir (des montres)
+4)	Finir le niveau avant le temps imparti 
+5)	Utiliser les cases téléportation
+6)	Les monstres tuent
+7)	Le héros a des PV 
