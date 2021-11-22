@@ -5,24 +5,30 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.util.Random;
+
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.Timer;
-
 public class Niveaux extends JPanel implements ActionListener,Runnable {
-	private Dimension d;
+	private Dimension d;	
     private final Font smallFont = new Font("Arial", Font.BOLD, 14);
-    static boolean Enjeu = true;
+    static boolean Enjeu = false;
     private final int Taille_block = 23;
     private final int Nbre_block = 15;
     private final int Taille_ecran = Nbre_block * Taille_block;
     private int Niveau;
-    private Image Coeur;
-    private Image mechant;
-    private Image chevalier;
-    private boolean Tpok=true;
-    private int chronos=60;
-    private int Pause=1000;
-    private boolean MurPresent = false; 
+    int [] pos_X= {10,10};
+    int L;
+    int H;
+    private boolean Mouv_XD=true;
+    private boolean Mouv_XG=true;
+    private boolean Mouv_XB=true;
+    private boolean Mouv_XH=true;
+    private ImageIcon heros1=new ImageIcon(getClass().getResource(("/jeu/giphy.gif")));
+    private Image heros;
+    
+    
 
     private final short Niveau1[] = 
     	// Etoile blanche sortie ok 
@@ -49,7 +55,7 @@ public class Niveaux extends JPanel implements ActionListener,Runnable {
     	//2056 point vert 
         //17 = 16 + 1 = espace vide + barre verticale
         // etc ...
-      { 1043, 18, 18, 18, 26, 26, 26, 26, 26, 26, 26, 26, 18, 18, 22,
+     {1043, 18, 18, 18, 26, 26, 26, 26, 26, 26, 26, 26, 18, 18, 22,
         17, 16, 17, 17, 81, 16, 16, 16, 16, 16, 16, 16, 16, 16, 20,
         17, 16, 17, 17, 19, 18, 18, 18, 18, 18, 18, 18, 17, 16, 20,
         17, 16, 17, 17, 17, 19, 18, 17, 16, 16, 16, 16, 16, 16, 20,
@@ -57,12 +63,12 @@ public class Niveaux extends JPanel implements ActionListener,Runnable {
         17, 24, 24, 24, 17, 17, 16, 18, 18, 22, 16, 18, 19, 20, 20,
         17, 17, 16, 16, 17, 17, 19, 18, 18, 18, 18, 16, 17, 21, 20,
         83, 17, 16, 16, 16, 16, 17, 19, 17, 19, 18, 18, 17, 17, 20,
-        17, 19, 19, 17, 19, 531, 17, 17, 17, 17, 23, 16, 17, 21, 20,
+        17, 19, 19, 17, 19,531, 17, 17, 17, 17, 23, 16, 17, 21, 20,
         17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 21, 16, 17, 21, 22,
         17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 21, 16, 17, 29, 20,
-        17, 17, 17, 17, 17, 16, 17, 17, 153, 17, 21, 16, 16, 17, 20,
+        17, 17, 17, 17, 17, 16, 17, 17,153, 17, 21, 16, 16, 17, 20,
         17, 17, 17, 16, 17, 16, 17, 17, 17, 17, 21, 16, 25, 17, 20,
-        17, 16, 16, 16, 17, 16, 16, 273, 16, 16, 17, 16, 16, 16, 20,
+        17, 16, 16, 16, 17, 16, 16,273, 16, 16, 17, 16, 16, 16, 20,
         25, 24, 24, 24, 25, 24, 24, 28, 24, 26, 26, 26, 26, 26, 46 };
     private final short Niveau2[] = 
     	 //Matrice du Niveau 2 
@@ -83,9 +89,11 @@ public class Niveaux extends JPanel implements ActionListener,Runnable {
             9, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 28 };
     private short[] Donnee;
     private Timer temps;
-    
+    int  seconde = 0;
+    int a=0;
+    Chrono_time heure= new Chrono_time();
     Pion obi= new Pion(10,10,50,50);
-    Sith ana= new Sith(10,10);
+    Sith ana= new Sith(217,217);
     
     public Niveaux() {
         Initialisation();
@@ -93,12 +101,36 @@ public class Niveaux extends JPanel implements ActionListener,Runnable {
         setFocusable(true);
         initJeu();
     }
+    
     private void Verif() {
-    	//Variable de position Rappel
-    	if((obi.getX()<=0 || obi .getX()>=341)&&(obi.getY()<=0 || obi .getY()>=341)) {
-    		obi.setX(0);
-    		obi.setY(0);
+    	if(obi.getX()<=0 ) {
+    			obi.setX(1);
     	}
+    	if(obi.getX()>=341 ) {
+			obi.setX(-1);
+	}
+    	if(obi.getY()>=341 ) {
+			obi.setY(-1);
+	}
+    	if(obi.getY()<=0 ) {
+			obi.setY(1);
+	}
+    	if(obi.getX()<=0 ||obi.getY()<=0 ) {
+    		obi.setX(1);
+			obi.setY(1);
+	}
+    	if(obi.getX()<=0 ||obi.getY()>=341 ) {
+    		obi.setX(1);
+			obi.setY(-1);
+	}
+    	if(obi.getX()>=341 ||obi.getY()<=0 ) {
+    		obi.setX(-1);
+			obi.setY(1);
+	}
+    	if(obi.getX()>=341 ||obi.getY()>=341 ) {
+    		obi.setX(-1);
+			obi.setY(-1);
+	}
     }
     private void Teleportation() 
     {
@@ -106,7 +138,6 @@ public class Niveaux extends JPanel implements ActionListener,Runnable {
     	{
     		obi.setX(-4);
     		obi.setY(6);
-    		Tpok=false;
     		//Evite problème
     		//obi.setY(7);
     	}
@@ -116,18 +147,14 @@ public class Niveaux extends JPanel implements ActionListener,Runnable {
     		//obi.setX(5);
     		obi.setX(4);
     		obi.setY(-6);
-    		Tpok=false;
     	}
     }
     private void Dessine_Chrono(Graphics2D g2d) {
     	g2d.setFont(smallFont);
         g2d.setColor(new Color(5, 181, 79));
-        String time = "Temps " + chronos;
+        String time = "Temps " + seconde;
         g2d.drawString(time, -Taille_ecran / 4 + 175, Taille_ecran + 16);
     	
-    }
-    private void Diminue_temps() {
-    	chronos--;
     }
     private void perdVie() 
 	{
@@ -146,6 +173,91 @@ public class Niveaux extends JPanel implements ActionListener,Runnable {
     		obi.setN(10);
     	}
     }
+    private void Mouvement1XD() {
+    	//System.out.println(obi.getX() + " / " + obi.getY());
+    	if(((obi.getX()==33 && obi.getX()+23==56|| obi.getX()==56 && obi.getX()+23==79 || obi.getX()==79 && obi.getX()+23==102) && obi.getY()==33)
+    		||((obi.getX()==33 && obi.getX()+23==56|| obi.getX()==56 && obi.getX()+23==79 || obi.getX()==79 && obi.getX()+23==102 || obi.getX()==263 && obi.getX()+23==286) && obi.getY()==56)
+    		||((obi.getX()==33 && obi.getX()+23==56|| obi.getX()==56 && obi.getX()+23==79 || obi.getX()==79 && obi.getX()+23==102 || obi.getX()==102 && obi.getX()+23==125 || obi.getX()==148 && obi.getX()+23==171) && obi.getY()==79)
+    		||((obi.getX()==79 && obi.getX()+23==102|| obi.getX()==102 && obi.getX()+23==125 || obi.getX()==240 && obi.getX()+23==263 || obi.getX()==309 && obi.getX()+23==332) && obi.getY()==102)
+    		||((obi.getX()==79 && obi.getX()+23==102|| obi.getX()==102 && obi.getX()+23==125 || obi.getX()==217 && obi.getX()+23==240 || obi.getX()==263 && obi.getX()+23==286 || obi.getX()==309 && obi.getX()+23==332) && obi.getY()==125)
+    		||((obi.getX()==10 && obi.getX()+23==33|| obi.getX()==79 && obi.getX()+23==102 || obi.getX()==102 && obi.getX()+23==125 || obi.getX()==125 && obi.getX()+23==148 || obi.getX()==263 && obi.getX()+23==286 || obi.getX()==286 && obi.getX()+23==309 || obi.getX()==309 && obi.getX()+23==332) && obi.getY()==148)
+    		||((obi.getX()==10 && obi.getX()+23==33|| obi.getX()==125 && obi.getX()+23==148|| obi.getX()==148 && obi.getX()+23==171 || obi.getX()==171 && obi.getX()+23==194 || obi.getX()==194 && obi.getX()+23==217 || obi.getX()==263 && obi.getX()+23==286 || obi.getX()==286 && obi.getX()+23==309 ) && obi.getY()==171)
+    		||((obi.getX()==10 && obi.getX()+23==33|| obi.getX()==33 && obi.getX()+23==56 || obi.getX()==56 && obi.getX()+23==79 || obi.getX()==79 && obi.getX()+23==102 || obi.getX()==102 && obi.getX()+23==125 || obi.getX()==125 && obi.getX()+23==148 || obi.getX()==148 && obi.getX()+23==171 || obi.getX()==171 && obi.getX()+23==194 || obi.getX()==194 && obi.getX()+23==217 || obi.getX()==240 && obi.getX()+23==263 || obi.getX()==263 && obi.getX()+23==286 || obi.getX()==286 && obi.getX()+23==309 || obi.getX()==309 && obi.getX()+23==332 ) && obi.getY()==194)
+    		||((obi.getX()==10 && obi.getX()+23==33|| obi.getX()==33 && obi.getX()+23==56 || obi.getX()==56 && obi.getX()+23==79 || obi.getX()==79 && obi.getX()+23==102 || obi.getX()==102 && obi.getX()+23==125 || obi.getX()==125 && obi.getX()+23==148 || obi.getX()==148 && obi.getX()+23==171 || obi.getX()==171 && obi.getX()+23==194 || obi.getX()==194 && obi.getX()+23==217 || obi.getX()==240 && obi.getX()+23==263 || obi.getX()==263 && obi.getX()+23==286 || obi.getX()==286 && obi.getX()+23==309 || obi.getX()==309 && obi.getX()+23==332 ) && obi.getY()==217)
+    		||((obi.getX()==10 && obi.getX()+23==33|| obi.getX()==33 && obi.getX()+23==56 || obi.getX()==56 && obi.getX()+23==79 || obi.getX()==79 && obi.getX()+23==102 || obi.getX()==102 && obi.getX()+23==125 || obi.getX()==125 && obi.getX()+23==148 || obi.getX()==148 && obi.getX()+23==171 || obi.getX()==171 && obi.getX()+23==194 || obi.getX()==194 && obi.getX()+23==217 || obi.getX()==240 && obi.getX()+23==263 || obi.getX()==263 && obi.getX()+23==286 || obi.getX()==286 && obi.getX()+23==309 || obi.getX()==309 && obi.getX()+23==332 ) && obi.getY()==240)
+    		||((obi.getX()==10 && obi.getX()+23==33|| obi.getX()==33 && obi.getX()+23==56 || obi.getX()==56 && obi.getX()+23==79 || obi.getX()==79 && obi.getX()+23==102 || obi.getX()==125 && obi.getX()+23==148 || obi.getX()==148 && obi.getX()+23==171 || obi.getX()==171 && obi.getX()+23==194 || obi.getX()==194 && obi.getX()+23==217 || obi.getX()==217 && obi.getX()+23==240 || obi.getX()==240 && obi.getX()+23==263 || obi.getX()==286 && obi.getX()+23==309  ) && obi.getY()==263 )
+    		||((obi.getX()==10 && obi.getX()+23==33|| obi.getX()==33 && obi.getX()+23==56 || obi.getX()==263 && obi.getX()+23==286 || obi.getX()==79 && obi.getX()+23==102 || obi.getX()==125 && obi.getX()+23==148 || obi.getX()==148 && obi.getX()+23==171 || obi.getX()==171 && obi.getX()+23==194 || obi.getX()==194 && obi.getX()+23==217 || obi.getX()==217 && obi.getX()+23==240 || obi.getX()==240 && obi.getX()+23==263 || obi.getX()==286 && obi.getX()+23==309  ) && obi.getY()==286 )
+    		||((obi.getX()==79 && obi.getX()+23==102|| obi.getX()==148 && obi.getX()+23==171 || obi.getX()==217 && obi.getX()+23==240  ) && obi.getY()==309 )
+    		||((obi.getX()==79 && obi.getX()+23==102|| obi.getX()==171 && obi.getX()+23==194  ) && obi.getY()==332) ){
+    		Mouv_XD=false;
+    	}else {
+    		Mouv_XD=true;
+    	}
+    }
+    private void Mouvement2XG() {
+    	//System.out.println(obi.getX() + " / " + obi.getY());
+    	if(((obi.getX()-23==33 && obi.getX()==56|| obi.getX()-23==56 && obi.getX()==79 || obi.getX()-23==79 && obi.getX()==102) && obi.getY()==33)
+    		||((obi.getX()-23==33 && obi.getX()==56|| obi.getX()-23==56 && obi.getX()==79 || obi.getX()-23==79 && obi.getX()==102 || obi.getX()-23==263 && obi.getX()==286) && obi.getY()==56)
+    		||((obi.getX()-23==33 && obi.getX()==56|| obi.getX()-23==56 && obi.getX()==79 || obi.getX()-23==79 && obi.getX()==102 || obi.getX()-23==102 && obi.getX()==125 || obi.getX()-23==148 && obi.getX()==171) && obi.getY()==79)
+    		||((obi.getX()-23==79 && obi.getX()==102|| obi.getX()-23==102 && obi.getX()==125 || obi.getX()-23==240 && obi.getX()==263 || obi.getX()-23==309 && obi.getX()==332 || obi.getX()==286 && obi.getX()-23==263) && obi.getY()==102)
+    		||((obi.getX()-23==79 && obi.getX()==102|| obi.getX()-23==102 && obi.getX()==125 || obi.getX()-23==217 && obi.getX()==240 || obi.getX()-23==263 && obi.getX()==286 || obi.getX()-23==309 && obi.getX()==332) && obi.getY()==125)
+    		||((obi.getX()-23==10 && obi.getX()==33|| obi.getX()-23==79 && obi.getX()==102 || obi.getX()-23==102 && obi.getX()==125 || obi.getX()-23==125 && obi.getX()==148 || obi.getX()-23==263 && obi.getX()==286 || obi.getX()-23==286 && obi.getX()==309 || obi.getX()-23==309 && obi.getX()==332) && obi.getY()==148)
+    		||((obi.getX()-23==10 && obi.getX()==33||obi.getX()-23==125 && obi.getX()==148|| obi.getX()-23==148 && obi.getX()==171 || obi.getX()-23==171 && obi.getX()==194 || obi.getX()-23==194 && obi.getX()==217 || obi.getX()-23==263 && obi.getX()==286 || obi.getX()-23==286 && obi.getX()==309 ) && obi.getY()==171)
+    		||((obi.getX()-23==10 && obi.getX()==33|| obi.getX()-23==33 && obi.getX()==56 || obi.getX()-23==56 && obi.getX()==79 || obi.getX()-23==79 && obi.getX()==102 || obi.getX()-23==102 && obi.getX()==125 || obi.getX()-23==125 && obi.getX()==148 || obi.getX()-23==148 && obi.getX()==171 || obi.getX()-23==171 && obi.getX()==194 || obi.getX()-23==194 && obi.getX()==217 || obi.getX()-23==240 && obi.getX()==263 || obi.getX()-23==263 && obi.getX()==286 || obi.getX()-23==286 && obi.getX()==309 || obi.getX()-23==309 && obi.getX()==332 ) && obi.getY()==194)
+    		||((obi.getX()-23==10 && obi.getX()==33|| obi.getX()-23==33 && obi.getX()==56 || obi.getX()-23==56 && obi.getX()==79 || obi.getX()-23==79 && obi.getX()==102 || obi.getX()-23==102 && obi.getX()==125 || obi.getX()-23==125 && obi.getX()==148 || obi.getX()-23==148 && obi.getX()==171 || obi.getX()-23==171 && obi.getX()==194 || obi.getX()-23==194 && obi.getX()==217 || obi.getX()-23==240 && obi.getX()==263 || obi.getX()-23==263 && obi.getX()==286 || obi.getX()-23==286 && obi.getX()==309 || obi.getX()-23==309 && obi.getX()==332 ) && obi.getY()==217)
+    		||((obi.getX()-23==10 && obi.getX()==33|| obi.getX()-23==33 && obi.getX()==56 || obi.getX()-23==56 && obi.getX()==79 || obi.getX()-23==79 && obi.getX()==102 || obi.getX()-23==102 && obi.getX()==125 || obi.getX()-23==125 && obi.getX()==148 || obi.getX()-23==148 && obi.getX()==171 || obi.getX()-23==171 && obi.getX()==194 || obi.getX()-23==194 && obi.getX()==217 || obi.getX()-23==240 && obi.getX()==263 || obi.getX()-23==263 && obi.getX()==286 || obi.getX()-23==286 && obi.getX()==309 || obi.getX()-23==309 && obi.getX()==332 ) && obi.getY()==240)
+    		||((obi.getX()-23==10 && obi.getX()==33|| obi.getX()-23==33 && obi.getX()==56 || obi.getX()-23==56 && obi.getX()==79 || obi.getX()-32==79 && obi.getX()==102 || obi.getX()-23==125 && obi.getX()==148 || obi.getX()-23==148 && obi.getX()==171 || obi.getX()-23==171 && obi.getX()==194 || obi.getX()-23==194 && obi.getX()==217 || obi.getX()-23==217 && obi.getX()==240 || obi.getX()-23==240 && obi.getX()==263 || obi.getX()-23==286 && obi.getX()==309  ) && obi.getY()==263 )
+    		||((obi.getX()-23==10 && obi.getX()==33|| obi.getX()-23==33 && obi.getX()==56 || obi.getX()-23==263 && obi.getX()==286 || obi.getX()-23==79 && obi.getX()==102 || obi.getX()-23==125 && obi.getX()==148 || obi.getX()-23==148 && obi.getX()==171 || obi.getX()-23==171 && obi.getX()==194 || obi.getX()-23==194 && obi.getX()==217 || obi.getX()-23==217 && obi.getX()==240 || obi.getX()-23==240 && obi.getX()==263 || obi.getX()-23==286 && obi.getX()==309  ) && obi.getY()==286 )
+    		||((obi.getX()-23==79 && obi.getX()==102|| obi.getX()-23==148 && obi.getX()==171 || obi.getX()-23==217 && obi.getX()==240  ) && obi.getY()==309 )
+    		||((obi.getX()-23==79 && obi.getX()==102|| obi.getX()-23==171 && obi.getX()==194  ) && obi.getY()==332) ){
+    		Mouv_XG=false;
+    	}else {
+    		Mouv_XG=true;
+    	}
+    }
+    private void Mouvement1XY() {
+    	if((obi.getX()==10 && (obi.getY()==148 && obi.getY()+23==171))
+    	   || (obi.getX()==33 &&(obi.getY()==125&& obi.getY()+23==148||obi.getY()==171 && obi.getY()+23==194))
+    	   || (obi.getX()==56 &&(obi.getY()==79 && obi.getY()+23==102 || obi.getY()==125 && obi.getY()+23==148 || obi.getY()==171 & obi.getY()+23==194))
+    	   || (obi.getX()==79 &&(obi.getY()==79 && obi.getY()+23==102 || obi.getY()==102 && obi.getY()+23==125 || obi.getY()==125 && obi.getY()+23==148))
+    	   || (obi.getX()== 102 &&(obi.getY()==10 && obi.getY()+23==33|| obi.getY()==33 && obi.getY()+23==56 || obi.getY()==171 && obi.getY()+23==194))
+    	   || (obi.getX()== 125 &&(obi.getY()==10 && obi.getY()+23==33|| obi.getY()==33 && obi.getY()+23==56 || obi.getY()==171 && obi.getY()+23==194|| obi.getY()==56 && obi.getY()+23==79))
+    	   || (obi.getX()==148 && (obi.getY()==10 && obi.getY()+23==33 ||obi.getY()==56 && obi.getY()+23==79 || obi.getY()==33 && obi.getY()+23==56|| obi.getY()==56 && obi.getY()+23==79|| obi.getY()==125 && obi.getY()+23==148))
+    	   || (obi.getX()==171 && (obi.getY()==10 && obi.getY()+23==33 || obi.getY()==33 && obi.getY()+23==56 || obi.getY()==79 && obi.getY()+23==102 || obi.getY()==102 && obi.getY()+23==125 || obi.getY()==125 && obi.getY()+23==148 || obi.getY()==148 && obi.getY()+23==171))
+    	   || (obi.getX()==194 && (obi.getY()==10 && obi.getY()+23==33 || obi.getY()==33 && obi.getY()+23==56 || obi.getY()==79 && obi.getY()+23==102 || obi.getY()==102 && obi.getY()+23==125 || obi.getY()==125 && obi.getY()+23==148 || obi.getY()==263 && obi.getY()+23==286))
+    	   || (obi.getX()==217 && (obi.getY()==10 && obi.getY()+23==33 || obi.getY()==33 && obi.getY()+23==56 || obi.getY()==79 && obi.getY()+23==102 || obi.getY()==102 && obi.getY()+23==125 || obi.getY()==125 && obi.getY()+23==148 || obi.getY()==148 && obi.getY()+23==171 || obi.getY()== 309 && obi.getY()+23==332))
+    	   || (obi.getX()==240 && (obi.getY()==10 && obi.getY()+23==33 || obi.getY()==33 && obi.getY()+23==56 || obi.getY()==79 && obi.getY()+23==102 || obi.getY()==125 && obi.getY()+23==148 || obi.getY()==148 && obi.getY()+23==171 || obi.getY()==171 && obi.getY()+23==194 || obi.getY()== 309 && obi.getY()+23==332))
+    	   || (obi.getX()==263 && (obi.getY()==10 && obi.getY()+23==33 || obi.getY()==33 && obi.getY()+23==56 || obi.getY()==79 && obi.getY()+23==102 || obi.getY()==102 && obi.getY()+23==125 || obi.getY()==148 && obi.getY()+23==171 ||  obi.getY()== 309 && obi.getY()+23==332))
+    	   || (obi.getX()==286 && (obi.getY()==79 && obi.getY()+23==102 || obi.getY()==102 && obi.getY()+23==125 || obi.getY()==286 && obi.getY()+23==309 || obi.getY()==309 && obi.getY()+23==332))
+    	   || (obi.getX()==309 && (obi.getY()==79 && obi.getY()+23==102 || obi.getY()== 240 && obi.getY()+23==263 || obi.getY()==309 && obi.getY()+23==332))
+    	   || (obi.getX()==332 && (obi.getY()==194 && obi.getY()+23==217 || obi.getY()==309 && obi.getY()+23==332 ))) {
+    		Mouv_XB=false;
+    	}else {
+    		Mouv_XB=true;
+    	}
+    	
+    }
+    private void Mouvement2XY() {
+    	if((obi.getX()==10 && (obi.getY()-23==148 && obi.getY()==171))
+    	    	   || (obi.getX()==33 &&(obi.getY()-23==125&& obi.getY()==148||obi.getY()-23==171 && obi.getY()==194))
+    	    	   || (obi.getX()==56 &&(obi.getY()-23==79 && obi.getY()==102 || obi.getY()-23==125 && obi.getY()==148 || obi.getY()-23==171 & obi.getY()==194))
+    	    	   || (obi.getX()==79 &&(obi.getY()-23==79 && obi.getY()==102 || obi.getY()-23==102 && obi.getY()==125 || obi.getY()-23==125 && obi.getY()==148))
+    	    	   || (obi.getX()== 102 &&(obi.getY()-23==10 && obi.getY()==33|| obi.getY()-23==33 && obi.getY()==56 || obi.getY()-23==171 && obi.getY()==194))
+    	    	   || (obi.getX()== 125 &&(obi.getY()-23==10 && obi.getY()==33|| obi.getY()-23==33 && obi.getY()==56 || obi.getY()-23==171 && obi.getY()==194|| obi.getY()-23==56 && obi.getY()==79))
+    	    	   || (obi.getX()==148 && (obi.getY()-23==10 && obi.getY()==33 ||obi.getY()-23==56 && obi.getY()==79 || obi.getY()-23==33 && obi.getY()==56|| obi.getY()-23==56 && obi.getY()==79|| obi.getY()-23==125 && obi.getY()==148))
+    	    	   || (obi.getX()==171 && (obi.getY()-23==10 && obi.getY()==33 || obi.getY()-23==33 && obi.getY()==56 || obi.getY()-23==79 && obi.getY()==102 || obi.getY()-23==102 && obi.getY()==125 || obi.getY()-23==125 && obi.getY()==148 || obi.getY()-23==148 && obi.getY()==171))
+    	    	   || (obi.getX()==194 && (obi.getY()-23==10 && obi.getY()==33 || obi.getY()-23==33 && obi.getY()==56 || obi.getY()-23==79 && obi.getY()==102 || obi.getY()-23==102 && obi.getY()==125 || obi.getY()-23==125 && obi.getY()==148 || obi.getY()-23==263 && obi.getY()==286))
+    	    	   || (obi.getX()==217 && (obi.getY()-23==10 && obi.getY()==33 || obi.getY()-23==33 && obi.getY()==56 || obi.getY()-23==79 && obi.getY()==102 || obi.getY()-23==102 && obi.getY()==125 || obi.getY()-23==125 && obi.getY()==148 || obi.getY()-23==148 && obi.getY()==171 || obi.getY()-23== 309 && obi.getY()==332))
+    	    	   || (obi.getX()==240 && (obi.getY()-23==10 && obi.getY()==33 || obi.getY()-23==33 && obi.getY()==56 || obi.getY()-23==79 && obi.getY()==102 || obi.getY()-23==125 && obi.getY()==148 || obi.getY()-23==148 && obi.getY()==171 || obi.getY()-23==171 && obi.getY()==194 || obi.getY()-23== 309 && obi.getY()==332))
+    	    	   || (obi.getX()==263 && (obi.getY()-23==10 && obi.getY()==33 || obi.getY()-23==33 && obi.getY()==56 || obi.getY()-23==79 && obi.getY()==102 || obi.getY()-23==102 && obi.getY()==125 || obi.getY()-23==148 && obi.getY()==171 ||  obi.getY()-23== 309 && obi.getY()==332))
+    	    	   || (obi.getX()==286 && (obi.getY()-23==79 && obi.getY()==102 || obi.getY()-23==102 && obi.getY()==125 || obi.getY()-23==286 && obi.getY()==309 || obi.getY()-23==309 && obi.getY()==332))
+    	    	   || (obi.getX()==309 && (obi.getY()-23==79 && obi.getY()==102 || obi.getY()-23== 240 && obi.getY()==263 || obi.getY()-23==309 && obi.getY()==332))
+    	    	   || (obi.getX()==332 && (obi.getY()-23==194 && obi.getY()==217 || obi.getY()-23==309 && obi.getY()==332 ))) {
+    	    		Mouv_XH=false;
+    	    	}else {
+    	    		Mouv_XH=true;
+    	    	}
+    }
        private void Initialisation() {
 
     	Donnee = new short[Nbre_block * Nbre_block];
@@ -155,7 +267,11 @@ public class Niveaux extends JPanel implements ActionListener,Runnable {
     }
 
     private void Jouer(Graphics2D g2d) {
-    	if(obi.getV()<=0) {
+    	if(obi.getX()==ana.getX1() && obi.getY()==ana.getY1()) {
+    		Enjeu=false;
+    	}
+    else if (obi.getV()<=0) {
+    		Enjeu=false;
     		System.out.println("Defaite");
         	String Victoire = "Vous perdu";
             g2d.setColor(Color.RED);
@@ -169,7 +285,7 @@ public class Niveaux extends JPanel implements ActionListener,Runnable {
             g2d.setColor(Color.YELLOW);
             g2d.drawString(Victoire, (Taille_ecran)/4, 175);
         }
-    	else if(chronos <=0) {
+    	else if(seconde <=0) {
     		Enjeu=false;
     		String Victoire = "Vous avez manqué de temps";
             g2d.setColor(Color.YELLOW);
@@ -180,33 +296,31 @@ public class Niveaux extends JPanel implements ActionListener,Runnable {
         	Teleportation();
         	GagneNRJ();
         	Verif();
-        	//ana.setX1();
-        	//ana.setY1();
-            //Une fois vos classes faites s'est presque fini 
-            //Manque fonction deplacement du héros
-            //Manque fonction deplacement méchant
-            //Manque fonction dessin méchant
         	Dessine_jedi(g2d); 
-        	//Dessine_mechant(g2d);
+        	Dessine_mechant(g2d);
         	perdVie();
+        	//System.out.println(seconde);
         	Dessine_Chrono(g2d);
-        	Diminue_temps();
-        	Verif_mouv();
+        	Mouvement1XD();
+        	Mouvement2XG();
+        	Mouvement1XY();
+        	Mouvement2XY();
         }
     }
-   // private void Dessine_mechant(Graphics2D g2d) {
-    	//g2d.fillRect(ana.getX1(), ana.getY1(), 10, 10);
+    private void Dessine_mechant(Graphics2D g2d) {
+    	g2d.drawImage(heros,ana.getX1(), ana.getY1(),this);
     	//System.out.println(ana.getX1()+"/ "+ ana.getY1());
-    //}
-    
-      
+    }
+     
     private void Dessine_jedi(Graphics2D g2d) {
-    	g2d.fillOval(obi.getX(), obi.getY(), 6, 6);
-    	//System.out.println("ObiX = "+obi.getX()+" / ObiY = "+ obi.getY() + " / ObiVie =" + obi.Vie+"/ ObiNRJ ="+obi.NRJ);
+    	this.heros=this.heros1.getImage();
+    	g2d.drawImage(this.heros, obi.getX(), obi.getY(), 10, 10, null);
+    	//g2d.fillOval(obi.getX(), obi.getY(), 6, 6);
+    	System.out.println("ObiX = "+obi.getX()+" / ObiY = "+ obi.getY() + " / ObiVie =" + obi.Vie+"/ ObiNRJ ="+obi.NRJ);
     }
     private void Affiche_Ecran(Graphics2D g2d) 
     {
-    	String start = "Espace pour commencer";
+    	String start = "Espace pour commencer\n"+ "Vous avez 60secondes \n"+" pour arriver tout en bas";
         g2d.setColor(Color.BLUE);
         g2d.drawString(start, (Taille_ecran)/4, 175);
     }
@@ -219,12 +333,9 @@ public class Niveaux extends JPanel implements ActionListener,Runnable {
     }
 
     private void DessineMap(Graphics2D g2d) {
-
         short i = 0;
-        int x, y;
-
-        for (y = 0; y < Taille_ecran; y += Taille_block) {
-            for (x = 0; x < Taille_ecran; x += Taille_block) {
+        for (int y = 0; y < Taille_ecran; y += Taille_block) {
+            for (int x = 0; x < Taille_ecran; x += Taille_block) {
 
                 g2d.setColor(new Color(0,72,47));
                 g2d.setStroke(new BasicStroke(5));
@@ -235,6 +346,7 @@ public class Niveaux extends JPanel implements ActionListener,Runnable {
 
                 if ((Donnee[i] & 1) != 0) { 
                     g2d.drawLine(x, y, x, y + Taille_block - 1);
+                    //System.out.println("x : " + x + " / y : +  "+ y );
                 }
 
                 if ((Donnee[i] & 2) != 0) { 
@@ -288,11 +400,10 @@ public class Niveaux extends JPanel implements ActionListener,Runnable {
             }
         }
     }
-
     private void initJeu() {
     	Niveau = 1;
         initNiveau();
-    }
+        }
 
     private void initNiveau() {
         for (int i = 0; i < Nbre_block * Nbre_block; i++) {
@@ -301,10 +412,6 @@ public class Niveaux extends JPanel implements ActionListener,Runnable {
 
         Continue();
     }
-    private void Verif_mouv() {
-    	
-    }
-
     private void Continue() {
     	//int dx = 1;
         //for (int i = 0; i < Nbr_mechant; i++) {
@@ -327,7 +434,8 @@ public class Niveaux extends JPanel implements ActionListener,Runnable {
     }
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-
+        seconde = heure.getTime();
+        
         Graphics2D g2d = (Graphics2D) g;
 
         g2d.setColor(Color.orange);
@@ -354,13 +462,31 @@ public class Niveaux extends JPanel implements ActionListener,Runnable {
 
             if (Enjeu) {
                 if (key == KeyEvent.VK_LEFT) {
-                   obi.setX(-1);                   
-                } else if (key == KeyEvent.VK_RIGHT) {
-                	obi.setX(1);
+                	if (Mouv_XG==true) {
+                		obi.setX(-1);
+                	}else {
+                   obi.setX(0);
+                	}
+                }
+                	else if (key == KeyEvent.VK_RIGHT) {
+                	if(Mouv_XD==true) {
+                		obi.setX(1);
+                	}else {
+                		obi.setX(0);
+                	}
                 } else if (key == KeyEvent.VK_UP) {
-                	obi.setY(-1);
+                	if(Mouv_XH==true) {
+                		obi.setY(-1);
+                	}else {
+                		obi.setY(0);
+                	}
+                	
                 } else if (key == KeyEvent.VK_DOWN) {
-                	obi.setY(1);
+                	if(Mouv_XB==true) {
+                		obi.setY(1);
+                	}else {
+                		obi.setY(0);
+                	}
                 } else if (key == KeyEvent.VK_ESCAPE && temps.isRunning()) {
                 	Enjeu = false;
                 } 
@@ -376,13 +502,4 @@ public class Niveaux extends JPanel implements ActionListener,Runnable {
     public void actionPerformed(ActionEvent e) {
         repaint();
     }
-	@Override
-	public void run() {
-		while(Enjeu) {
-			chronos--;
-			try {
-				Thread.sleep(Pause);
-			}catch(InterruptedException e) {}
-		}		
-	}
 }
