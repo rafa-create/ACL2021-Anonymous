@@ -1,7 +1,5 @@
 package jeu;
-
 import javax.swing.JFrame;
-
 public class Jedi extends JFrame{
 
 	public Jedi() 
