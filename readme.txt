@@ -4,14 +4,14 @@ Joachim Courtois
 Charlie Bedfert
 
 
-- Pour executer le programme :
+- Pour executer le programme en ligne de cmd avec maven (dans le dossier clonÃ©) :
 
-	java -cp bin/ jeu.
+	java -cp target\ACL2021-Anonymous-0.0.1-SNAPSHOT.jar src\jeu\Jedi.java
 
-- Si besoin de compiler les class faire :
+- Si besoin faire :
+	mvn package
+	mvn compile
+	mvn test
 
-	javac src/*/*.java -d bin/
-
-
-1) Présentation du jeu
-
+Version de maven : Apache Maven 3.8.4
+Version de JDK : jdk-17.0.1
