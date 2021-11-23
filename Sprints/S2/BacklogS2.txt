@@ -1,0 +1,10 @@
+L’objectif dans ce sprint est d’apporter des amélioration à ce qui a déjà été fait lors du premier sprint. Ainsi, nous allons rendre le jeu plus interressant en animant les monstres, ajoutant des cases « spéciales » et en créant un sytème de point de vie utile(on ne perd pas toute sa vie quand on croise un monstre). 
+Nous allons aussi disigner un niveau de labyrinthe plus difficile. 
+
+
+Backlog S2
+1)	Perte de vie quand on croise un monstre
+2)	Faire le 2eme niveau 
+3)	Les monstres se déplacent 
+4)	Cases vie (qui rendent de la vie) 
+5)	Cases piege (qui font perdre de la vie)
