@@ -8,7 +8,10 @@ Charlie Bedfert
 
 - En ligne de cmd (dans le dossier cloné) taper :
 
+Pour windows:
 	java -cp target\ACL2021-Anonymous-0.0.1-SNAPSHOT.jar src\jeu\Jedi.java
+Pour mac : 	
+	java -cp target/ACL2021-Anonymous-0.0.1-SNAPSHOT.jar jeu.Jedi
 
 - Si besoin faire :
 	mvn package
