@@ -385,10 +385,10 @@ public class Niveaux extends JPanel implements ActionListener {
         	Dessine_Vie(g2d);
         	 
         	/// Niveau 2  faire fonction ///
-        	//Mouvement1D();
-        	//Mouvement1G();
-        	//Mouvement1B();
-        	//Mouvement1H();
+        	//Mouvement2D();
+        	//Mouvement2G();
+        	//Mouvement2B();
+        	//Mouvement2H();
         }
     }
     private void Dessine_mechant(Graphics2D g2d) {
