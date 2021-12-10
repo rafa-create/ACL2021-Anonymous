@@ -165,91 +165,176 @@ public class Niveaux extends JPanel implements ActionListener {
     		obi.setV(10);
     	}
     }
-    private void Mouvement1XD() {
+    private void Mouvement1D() {
     	//System.out.println(obi.getX() + " / " + obi.getY());
-    	if(((obi.getX()==33 && obi.getX()+23==56|| obi.getX()==56 && obi.getX()+23==79 || obi.getX()==79 && obi.getX()+23==102) && obi.getY()==33)
-    		||((obi.getX()==33 && obi.getX()+23==56|| obi.getX()==56 && obi.getX()+23==79 || obi.getX()==79 && obi.getX()+23==102 || obi.getX()==263 && obi.getX()+23==286) && obi.getY()==56)
-    		||((obi.getX()==33 && obi.getX()+23==56|| obi.getX()==56 && obi.getX()+23==79 || obi.getX()==79 && obi.getX()+23==102 || obi.getX()==102 && obi.getX()+23==125 || obi.getX()==148 && obi.getX()+23==171) && obi.getY()==79)
-    		||((obi.getX()==79 && obi.getX()+23==102|| obi.getX()==102 && obi.getX()+23==125 || obi.getX()==240 && obi.getX()+23==263 || obi.getX()==309 && obi.getX()+23==332) && obi.getY()==102)
-    		||((obi.getX()==79 && obi.getX()+23==102|| obi.getX()==102 && obi.getX()+23==125 || obi.getX()==217 && obi.getX()+23==240 || obi.getX()==263 && obi.getX()+23==286 || obi.getX()==309 && obi.getX()+23==332) && obi.getY()==125)
-    		||((obi.getX()==10 && obi.getX()+23==33|| obi.getX()==79 && obi.getX()+23==102 || obi.getX()==102 && obi.getX()+23==125 || obi.getX()==125 && obi.getX()+23==148 || obi.getX()==263 && obi.getX()+23==286 || obi.getX()==286 && obi.getX()+23==309 || obi.getX()==309 && obi.getX()+23==332) && obi.getY()==148)
-    		||((obi.getX()==10 && obi.getX()+23==33|| obi.getX()==125 && obi.getX()+23==148|| obi.getX()==148 && obi.getX()+23==171 || obi.getX()==171 && obi.getX()+23==194 || obi.getX()==194 && obi.getX()+23==217 || obi.getX()==263 && obi.getX()+23==286 || obi.getX()==286 && obi.getX()+23==309 ) && obi.getY()==171)
-    		||((obi.getX()==10 && obi.getX()+23==33|| obi.getX()==33 && obi.getX()+23==56 || obi.getX()==56 && obi.getX()+23==79 || obi.getX()==79 && obi.getX()+23==102 || obi.getX()==102 && obi.getX()+23==125 || obi.getX()==125 && obi.getX()+23==148 || obi.getX()==148 && obi.getX()+23==171 || obi.getX()==171 && obi.getX()+23==194 || obi.getX()==194 && obi.getX()+23==217 || obi.getX()==240 && obi.getX()+23==263 || obi.getX()==263 && obi.getX()+23==286 || obi.getX()==286 && obi.getX()+23==309 || obi.getX()==309 && obi.getX()+23==332 ) && obi.getY()==194)
-    		||((obi.getX()==10 && obi.getX()+23==33|| obi.getX()==33 && obi.getX()+23==56 || obi.getX()==56 && obi.getX()+23==79 || obi.getX()==79 && obi.getX()+23==102 || obi.getX()==102 && obi.getX()+23==125 || obi.getX()==125 && obi.getX()+23==148 || obi.getX()==148 && obi.getX()+23==171 || obi.getX()==171 && obi.getX()+23==194 || obi.getX()==194 && obi.getX()+23==217 || obi.getX()==240 && obi.getX()+23==263 || obi.getX()==263 && obi.getX()+23==286 || obi.getX()==286 && obi.getX()+23==309 || obi.getX()==309 && obi.getX()+23==332 ) && obi.getY()==217)
-    		||((obi.getX()==10 && obi.getX()+23==33|| obi.getX()==33 && obi.getX()+23==56 || obi.getX()==56 && obi.getX()+23==79 || obi.getX()==79 && obi.getX()+23==102 || obi.getX()==102 && obi.getX()+23==125 || obi.getX()==125 && obi.getX()+23==148 || obi.getX()==148 && obi.getX()+23==171 || obi.getX()==171 && obi.getX()+23==194 || obi.getX()==194 && obi.getX()+23==217 || obi.getX()==240 && obi.getX()+23==263 || obi.getX()==263 && obi.getX()+23==286 || obi.getX()==286 && obi.getX()+23==309 || obi.getX()==309 && obi.getX()+23==332 ) && obi.getY()==240)
-    		||((obi.getX()==10 && obi.getX()+23==33|| obi.getX()==33 && obi.getX()+23==56 || obi.getX()==56 && obi.getX()+23==79 || obi.getX()==79 && obi.getX()+23==102 || obi.getX()==125 && obi.getX()+23==148 || obi.getX()==148 && obi.getX()+23==171 || obi.getX()==171 && obi.getX()+23==194 || obi.getX()==194 && obi.getX()+23==217 || obi.getX()==217 && obi.getX()+23==240 || obi.getX()==240 && obi.getX()+23==263 || obi.getX()==286 && obi.getX()+23==309  ) && obi.getY()==263 )
-    		||((obi.getX()==10 && obi.getX()+23==33|| obi.getX()==33 && obi.getX()+23==56 || obi.getX()==263 && obi.getX()+23==286 || obi.getX()==79 && obi.getX()+23==102 || obi.getX()==125 && obi.getX()+23==148 || obi.getX()==148 && obi.getX()+23==171 || obi.getX()==171 && obi.getX()+23==194 || obi.getX()==194 && obi.getX()+23==217 || obi.getX()==217 && obi.getX()+23==240 || obi.getX()==240 && obi.getX()+23==263 || obi.getX()==286 && obi.getX()+23==309  ) && obi.getY()==286 )
-    		||((obi.getX()==79 && obi.getX()+23==102|| obi.getX()==148 && obi.getX()+23==171 || obi.getX()==217 && obi.getX()+23==240  ) && obi.getY()==309 )
-    		||((obi.getX()==79 && obi.getX()+23==102|| obi.getX()==171 && obi.getX()+23==194  ) && obi.getY()==332) ){
+    	if(((obi.getX()==33 || obi.getX()==56 || obi.getX()==79 ) && obi.getY()==33)
+    		||((obi.getX()==33 || obi.getX()==56 || obi.getX()==79 || obi.getX()==263) && obi.getY()==56)
+    		||((obi.getX()==33 || obi.getX()==56 || obi.getX()==79 || obi.getX()==102 || obi.getX()==148) && obi.getY()==79)
+    		||((obi.getX()==79 || obi.getX()==102 || obi.getX()==240 || obi.getX()==309 ) && obi.getY()==102)
+    		||((obi.getX()==79 || obi.getX()==102 || obi.getX()==217 || obi.getX()==263 || obi.getX()==309) && obi.getY()==125)
+    		||((obi.getX()==10 || obi.getX()==79 || obi.getX()==102 || obi.getX()==125 || obi.getX()==263 || obi.getX()==286 || obi.getX()==309) && obi.getY()==148)
+    		||((obi.getX()==10 || obi.getX()==125 || obi.getX()==148 || obi.getX()==171 || obi.getX()==194 || obi.getX()==263 || obi.getX()==286) && obi.getY()==171)
+    		||((obi.getX()==10 || obi.getX()==33 || obi.getX()==56 || obi.getX()==79 || obi.getX()==102 || obi.getX()==125 || obi.getX()==148 || obi.getX()==171 || obi.getX()==194 || obi.getX()==240 || obi.getX()==263 || obi.getX()==286 || obi.getX()==309) && obi.getY()==194)
+    		||((obi.getX()==10 || obi.getX()==33 || obi.getX()==56 || obi.getX()==79 || obi.getX()==102 || obi.getX()==125 || obi.getX()==148 || obi.getX()==171 || obi.getX()==194 || obi.getX()==240 || obi.getX()==263 || obi.getX()==286 || obi.getX()==309) && obi.getY()==217)
+    		||((obi.getX()==10 || obi.getX()==33 || obi.getX()==56 || obi.getX()==79 || obi.getX()==102 || obi.getX()==125 || obi.getX()==148 || obi.getX()==171 || obi.getX()==194 || obi.getX()==240 || obi.getX()==263 || obi.getX()==286 || obi.getX()==309) && obi.getY()==240)
+    		||((obi.getX()==10 || obi.getX()==33 || obi.getX()==56 || obi.getX()==79 || obi.getX()==125 || obi.getX()==148 || obi.getX()==171 || obi.getX()==194 || obi.getX()==217 || obi.getX()==240 || obi.getX()==286) && obi.getY()==263 )
+    		||((obi.getX()==10 || obi.getX()==33 || obi.getX()==263 || obi.getX()==79 || obi.getX()==125 || obi.getX()==148 || obi.getX()==171 || obi.getX()==194 || obi.getX()==217 || obi.getX()==240 || obi.getX()==286) && obi.getY()==286 )
+    		||((obi.getX()==79 || obi.getX()==148 || obi.getX()==217) && obi.getY()==309 )
+    		||((obi.getX()==79 || obi.getX()==171) && obi.getY()==332) ){
     		Mouv_XD=false;
     	}else {
     		Mouv_XD=true;
     	}
     }
-    private void Mouvement2XG() {
+    private void Mouvement1G() {
     	//System.out.println(obi.getX() + " / " + obi.getY());
-    	if(((obi.getX()-23==33 && obi.getX()==56|| obi.getX()-23==56 && obi.getX()==79 || obi.getX()-23==79 && obi.getX()==102) && obi.getY()==33)
-    		||((obi.getX()-23==33 && obi.getX()==56|| obi.getX()-23==56 && obi.getX()==79 || obi.getX()-23==79 && obi.getX()==102 || obi.getX()-23==263 && obi.getX()==286) && obi.getY()==56)
-    		||((obi.getX()-23==33 && obi.getX()==56|| obi.getX()-23==56 && obi.getX()==79 || obi.getX()-23==79 && obi.getX()==102 || obi.getX()-23==102 && obi.getX()==125 || obi.getX()-23==148 && obi.getX()==171) && obi.getY()==79)
-    		||((obi.getX()-23==79 && obi.getX()==102|| obi.getX()-23==102 && obi.getX()==125 || obi.getX()-23==240 && obi.getX()==263 || obi.getX()-23==309 && obi.getX()==332 || obi.getX()==286 && obi.getX()-23==263) && obi.getY()==102)
-    		||((obi.getX()-23==79 && obi.getX()==102|| obi.getX()-23==102 && obi.getX()==125 || obi.getX()-23==217 && obi.getX()==240 || obi.getX()-23==263 && obi.getX()==286 || obi.getX()-23==309 && obi.getX()==332) && obi.getY()==125)
-    		||((obi.getX()-23==10 && obi.getX()==33|| obi.getX()-23==79 && obi.getX()==102 || obi.getX()-23==102 && obi.getX()==125 || obi.getX()-23==125 && obi.getX()==148 || obi.getX()-23==263 && obi.getX()==286 || obi.getX()-23==286 && obi.getX()==309 || obi.getX()-23==309 && obi.getX()==332) && obi.getY()==148)
-    		||((obi.getX()-23==10 && obi.getX()==33||obi.getX()-23==125 && obi.getX()==148|| obi.getX()-23==148 && obi.getX()==171 || obi.getX()-23==171 && obi.getX()==194 || obi.getX()-23==194 && obi.getX()==217 || obi.getX()-23==263 && obi.getX()==286 || obi.getX()-23==286 && obi.getX()==309 ) && obi.getY()==171)
-    		||((obi.getX()-23==10 && obi.getX()==33|| obi.getX()-23==33 && obi.getX()==56 || obi.getX()-23==56 && obi.getX()==79 || obi.getX()-23==79 && obi.getX()==102 || obi.getX()-23==102 && obi.getX()==125 || obi.getX()-23==125 && obi.getX()==148 || obi.getX()-23==148 && obi.getX()==171 || obi.getX()-23==171 && obi.getX()==194 || obi.getX()-23==194 && obi.getX()==217 || obi.getX()-23==240 && obi.getX()==263 || obi.getX()-23==263 && obi.getX()==286 || obi.getX()-23==286 && obi.getX()==309 || obi.getX()-23==309 && obi.getX()==332 ) && obi.getY()==194)
-    		||((obi.getX()-23==10 && obi.getX()==33|| obi.getX()-23==33 && obi.getX()==56 || obi.getX()-23==56 && obi.getX()==79 || obi.getX()-23==79 && obi.getX()==102 || obi.getX()-23==102 && obi.getX()==125 || obi.getX()-23==125 && obi.getX()==148 || obi.getX()-23==148 && obi.getX()==171 || obi.getX()-23==171 && obi.getX()==194 || obi.getX()-23==194 && obi.getX()==217 || obi.getX()-23==240 && obi.getX()==263 || obi.getX()-23==263 && obi.getX()==286 || obi.getX()-23==286 && obi.getX()==309 || obi.getX()-23==309 && obi.getX()==332 ) && obi.getY()==217)
-    		||((obi.getX()-23==10 && obi.getX()==33|| obi.getX()-23==33 && obi.getX()==56 || obi.getX()-23==56 && obi.getX()==79 || obi.getX()-23==79 && obi.getX()==102 || obi.getX()-23==102 && obi.getX()==125 || obi.getX()-23==125 && obi.getX()==148 || obi.getX()-23==148 && obi.getX()==171 || obi.getX()-23==171 && obi.getX()==194 || obi.getX()-23==194 && obi.getX()==217 || obi.getX()-23==240 && obi.getX()==263 || obi.getX()-23==263 && obi.getX()==286 || obi.getX()-23==286 && obi.getX()==309 || obi.getX()-23==309 && obi.getX()==332 ) && obi.getY()==240)
-    		||((obi.getX()-23==10 && obi.getX()==33|| obi.getX()-23==33 && obi.getX()==56 || obi.getX()-23==56 && obi.getX()==79 || obi.getX()-23==79 && obi.getX()==102 || obi.getX()-23==125 && obi.getX()==148 || obi.getX()-23==148 && obi.getX()==171 || obi.getX()-23==171 && obi.getX()==194 || obi.getX()-23==194 && obi.getX()==217 || obi.getX()-23==217 && obi.getX()==240 || obi.getX()-23==240 && obi.getX()==263 || obi.getX()-23==286 && obi.getX()==309  ) && obi.getY()==263 )
-    		||((obi.getX()-23==10 && obi.getX()==33|| obi.getX()-23==33 && obi.getX()==56 || obi.getX()-23==263 && obi.getX()==286 || obi.getX()-23==79 && obi.getX()==102 || obi.getX()-23==125 && obi.getX()==148 || obi.getX()-23==148 && obi.getX()==171 || obi.getX()-23==171 && obi.getX()==194 || obi.getX()-23==194 && obi.getX()==217 || obi.getX()-23==217 && obi.getX()==240 || obi.getX()-23==240 && obi.getX()==263 || obi.getX()-23==286 && obi.getX()==309  ) && obi.getY()==286 )
-    		||((obi.getX()-23==79 && obi.getX()==102|| obi.getX()-23==148 && obi.getX()==171 || obi.getX()-23==217 && obi.getX()==240  ) && obi.getY()==309 )
-    		||((obi.getX()-23==79 && obi.getX()==102|| obi.getX()-23==171 && obi.getX()==194  ) && obi.getY()==332) ){
+    	if(((obi.getX()==56 || obi.getX()==79 || obi.getX()==102) && obi.getY()==33)
+    		||((obi.getX()==56 || obi.getX()==79 || obi.getX()==102 || obi.getX()==286) && obi.getY()==56)
+    		||((obi.getX()==56 || obi.getX()==79 || obi.getX()==102 || obi.getX()==125 || obi.getX()==171) && obi.getY()==79)
+    		||((obi.getX()==102 || obi.getX()==125 || obi.getX()==263 || obi.getX()==332 || obi.getX()-23==263) && obi.getY()==102)
+    		||((obi.getX()==102 || obi.getX()==125 || obi.getX()==240 || obi.getX()==286 || obi.getX()==332) && obi.getY()==125)
+    		||((obi.getX()==33 || obi.getX()==102 || obi.getX()==125 || obi.getX()==148 || obi.getX()==286 || obi.getX()==309 || obi.getX()==332) && obi.getY()==148)
+    		||((obi.getX()==33 || obi.getX()==148|| obi.getX()==171 || obi.getX()==194 || obi.getX()==217 || obi.getX()==286 || obi.getX()==309 ) && obi.getY()==171)
+    		||((obi.getX()==33 || obi.getX()==56 || obi.getX()==79 || obi.getX()==102 || obi.getX()==125 || obi.getX()==148 || obi.getX()==171 || obi.getX()==194 || obi.getX()==217 || obi.getX()==263 || obi.getX()==286 || obi.getX()==309 || obi.getX()==332 ) && obi.getY()==194)
+    		||((obi.getX()==33 || obi.getX()==56 || obi.getX()==79 || obi.getX()==102 || obi.getX()==125 || obi.getX()==148 || obi.getX()==171 || obi.getX()==194 || obi.getX()==217 || obi.getX()==263 || obi.getX()==286 || obi.getX()==309 || obi.getX()==332 ) && obi.getY()==217)
+    		||((obi.getX()==33 || obi.getX()==56 || obi.getX()==79 || obi.getX()==102 || obi.getX()==125 || obi.getX()==148 || obi.getX()==171 || obi.getX()==194 || obi.getX()==217 || obi.getX()==263 || obi.getX()==286 || obi.getX()==309 || obi.getX()==332 ) && obi.getY()==240)
+    		||((obi.getX()==33 || obi.getX()==56 || obi.getX()==79 || obi.getX()==102 || obi.getX()==148 || obi.getX()==171 || obi.getX()==194 || obi.getX()==217 || obi.getX()==240 || obi.getX()==263 || obi.getX()==309  ) && obi.getY()==263 )
+    		||((obi.getX()==33 || obi.getX()==56 || obi.getX()==286 || obi.getX()==102 || obi.getX()==148 || obi.getX()==171 || obi.getX()==194 || obi.getX()==217 || obi.getX()==240 || obi.getX()==263 || obi.getX()==309  ) && obi.getY()==286 )
+    		||((obi.getX()==102 || obi.getX()==171 || obi.getX()==240  ) && obi.getY()==309 )
+    		||((obi.getX()==102 || obi.getX()==194  ) && obi.getY()==332) ){
     		Mouv_XG=false;
     	}else {
     		Mouv_XG=true;
     	}
     }
-    private void Mouvement1XY() {
-    	if((obi.getX()==10 && (obi.getY()==148 && obi.getY()+23==171))
-    	   || (obi.getX()==33 &&(obi.getY()==125&& obi.getY()+23==148||obi.getY()==171 && obi.getY()+23==194))
-    	   || (obi.getX()==56 &&(obi.getY()==79 && obi.getY()+23==102 || obi.getY()==125 && obi.getY()+23==148 || obi.getY()==171 & obi.getY()+23==194))
-    	   || (obi.getX()==79 &&(obi.getY()==79 && obi.getY()+23==102 || obi.getY()==125 && obi.getY()+23==148))
-    	   || (obi.getX()== 102 &&(obi.getY()==10 && obi.getY()+23==33|| obi.getY()==33 && obi.getY()+23==56 || obi.getY()==171 && obi.getY()+23==194))
-    	   || (obi.getX()== 125 &&(obi.getY()==10 && obi.getY()+23==33|| obi.getY()==33 && obi.getY()+23==56 || obi.getY()==56 && obi.getY()+23==79))
-    	   || (obi.getX()==148 && (obi.getY()==10 && obi.getY()+23==33 ||obi.getY()==56 && obi.getY()+23==79 || obi.getY()==33 && obi.getY()+23==56|| obi.getY()==56 && obi.getY()+23==79|| obi.getY()==125 && obi.getY()+23==148))
-    	   || (obi.getX()==171 && (obi.getY()==10 && obi.getY()+23==33 || obi.getY()==33 && obi.getY()+23==56 || obi.getY()==79 && obi.getY()+23==102 || obi.getY()==102 && obi.getY()+23==125 || obi.getY()==125 && obi.getY()+23==148 || obi.getY()==148 && obi.getY()+23==171))
-    	   || (obi.getX()==194 && (obi.getY()==10 && obi.getY()+23==33 || obi.getY()==33 && obi.getY()+23==56 || obi.getY()==79 && obi.getY()+23==102 || obi.getY()==102 && obi.getY()+23==125 || obi.getY()==125 && obi.getY()+23==148 || obi.getY()==263 && obi.getY()+23==286))
-    	   || (obi.getX()==217 && (obi.getY()==10 && obi.getY()+23==33 || obi.getY()==33 && obi.getY()+23==56 || obi.getY()==79 && obi.getY()+23==102 || obi.getY()==102 && obi.getY()+23==125 || obi.getY()==125 && obi.getY()+23==148 || obi.getY()==148 && obi.getY()+23==171 || obi.getY()== 309 && obi.getY()+23==332))
-    	   || (obi.getX()==240 && (obi.getY()==10 && obi.getY()+23==33 || obi.getY()==33 && obi.getY()+23==56 || obi.getY()==79 && obi.getY()+23==102 || obi.getY()==125 && obi.getY()+23==148 || obi.getY()==148 && obi.getY()+23==171 || obi.getY()==171 && obi.getY()+23==194 || obi.getY()== 309 && obi.getY()+23==332))
-    	   || (obi.getX()==263 && (obi.getY()==10 && obi.getY()+23==33 || obi.getY()==33 && obi.getY()+23==56 || obi.getY()==79 && obi.getY()+23==102 || obi.getY()==102 && obi.getY()+23==125 || obi.getY()==148 && obi.getY()+23==171 ||  obi.getY()== 309 && obi.getY()+23==332))
-    	   || (obi.getX()==286 && (obi.getY()==79 && obi.getY()+23==102 || obi.getY()==102 && obi.getY()+23==125 || obi.getY()==286 && obi.getY()+23==309 || obi.getY()==309 && obi.getY()+23==332))
-    	   || (obi.getX()==309 && (obi.getY()==79 && obi.getY()+23==102 || obi.getY()== 240 && obi.getY()+23==263 || obi.getY()==309 && obi.getY()+23==332))
-    	   || (obi.getX()==332 && (obi.getY()==194 && obi.getY()+23==217 || obi.getY()==309 && obi.getY()+23==332 ))) {
+    private void Mouvement1B() {
+    	if((obi.getX()==10 && (obi.getY()==148))
+    	   || (obi.getX()==33 &&(obi.getY()==125 ||obi.getY()==171))
+    	   || (obi.getX()==56 &&(obi.getY()==79 || obi.getY()==125 || obi.getY()==171))
+    	   || (obi.getX()==79 &&(obi.getY()==79 || obi.getY()==125))
+    	   || (obi.getX()== 102 &&(obi.getY()==10 || obi.getY()==33 || obi.getY()==171))
+    	   || (obi.getX()== 125 &&(obi.getY()==10 || obi.getY()==33 || obi.getY()==56))
+    	   || (obi.getX()==148 && (obi.getY()==10 ||obi.getY()==56 || obi.getY()==33 || obi.getY()==56 || obi.getY()==125))
+    	   || (obi.getX()==171 && (obi.getY()==10 || obi.getY()==33 || obi.getY()==79 || obi.getY()==102 || obi.getY()==125 || obi.getY()==148))
+    	   || (obi.getX()==194 && (obi.getY()==10 || obi.getY()==33 || obi.getY()==79 || obi.getY()==102 || obi.getY()==125 || obi.getY()==263))
+    	   || (obi.getX()==217 && (obi.getY()==10 || obi.getY()==33 || obi.getY()==79 || obi.getY()==102 || obi.getY()==125 || obi.getY()==148 || obi.getY()== 309))
+    	   || (obi.getX()==240 && (obi.getY()==10 || obi.getY()==33 || obi.getY()==79 || obi.getY()==125 || obi.getY()==148 || obi.getY()==171 || obi.getY()== 309))
+    	   || (obi.getX()==263 && (obi.getY()==10 || obi.getY()==33 || obi.getY()==79 || obi.getY()==102 || obi.getY()==148 ||  obi.getY()== 309))
+    	   || (obi.getX()==286 && (obi.getY()==79 || obi.getY()==102 || obi.getY()==286 || obi.getY()==309))
+    	   || (obi.getX()==309 && (obi.getY()==79 || obi.getY()== 240 || obi.getY()==309))
+    	   || (obi.getX()==332 && (obi.getY()==194 || obi.getY()==309))) {
     		Mouv_XB=false;
     	}else {
     		Mouv_XB=true;
     	}
     	
     }
-    private void Mouvement2XY() {
-    	if((obi.getX()==10 && (obi.getY()-23==148 && obi.getY()==171))
-    	    	   || (obi.getX()==33 &&(obi.getY()-23==125&& obi.getY()==148||obi.getY()-23==171 && obi.getY()==194))
-    	    	   || (obi.getX()==56 &&(obi.getY()-23==79 && obi.getY()==102 || obi.getY()-23==125 && obi.getY()==148 || obi.getY()-23==171 & obi.getY()==194))
-    	    	   || (obi.getX()==79 &&(obi.getY()-23==79 && obi.getY()==102 || obi.getY()-23==125 && obi.getY()==148))
-    	    	   || (obi.getX()== 102 &&(obi.getY()-23==10 && obi.getY()==33|| obi.getY()-23==33 && obi.getY()==56 || obi.getY()-23==171 && obi.getY()==194))
-    	    	   || (obi.getX()== 125 &&(obi.getY()-23==10 && obi.getY()==33|| obi.getY()-23==33 && obi.getY()==56 || obi.getY()-23==56 && obi.getY()==79))
-    	    	   || (obi.getX()==148 && (obi.getY()-23==10 && obi.getY()==33 ||obi.getY()-23==56 && obi.getY()==79 || obi.getY()-23==33 && obi.getY()==56|| obi.getY()-23==56 && obi.getY()==79|| obi.getY()-23==125 && obi.getY()==148))
-    	    	   || (obi.getX()==171 && (obi.getY()-23==10 && obi.getY()==33 || obi.getY()-23==33 && obi.getY()==56 || obi.getY()-23==79 && obi.getY()==102 || obi.getY()-23==102 && obi.getY()==125 || obi.getY()-23==125 && obi.getY()==148 || obi.getY()-23==148 && obi.getY()==171))
-    	    	   || (obi.getX()==194 && (obi.getY()-23==10 && obi.getY()==33 || obi.getY()-23==33 && obi.getY()==56 || obi.getY()-23==79 && obi.getY()==102 || obi.getY()-23==102 && obi.getY()==125 || obi.getY()-23==125 && obi.getY()==148 || obi.getY()-23==263 && obi.getY()==286))
-    	    	   || (obi.getX()==217 && (obi.getY()-23==10 && obi.getY()==33 || obi.getY()-23==33 && obi.getY()==56 || obi.getY()-23==79 && obi.getY()==102 || obi.getY()-23==102 && obi.getY()==125 || obi.getY()-23==125 && obi.getY()==148 || obi.getY()-23==148 && obi.getY()==171 || obi.getY()-23== 309 && obi.getY()==332))
-    	    	   || (obi.getX()==240 && (obi.getY()-23==10 && obi.getY()==33 || obi.getY()-23==33 && obi.getY()==56 || obi.getY()-23==79 && obi.getY()==102 || obi.getY()-23==125 && obi.getY()==148 || obi.getY()-23==148 && obi.getY()==171 || obi.getY()-23==171 && obi.getY()==194 || obi.getY()-23== 309 && obi.getY()==332))
-    	    	   || (obi.getX()==263 && (obi.getY()-23==10 && obi.getY()==33 || obi.getY()-23==33 && obi.getY()==56 || obi.getY()-23==79 && obi.getY()==102 || obi.getY()-23==102 && obi.getY()==125 || obi.getY()-23==148 && obi.getY()==171 ||  obi.getY()-23== 309 && obi.getY()==332))
-    	    	   || (obi.getX()==286 && (obi.getY()-23==79 && obi.getY()==102 || obi.getY()-23==102 && obi.getY()==125 || obi.getY()-23==286 && obi.getY()==309 || obi.getY()-23==309 && obi.getY()==332))
-    	    	   || (obi.getX()==309 && (obi.getY()-23==79 && obi.getY()==102 || obi.getY()-23== 240 && obi.getY()==263 || obi.getY()-23==309 && obi.getY()==332))
-    	    	   || (obi.getX()==332 && (obi.getY()-23==194 && obi.getY()==217 || obi.getY()-23==309 && obi.getY()==332 ))) {
+    private void Mouvement1H() {
+    	if((obi.getX()==10 && (obi.getY()==171))
+    	    	   || (obi.getX()==33 &&(obi.getY()==148 || obi.getY()==194))
+    	    	   || (obi.getX()==56 &&(obi.getY()==102 || obi.getY()==148 || obi.getY()==194))
+    	    	   || (obi.getX()==79 &&(obi.getY()==102 || obi.getY()==148))
+    	    	   || (obi.getX()== 102 &&(obi.getY()==33 || obi.getY()==56 || obi.getY()==194))
+    	    	   || (obi.getX()== 125 &&(obi.getY()==33 || obi.getY()==56 || obi.getY()==79))
+    	    	   || (obi.getX()==148 && (obi.getY()==33 || obi.getY()==79 || obi.getY()==56 || obi.getY()==79 || obi.getY()==148))
+    	    	   || (obi.getX()==171 && (obi.getY()==33 || obi.getY()==56 || obi.getY()==102 || obi.getY()==125 || obi.getY()==148 || obi.getY()==171))
+    	    	   || (obi.getX()==194 && (obi.getY()==33 || obi.getY()==56 || obi.getY()==102 || obi.getY()==125 || obi.getY()==148 || obi.getY()==286))
+    	    	   || (obi.getX()==217 && (obi.getY()==33 || obi.getY()==56 || obi.getY()==102 || obi.getY()==125 || obi.getY()==148 || obi.getY()==171 || obi.getY()==332))
+    	    	   || (obi.getX()==240 && (obi.getY()==33 || obi.getY()==56 || obi.getY()==102 || obi.getY()==148 || obi.getY()==171 || obi.getY()==194 || obi.getY()==332))
+    	    	   || (obi.getX()==263 && (obi.getY()==33 || obi.getY()==56 || obi.getY()==102 || obi.getY()==125 || obi.getY()==171 || obi.getY()==332))
+    	    	   || (obi.getX()==286 && (obi.getY()==102 || obi.getY()==125 || obi.getY()==309 || obi.getY()==332))
+    	    	   || (obi.getX()==309 && (obi.getY()==102 || obi.getY()==263 || obi.getY()==332))
+    	    	   || (obi.getX()==332 && (obi.getY()==217 || obi.getY()==332 ))) {
     	    		Mouv_XH=false;
     	    	}else {
     	    		Mouv_XH=true;
     	    	}
     }
+    
+    private void Mouvement2D() {
+    	//System.out.println(obi.getX() + " / " + obi.getY());
+    	if(((obi.getX()==286 || obi.getX()==309) && obi.getY()==56)
+    		||((obi.getX()==10 || obi.getX()==309) && obi.getY()==79)
+    		||((obi.getX()==10 || obi.getX()==286 || obi.getX()==309) && obi.getY()==102)
+    		||((obi.getX()==10 || obi.getX()==33 || obi.getX()==309) && obi.getY()==125)
+    		||((obi.getX()==79 || obi.getX()==102 || obi.getX()==125 || obi.getX()==286 || obi.getX()==309) && obi.getY()==148)
+    		||((obi.getX()==79 || obi.getX()==102 || obi.getX()==125 || obi.getX()==309) && obi.getY()==171)
+    		||((obi.getX()==79 || obi.getX()==102 || obi.getX()==125) && obi.getY()==194)
+    		||((obi.getX()==79 || obi.getX()==102) && obi.getY()==217)
+    		||((obi.getX()==102 || obi.getX()==263 || obi.getX()==286 || obi.getX()==309) && obi.getY()==240)
+    		||((obi.getX()==125 || obi.getX()==263 || obi.getX()==286 || obi.getX()==309) && obi.getY()==263 )
+    		||((obi.getX()==263 || obi.getX()==286 || obi.getX()==309) && obi.getY()==286 )
+    		||((obi.getX()==102 || obi.getX()==125 || obi.getX()==309) && obi.getY()==309 ) ){
+    		Mouv_XD=false;
+    	}else {
+    		Mouv_XD=true;
+    	}
+    }
+    
+    private void Mouvement2G() {
+    	//System.out.println(obi.getX() + " / " + obi.getY());
+    	if(((obi.getX()==309 || obi.getX()==332) && obi.getY()==56)
+    		||((obi.getX()==33 || obi.getX()==332) && obi.getY()==79)
+    		||((obi.getX()==33 || obi.getX()==309 || obi.getX()==332) && obi.getY()==102)
+    		||((obi.getX()==33 || obi.getX()==56 || obi.getX()==332) && obi.getY()==125)
+    		||((obi.getX()==102 || obi.getX()==125 || obi.getX()==148 || obi.getX()==309 || obi.getX()==332) && obi.getY()==148)
+    		||((obi.getX()==102 || obi.getX()==125 || obi.getX()==148 || obi.getX()==332) && obi.getY()==171)
+    		||((obi.getX()==102 || obi.getX()==125 || obi.getX()==148) && obi.getY()==194)
+    		||((obi.getX()==102 || obi.getX()==125) && obi.getY()==217)
+    		||((obi.getX()==125 || obi.getX()==286 || obi.getX()==309 || obi.getX()==332) && obi.getY()==240)
+    		||((obi.getX()==148 || obi.getX()==286 || obi.getX()==309 || obi.getX()==332) && obi.getY()==263 )
+    		||((obi.getX()==286 || obi.getX()==309 || obi.getX()==332) && obi.getY()==286 )
+    		||((obi.getX()==125 || obi.getX()==148 || obi.getX()==332) && obi.getY()==309 ) ){
+    		Mouv_XG=false;
+    	}else {
+    		Mouv_XG=true;
+    	}
+    }
+    
+    private void Mouvement2H() {
+    	if((obi.getX()==10 && (obi.getY()==56 || obi.getY()==217 ||obi.getY()==263 ||obi.getY()==309))
+    	   || (obi.getX()==33 && (obi.getY()==56 ||obi.getY()==79 || obi.getY()==217 ||obi.getY()==263 ||obi.getY()==309))
+    	   || (obi.getX()==56 && (obi.getY()==33 || obi.getY()==56 || obi.getY()==79 || obi.getY()==125 ||obi.getY()==148 || obi.getY()==217 || obi.getY()==263 || obi.getY()==309 || obi.getY()==332))
+    	   || (obi.getX()==79 && (obi.getY()==33 || obi.getY()==56 || obi.getY()==79 || obi.getY()==102 ||obi.getY()==125 || obi.getY()==148 || obi.getY()==217 || obi.getY()==263 || obi.getY()==309 ||obi.getY()==332))
+    	   || (obi.getX()==102 && (obi.getY()==33 || obi.getY()==56 || obi.getY()==79 || obi.getY()==102 ||obi.getY()==125 || obi.getY()==263 || obi.getY()==309 || obi.getY()==332))
+    	   || (obi.getX()==125 && (obi.getY()==33 || obi.getY()==56 || obi.getY()==102 ||obi.getY()==125 || obi.getY()==240))
+    	   || (obi.getX()==148 && (obi.getY()==33 || obi.getY()==56 || obi.getY()==79 || obi.getY()==102 ||obi.getY()==125 || obi.getY()==148 || obi.getY()==194 ||obi.getY()==240 || obi.getY()==263 || obi.getY()==286 || obi.getY()==309 || obi.getY()==332))
+    	   || (obi.getX()==171 && (obi.getY()==33 || obi.getY()==56 || obi.getY()==79 || obi.getY()==102 ||obi.getY()==125 || obi.getY()==148 || obi.getY()==171 ||obi.getY()==194 || obi.getY()==240 || obi.getY()==263 || obi.getY()==286 || obi.getY()==309 || obi.getY()==332))
+    	   || (obi.getX()==194 && (obi.getY()==33 || obi.getY()==56 || obi.getY()==79 || obi.getY()==102 ||obi.getY()==125 || obi.getY()==148 || obi.getY()==171 ||obi.getY()==194 || obi.getY()==240 || obi.getY()==263 || obi.getY()==286 || obi.getY()==309 || obi.getY()==332))
+    	   || (obi.getX()==217 && (obi.getY()==33 || obi.getY()==56 || obi.getY()==79 || obi.getY()==102 ||obi.getY()==125 || obi.getY()==148 || obi.getY()==171 ||obi.getY()==194 || obi.getY()==240 || obi.getY()==263 || obi.getY()==286 || obi.getY()==309 || obi.getY()==332))
+    	   || (obi.getX()==240 && (obi.getY()==33 || obi.getY()==56 || obi.getY()==79 || obi.getY()==102 ||obi.getY()==125 || obi.getY()==148 || obi.getY()==171 ||obi.getY()==194 || obi.getY()==240 || obi.getY()==263 || obi.getY()==286 || obi.getY()==309))
+    	   || (obi.getX()==263 && (obi.getY()==33 || obi.getY()==56 || obi.getY()==79 || obi.getY()==102 ||obi.getY()==125 || obi.getY()==148 || obi.getY()==171 ||obi.getY()==194 || obi.getY()==240 || obi.getY()==309 || obi.getY()==332))
+    	   || (obi.getX()==286 && (obi.getY()==33 || obi.getY()==56 || obi.getY()==79 || obi.getY()==102 ||obi.getY()==125 || obi.getY()==148 || obi.getY()==171 ||obi.getY()==194 || obi.getY()==286 || obi.getY()==309 ||obi.getY()==332))
+    	   || (obi.getX()==309 && (obi.getY()==33 || obi.getY()==171 ||obi.getY()==194 ||obi.getY()==240 || obi.getY()==332))
+    	   || (obi.getX()==332 && (obi.getY()==33 ||obi.getY()==194)) ) {
+    		Mouv_XH=false;
+    	}else {
+    		Mouv_XH=true;
+    	}
+    	
+    }
+    private void Mouvement2B() {
+    	if((obi.getX()==10 && (obi.getY()==33 || obi.getY()==194 ||obi.getY()==240 ||obi.getY()==286))
+    	   || (obi.getX()==33 && (obi.getY()==33 ||obi.getY()==56 || obi.getY()==194 ||obi.getY()==240 ||obi.getY()==286))
+    	   || (obi.getX()==56 && (obi.getY()==10 || obi.getY()==33 || obi.getY()==56 || obi.getY()==102 ||obi.getY()==125 || obi.getY()==194 || obi.getY()==240 || obi.getY()==286 || obi.getY()==309))
+    	   || (obi.getX()==79 && (obi.getY()==10 || obi.getY()==33 || obi.getY()==56 || obi.getY()==79 ||obi.getY()==102 || obi.getY()==125 || obi.getY()==194 || obi.getY()==240 || obi.getY()==286 ||obi.getY()==309))
+    	   || (obi.getX()==102 && (obi.getY()==10 || obi.getY()==33 || obi.getY()==56 || obi.getY()==79 ||obi.getY()==102 || obi.getY()==240 || obi.getY()==286 || obi.getY()==309))
+    	   || (obi.getX()==125 && (obi.getY()==10 || obi.getY()==33 || obi.getY()==79 ||obi.getY()==102 || obi.getY()==217))
+    	   || (obi.getX()==148 && (obi.getY()==10 || obi.getY()==33 || obi.getY()==56 || obi.getY()==79 ||obi.getY()==102 || obi.getY()==125 || obi.getY()==171 ||obi.getY()==217 || obi.getY()==240 || obi.getY()==263 || obi.getY()==286 || obi.getY()==309))
+    	   || (obi.getX()==171 && (obi.getY()==10 || obi.getY()==33 || obi.getY()==56 || obi.getY()==79 ||obi.getY()==102 || obi.getY()==125 || obi.getY()==148 ||obi.getY()==171 || obi.getY()==217 || obi.getY()==240 || obi.getY()==263 || obi.getY()==286 || obi.getY()==309))
+    	   || (obi.getX()==194 && (obi.getY()==10 || obi.getY()==33 || obi.getY()==56 || obi.getY()==79 ||obi.getY()==102 || obi.getY()==125 || obi.getY()==148 ||obi.getY()==171 || obi.getY()==217 || obi.getY()==240 || obi.getY()==263 || obi.getY()==286 || obi.getY()==309))
+    	   || (obi.getX()==217 && (obi.getY()==10 || obi.getY()==33 || obi.getY()==56 || obi.getY()==79 ||obi.getY()==102 || obi.getY()==125 || obi.getY()==148 ||obi.getY()==171 || obi.getY()==217 || obi.getY()==240 || obi.getY()==263 || obi.getY()==286 || obi.getY()==309))
+    	   || (obi.getX()==240 && (obi.getY()==10 || obi.getY()==33 || obi.getY()==56 || obi.getY()==79 ||obi.getY()==102 || obi.getY()==125 || obi.getY()==148 ||obi.getY()==171 || obi.getY()==217 || obi.getY()==240 || obi.getY()==263 || obi.getY()==286))
+    	   || (obi.getX()==263 && (obi.getY()==10 || obi.getY()==33 || obi.getY()==56 || obi.getY()==79 ||obi.getY()==102 || obi.getY()==125 || obi.getY()==148 ||obi.getY()==171 || obi.getY()==217 || obi.getY()==286 || obi.getY()==309))
+    	   || (obi.getX()==286 && (obi.getY()==10 || obi.getY()==33 || obi.getY()==56 || obi.getY()==79 ||obi.getY()==102 || obi.getY()==125 || obi.getY()==148 ||obi.getY()==171 || obi.getY()==263 || obi.getY()==286 ||obi.getY()==309))
+    	   || (obi.getX()==309 && (obi.getY()==10 || obi.getY()==148 ||obi.getY()==171 ||obi.getY()==217 || obi.getY()==309))
+    	   || (obi.getX()==332 && (obi.getY()==10 ||obi.getY()==171)) ) {
+    	    		Mouv_XB=false;
+    	    	}else {
+    	    		Mouv_XB=true;
+    	    	}
+    }
+    
        private void Initialisation() {
 
     	Donnee = new short[Nbre_block * Nbre_block];
@@ -293,14 +378,17 @@ public class Niveaux extends JPanel implements ActionListener {
         	perdVie();
         	//System.out.println(seconde);
         	Dessine_Chrono(g2d);
-        	Mouvement1XD();
-        	Mouvement2XG();
-        	Mouvement1XY();
-        	Mouvement2XY();
+        	Mouvement1D();
+        	Mouvement1G();
+        	Mouvement1B();
+        	Mouvement1H();
         	Dessine_Vie(g2d);
         	 
         	/// Niveau 2  faire fonction ///
-        	 
+        	//Mouvement1D();
+        	//Mouvement1G();
+        	//Mouvement1B();
+        	//Mouvement1H();
         }
     }
     private void Dessine_mechant(Graphics2D g2d) {
