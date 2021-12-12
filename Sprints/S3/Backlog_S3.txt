@@ -11,3 +11,5 @@ Backlog S3 :
 3) Case piège les monstres se déplacent plus vite pendant 5 secondes
 
 4) Cases pièges qui ralentissent le héros
+
+5) En option (si nous avons terminé les quatre premiers points) nous ajonterons des tests
