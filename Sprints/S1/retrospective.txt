@@ -1,8 +1,0 @@
-Retrospective :
-
-Le travail a bien avancé pour tout le monde même si l'utilisation de GitHub n'a pas été évidente pour tout le monde au début
-Nous pensons être parti sûr de bonnes bases. 
-
-Après des complications suite à l'instalation de maven et la crétion du fichier pom.xml nous avons finalement réussi à utiliser maven (cf cmd dans ReadMe)
-
-Le diagramme et le backlog ont été envoyé par mail le 06/11, nous allons les mettre sur le GitHub le 22/11. 
