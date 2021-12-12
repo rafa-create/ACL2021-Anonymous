@@ -1,4 +1,4 @@
-Le code fonctionne correctement et le professeur à eu l'ocasion d'essayer de lancer notre code avec maven en tp avec succés (malgrè une ligne de commande étranfe).
+Le code fonctionne correctement et le professeur à eu l'ocasion d'essayer de lancer notre code avec maven en tp avec succés (malgré une ligne de commande étrange).
 
 Toutes les fonctionalités du backlog fonctionne, c'est à dire :
 
