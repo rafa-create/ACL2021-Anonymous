@@ -1,0 +1,2 @@
+Le code fonctionne correctement, maven a été correctement implanté. 
+Le jeu est déjà jouable, les modifications à apporter ne concerneront que le gamplay.
