@@ -1,0 +1,11 @@
+Maintenant que nous avons implanté les cases rendant de la vie et les cases faisant perdre de la vie, que notre héros perde de la vie au contact d’un monstre et que ces derniers se déplacent, nous chercherons désormais à rendre le jeu plus intéressant pour l’utilisateur.
+
+Backlog S3 :
+
+1) Case qui ramène à la case départ
+
+2) Certains monstres peuvent traverser les murs
+
+3) Case piège les monstres se déplacent plus vite pendant 5 secondes
+
+4) Cases pièges qui ralentissent le héros
