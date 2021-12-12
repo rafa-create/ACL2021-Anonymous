@@ -18,7 +18,7 @@ Pour mac :
 	mvn compile
 	mvn test
 
-Version de maven : Apache Maven 3.8.4
+Version de maven 11 necessaire : Apache Maven 3.8.4
 Version de JDK : jdk-17.0.1
 
 
