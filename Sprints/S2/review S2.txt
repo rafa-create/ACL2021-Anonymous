@@ -8,4 +8,4 @@ Toutes les fonctionalités du backlog fonctionne, c'est à dire :
 4)	Cases vie (qui rendent de la vie) 
 5)	Cases piege (qui font perdre de la vie)
 
-Le jeu est déjà jouable, les modifications à apporter ne concerneront que le gamplay.
+Tout s'est bien passé, le jeu est déjà jouable, les modifications à apporter ne concerneront que le gamplay.
