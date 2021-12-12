@@ -1,2 +1,12 @@
 Le travail a correctement fonctionné, nous avons mis le temps qu'il fallait et avons réussi à faire ce que nous voulions. 
 Nous sommes confiants quant à la bonne avancée du projet. 
+
+Pour les prochaines étapes nous nous concentrerons sur la création de ces foncionalités :
+
+1) Case qui ramène à la case départ
+
+2) Certains monstres peuvent traverser les murs
+
+3) Case piège les monstres se déplacent plus vite pendant 5 secondes
+
+4) Cases pièges qui ralentissent le héros
