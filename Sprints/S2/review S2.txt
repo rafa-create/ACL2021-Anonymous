@@ -1,2 +1,11 @@
-Le code fonctionne correctement, maven a été correctement implanté. 
+Le code fonctionne correctement et le professeur à eu l'ocasion d'essayer de lancer notre code avec maven en tp avec succés (malgrè une ligne de commande étranfe).
+
+Toutes les fonctionalités du backlog fonctionne, c'est à dire :
+
+1)	Perte de vie quand on croise un monstre
+2)	Faire le 2eme niveau 
+3)	Les monstres se déplacent 
+4)	Cases vie (qui rendent de la vie) 
+5)	Cases piege (qui font perdre de la vie)
+
 Le jeu est déjà jouable, les modifications à apporter ne concerneront que le gamplay.
