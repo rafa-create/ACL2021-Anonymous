@@ -23,11 +23,12 @@ public class Niveaux extends JPanel implements ActionListener {
     private boolean Mouv_XG=true;
     private boolean Mouv_XB=true;
     private boolean Mouv_XH=true;
+    int compteur=1;
+    boolean ok= false;
     
     
     private ImageIcon heros1=new ImageIcon(getClass().getResource(("/jeu/giphy.gif")));
     private Image heros;
-    
     
 
     private final short Niveau1[] = 
@@ -84,7 +85,7 @@ public class Niveaux extends JPanel implements ActionListener {
             83, 18, 18, 18, 17, 17, 16, 16, 16, 16, 16, 16, 16, 16, 20,
             17, 16, 16, 16, 16, 19, 18, 18, 18, 18, 18, 18, 21, 22, 20,
             19, 18, 18, 18, 18, 16, 147, 18, 18, 18, 18, 16, 21, 20, 20,
-            17, 16, 16, 16, 16, 16, 26, 26, 26, 26, 26, 24, 63, 20, 20,
+            17, 16, 16, 16, 16, 16, 26, 26, 26, 26, 26, 24, 61, 20, 20,
             19, 18, 26, 26, 4122, 17, 25, 24, 24, 24, 16, 24, 24, 28, 20,
             9, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 28 };
     private short[] Donnee;
@@ -130,6 +131,36 @@ public class Niveaux extends JPanel implements ActionListener {
     	if(obi.getX()>=341 ||obi.getY()>=341 ) {
     		obi.setX(-1);
 			obi.setY(-1);
+	}
+    }
+    private void Verif2() {
+    	if(ana.getX1()<=0 ) {
+    			ana.setX1(1);
+    	}
+    	if(ana.getX1()>=341 ) {
+    		ana.setX1(-1);
+	}
+    	if(ana.getY1()>=341 ) {
+    		ana.setY1(-1);
+	}
+    	if(ana.getY1()<=0 ) {
+    		ana.setY1(1);
+	}
+    	if(ana.getX1()<=0 ||ana.getY1()<=0 ) {
+    		ana.setX1(1);
+    		ana.setY1(1);
+	}
+    	if(ana.getX1()<=0 ||ana.getY1()>=341 ) {
+    		ana.setX1(1);
+    		ana.setY1(-1);
+	}
+    	if(ana.getX1()>=341 ||ana.getY1()<=0 ) {
+    		ana.setX1(-1);
+    		ana.setY1(1);
+	}
+    	if(ana.getX1()>=341 ||ana.getY1()>=341 ) {
+    		ana.setX1(-1);
+    		ana.setY1(-1);
 	}
     }
     private void Teleportation() 
@@ -270,7 +301,7 @@ public class Niveaux extends JPanel implements ActionListener {
     		Mouv_XD=true;
     	}
     }
-    
+ 
     private void Mouvement2G() {
     	//System.out.println(obi.getX() + " / " + obi.getY());
     	if(((obi.getX()==309 || obi.getX()==332) && obi.getY()==56)
@@ -290,7 +321,6 @@ public class Niveaux extends JPanel implements ActionListener {
     		Mouv_XG=true;
     	}
     }
-    
     private void Mouvement2H() {
     	if((obi.getX()==10 && (obi.getY()==56 || obi.getY()==217 ||obi.getY()==263 ||obi.getY()==309))
     	   || (obi.getX()==33 && (obi.getY()==56 ||obi.getY()==79 || obi.getY()==217 ||obi.getY()==263 ||obi.getY()==309))
@@ -304,7 +334,7 @@ public class Niveaux extends JPanel implements ActionListener {
     	   || (obi.getX()==217 && (obi.getY()==33 || obi.getY()==56 || obi.getY()==79 || obi.getY()==102 ||obi.getY()==125 || obi.getY()==148 || obi.getY()==171 ||obi.getY()==194 || obi.getY()==240 || obi.getY()==263 || obi.getY()==286 || obi.getY()==309 || obi.getY()==332))
     	   || (obi.getX()==240 && (obi.getY()==33 || obi.getY()==56 || obi.getY()==79 || obi.getY()==102 ||obi.getY()==125 || obi.getY()==148 || obi.getY()==171 ||obi.getY()==194 || obi.getY()==240 || obi.getY()==263 || obi.getY()==286 || obi.getY()==309))
     	   || (obi.getX()==263 && (obi.getY()==33 || obi.getY()==56 || obi.getY()==79 || obi.getY()==102 ||obi.getY()==125 || obi.getY()==148 || obi.getY()==171 ||obi.getY()==194 || obi.getY()==240 || obi.getY()==309 || obi.getY()==332))
-    	   || (obi.getX()==286 && (obi.getY()==33 || obi.getY()==56 || obi.getY()==79 || obi.getY()==102 ||obi.getY()==125 || obi.getY()==148 || obi.getY()==171 ||obi.getY()==194 || obi.getY()==286 || obi.getY()==309 ||obi.getY()==332))
+    	   || (obi.getX()==286 && (obi.getY()==33 || obi.getY()==56 || obi.getY()==79 || obi.getY()==102 ||obi.getY()==125 || obi.getY()==148 || obi.getY()==171 ||obi.getY()==194 || obi.getY()==309 ||obi.getY()==332))
     	   || (obi.getX()==309 && (obi.getY()==33 || obi.getY()==171 ||obi.getY()==194 ||obi.getY()==240 || obi.getY()==332))
     	   || (obi.getX()==332 && (obi.getY()==33 ||obi.getY()==194)) ) {
     		Mouv_XH=false;
@@ -326,7 +356,7 @@ public class Niveaux extends JPanel implements ActionListener {
     	   || (obi.getX()==217 && (obi.getY()==10 || obi.getY()==33 || obi.getY()==56 || obi.getY()==79 ||obi.getY()==102 || obi.getY()==125 || obi.getY()==148 ||obi.getY()==171 || obi.getY()==217 || obi.getY()==240 || obi.getY()==263 || obi.getY()==286 || obi.getY()==309))
     	   || (obi.getX()==240 && (obi.getY()==10 || obi.getY()==33 || obi.getY()==56 || obi.getY()==79 ||obi.getY()==102 || obi.getY()==125 || obi.getY()==148 ||obi.getY()==171 || obi.getY()==217 || obi.getY()==240 || obi.getY()==263 || obi.getY()==286))
     	   || (obi.getX()==263 && (obi.getY()==10 || obi.getY()==33 || obi.getY()==56 || obi.getY()==79 ||obi.getY()==102 || obi.getY()==125 || obi.getY()==148 ||obi.getY()==171 || obi.getY()==217 || obi.getY()==286 || obi.getY()==309))
-    	   || (obi.getX()==286 && (obi.getY()==10 || obi.getY()==33 || obi.getY()==56 || obi.getY()==79 ||obi.getY()==102 || obi.getY()==125 || obi.getY()==148 ||obi.getY()==171 || obi.getY()==263 || obi.getY()==286 ||obi.getY()==309))
+    	   || (obi.getX()==286 && (obi.getY()==10 || obi.getY()==33 || obi.getY()==56 || obi.getY()==79 ||obi.getY()==102 || obi.getY()==125 || obi.getY()==148 ||obi.getY()==171 || obi.getY()==286 ||obi.getY()==309))
     	   || (obi.getX()==309 && (obi.getY()==10 || obi.getY()==148 ||obi.getY()==171 ||obi.getY()==217 || obi.getY()==309))
     	   || (obi.getX()==332 && (obi.getY()==10 ||obi.getY()==171)) ) {
     	    		Mouv_XB=false;
@@ -344,8 +374,9 @@ public class Niveaux extends JPanel implements ActionListener {
     }
 
     private void Jouer(Graphics2D g2d) {
+    	if(compteur==1) {
     	if(obi.getX()==ana.getX1() && obi.getY()==ana.getY1()) {
-    		Enjeu=false;
+    		obi.setV(-10);
     	}
     else if (obi.getV()<=0) {
     		Enjeu=false;
@@ -361,6 +392,9 @@ public class Niveaux extends JPanel implements ActionListener {
         	String Victoire = "Vous avez gagné";
             g2d.setColor(Color.YELLOW);
             g2d.drawString(Victoire, (Taille_ecran)/4, 175);
+            compteur++;
+            obi.setX(-14);
+            obi.setY(-14);
         }
     	else if(seconde >=3600) {
     		Enjeu=false;
@@ -370,26 +404,69 @@ public class Niveaux extends JPanel implements ActionListener {
     		
     	}
          else {
-        	/// Urgent  Niveau 1 pas touché ///
         	Teleportation();
         	Verif();
         	Dessine_jedi(g2d); 
         	Dessine_mechant(g2d);
         	perdVie();
-        	//System.out.println(seconde);
         	Dessine_Chrono(g2d);
         	Mouvement1D();
         	Mouvement1G();
         	Mouvement1B();
         	Mouvement1H();
         	Dessine_Vie(g2d);
-        	 
-        	/// Niveau 2  faire fonction ///
-        	//Mouvement2D();
-        	//Mouvement2G();
-        	//Mouvement2B();
-        	//Mouvement2H();
-        }
+        	Verif2();
+         }
+    	}
+    	else if( compteur ==2) 
+    	{
+    		if(obi.getV()<=0) {
+    			Enjeu=false;
+        		//System.out.println("Defaite");
+            	String Victoire = "Vous  avez perdu";
+                g2d.setColor(Color.RED);
+                g2d.drawString(Victoire, (Taille_ecran)/4, 175);
+              
+    		}
+    		if( obi.getX()==286 && obi.getY()==286 && ok==false)
+    		{
+    			Enjeu=true;
+            	//System.out.println("Victoire");
+            	String Victoire = "Vous devez aller chercher la clé ";
+                g2d.setColor(Color.RED);
+                g2d.drawString(Victoire, (Taille_ecran)/4, 175);
+               }
+    		else if(seconde >=3600) {
+        		Enjeu=false;
+        		String Victoire = "Vous avez manqué de temps";
+                g2d.setColor(Color.YELLOW);
+                g2d.drawString(Victoire, (Taille_ecran)/4, 175);
+        		
+        	}
+    		else if( obi.getX()==286 && obi.getY()==286 && ok==true) {
+    			Enjeu=false;
+            	//System.out.println("Victoire");
+            	String Victoire = "Vous avez gagné";
+                g2d.setColor(Color.YELLOW);
+                g2d.drawString(Victoire, (Taille_ecran)/4, 175);
+    		}else 
+    		{
+    		initJeu2();
+    		initNiveau2();
+    		Affiche_Niveau2(g2d);
+    		Mouvement2D();
+    		Mouvement2H();
+    		Mouvement2G();
+    		Mouvement2B();
+    		Verif();
+    		perdVie2();
+    		Teleportation2();
+    		Dessine_jedi(g2d);
+    		Dessine_Vie(g2d);
+    		Dessine_Chrono(g2d);
+    		cle2(g2d);
+    		}
+    	}
     }
     private void Dessine_mechant(Graphics2D g2d) {
     	this.heros=this.heros1.getImage();
@@ -402,14 +479,20 @@ public class Niveaux extends JPanel implements ActionListener {
     	this.heros=this.heros1.getImage();
     	g2d.drawImage(this.heros, obi.getX()-7, obi.getY()-7, 18, 18, null);
     	//g2d.fillOval(obi.getX(), obi.getY(), 6, 6);
-    	System.out.println("ObiX = "+obi.getX()+" / ObiY = "+ obi.getY() + " / ObiVie =" + obi.Vie);
+    	//System.out.println("ObiX = "+obi.getX()+" / ObiY = "+ obi.getY() + " / ObiVie =" + obi.Vie);
     }
     private void Affiche_Ecran(Graphics2D g2d) 
     {
-    	String start = "Espace pour commencer\n"+ "Vous avez 60secondes \n"+" pour arriver tout en bas";
+    	String start = "Espace pour commencer";
         g2d.setColor(Color.BLUE);
         g2d.drawString(start, (Taille_ecran)/4, 175);
     }
+  //  private void Affiche_Ecran2(Graphics2D g2d) 
+    //{
+    //	String start = "Espace pour commencer";
+      //  g2d.setColor(Color.BLUE);
+        //g2d.drawString(start, (Taille_ecran)/4, 175);
+    //}
 
     private void Affiche_Niveau(Graphics2D g) {
         g.setFont(smallFont);
@@ -520,7 +603,14 @@ public class Niveaux extends JPanel implements ActionListener {
     }
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
+        if(compteur==1) {
         seconde = heure.getTime();
+        }
+        if(compteur==2) 
+        {
+        	seconde=0;
+        	seconde=heure.getTime();
+        	}
         
         Graphics2D g2d = (Graphics2D) g;
 
@@ -550,6 +640,24 @@ public class Niveaux extends JPanel implements ActionListener {
                 if (key == KeyEvent.VK_LEFT) {
                 	if (Mouv_XG==true) {
                 		obi.setX(-1);
+                		int x =ana.genererInt(-4, 4);
+                		int y = ana.genererInt2(-4, 4);
+                		if(x>0 && y>0) {
+                			ana.setX1(1);
+                			ana.setY1(1);
+                		}
+                		if(x>0 && y<0) {
+                			ana.setX1(1);
+                			ana.setY1(-1);
+                		}
+                		if(x<0 && y>0) {
+                			ana.setX1(-1);
+                			ana.setY1(1);
+                		}
+                		if(x<0 && y<0) {
+                			ana.setX1(-1);
+                			ana.setY1(-1);
+                		}
                 	}else {
                    obi.setX(0);
                 	}
@@ -557,12 +665,48 @@ public class Niveaux extends JPanel implements ActionListener {
                 	else if (key == KeyEvent.VK_RIGHT) {
                 	if(Mouv_XD==true) {
                 		obi.setX(1);
+                		int x =ana.genererInt(-4, 4);
+                		int y = ana.genererInt2(-4, 4);
+                		if(x>0 && y>0) {
+                			ana.setX1(1);
+                			ana.setY1(1);
+                		}
+                		if(x>0 && y<0) {
+                			ana.setX1(1);
+                			ana.setY1(-1);
+                		}
+                		if(x<0 && y>0) {
+                			ana.setX1(-1);
+                			ana.setY1(1);
+                		}
+                		if(x<0 && y<0) {
+                			ana.setX1(-1);
+                			ana.setY1(-1);
+                		}
                 	}else {
                 		obi.setX(0);
                 	}
                 } else if (key == KeyEvent.VK_UP) {
                 	if(Mouv_XH==true) {
                 		obi.setY(-1);
+                		int x =ana.genererInt(-4, 4);
+                		int y = ana.genererInt2(-4, 4);
+                		if(x>0 && y>0) {
+                			ana.setX1(1);
+                			ana.setY1(1);
+                		}
+                		if(x>0 && y<0) {
+                			ana.setX1(1);
+                			ana.setY1(-1);
+                		}
+                		if(x<0 && y>0) {
+                			ana.setX1(-1);
+                			ana.setY1(1);
+                		}
+                		if(x<0 && y<0) {
+                			ana.setX1(-1);
+                			ana.setY1(-1);
+                		}
                 	}else {
                 		obi.setY(0);
                 	}
@@ -570,6 +714,24 @@ public class Niveaux extends JPanel implements ActionListener {
                 } else if (key == KeyEvent.VK_DOWN) {
                 	if(Mouv_XB==true) {
                 		obi.setY(1);
+                		int x =ana.genererInt(-4, 4);
+                		int y = ana.genererInt2(-4, 4);
+                		if(x>0 && y>0) {
+                			ana.setX1(1);
+                			ana.setY1(1);
+                		}
+                		if(x>0 && y<0) {
+                			ana.setX1(1);
+                			ana.setY1(-1);
+                		}
+                		if(x<0 && y>0) {
+                			ana.setX1(-1);
+                			ana.setY1(1);
+                		}
+                		if(x<0 && y<0) {
+                			ana.setX1(-1);
+                			ana.setY1(-1);
+                		}
                 	}else {
                 		obi.setY(0);
                 	}
@@ -588,4 +750,127 @@ public class Niveaux extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         repaint();
     }
+
+
+
+// Niveau 2 
+
+
+private void DessineMap2(Graphics2D g2d) {
+    short i = 0;
+    for (int y = 0; y < Taille_ecran; y += Taille_block) {
+        for (int x = 0; x < Taille_ecran; x += Taille_block) {
+
+            g2d.setColor(new Color(0,72,47));
+            g2d.setStroke(new BasicStroke(5));
+            
+            if ((Niveau2[i] == 0)) { 
+            	g2d.fillRect(x, y, Taille_block, Taille_block);
+             }
+
+            if ((Donnee[i] & 1) != 0) { 
+                g2d.drawLine(x, y, x, y + Taille_block - 1);
+                //System.out.println("x : " + x + " / y : +  "+ y );
+            }
+
+            if ((Donnee[i] & 2) != 0) { 
+                g2d.drawLine(x, y, x + Taille_block - 1, y);
+            }
+
+            if ((Donnee[i] & 4) != 0) { 
+                g2d.drawLine(x + Taille_block - 1, y, x + Taille_block - 1,
+                        y + Taille_block - 1);
+            }
+
+            if ((Donnee[i] & 8) != 0) { 
+                g2d.drawLine(x, y + Taille_block - 1, x + Taille_block - 1,
+                        y + Taille_block - 1);
+            }
+
+            if ((Donnee[i] & 32) != 0) { 
+                g2d.setColor(new Color(255,255,255));
+                g2d.fillOval(x+10, y+10, 6, 6);
+           }
+            if ((Donnee[i] & 64) != 0) { 
+                g2d.setColor(new Color(238,130,238));
+                g2d.fillOval(x+10, y+10, 6, 6);
+                //System.out.println(x+10+"/: "+x+10);
+           }
+            if ((Donnee[i] & 128) != 0) { 
+                g2d.setColor(new Color(255,0,0));
+                g2d.fillOval(x+10, y+10, 6, 6);
+           }
+            if ((Donnee[i] & 256) != 0) { 
+                g2d.setColor(new Color(0,0,0));
+                g2d.fillOval(x+10, y+10, 6, 6);
+           }
+            if ((Donnee[i] & 512) != 0) { 
+                g2d.setColor(new Color(0,0,255));
+                g2d.fillOval(x+10, y+10, 6, 6);
+           }
+            if ((Donnee[i] & 1024) != 0) { 
+                g2d.setColor(new Color(169,169,169));
+                g2d.fillOval(x+10, y+10, 6, 6);
+           }
+            if ((Donnee[i] & 2048) != 0) { 
+                g2d.setColor(new Color(0,255,0));
+                g2d.fillOval(x+10, y+10, 6, 6);
+           }
+            if ((Donnee[i] & 4096) != 0) { 
+                g2d.setColor(new Color(139,69,19));
+                g2d.fillOval(x+10, y+10, 6, 6);
+           }
+            i++;
+        }
+    }
+}
+private void initJeu2() {
+	Niveau = 1;
+    initNiveau();
+    }
+
+private void initNiveau2() {
+    for (int i = 0; i < Nbre_block * Nbre_block; i++) {
+        Donnee[i] = Niveau2[i];
+    }
+
+    Continue();
+}
+private void Affiche_Niveau2(Graphics2D g) {
+    g.setFont(smallFont);
+    g.setColor(new Color(5, 181, 79));
+    String s = "Niveau " + 2;
+    g.drawString(s, -Taille_ecran / 4 + 96, Taille_ecran + 16);
+}
+private void perdVie2() 
+{
+	//Perd Vie si il est sur le noir
+	if(obi.getX()==102 && obi.getY()==148) {
+		obi.setV(-10);
+	}
+	//gagne de la vie si il est sur la case rouge 
+	if(obi.getX()==148 && obi.getY()==263) {
+		obi.setV(10);
+	}
+}
+private void Teleportation2() 
+{
+	if(obi.getX()==332 && obi.getY()==10) 
+	{
+		obi.setX(-14);
+		obi.setY(9);
+		//Evite problème
+		//obi.setY(7);
+	}
+}
+private void cle2(Graphics2D g2d) 
+	{
+	if(obi.getX()==102 && obi.getY()==309) 
+		{
+		ok=true;
+		String cle="La clé est récupéré vous pouvez sortir";
+		g2d.setColor(Color.red);
+		g2d.drawString(cle, (Taille_ecran)/4, 175);
+		}
+	}
 }
