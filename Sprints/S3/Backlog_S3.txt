@@ -6,8 +6,12 @@ Backlog S3 :
 
 1) Case qui ramène à la case départ
 
-2) Certains monstres peuvent traverser les murs
+2) Certains monstres peuvent traverser les murs d'autres non (et bougent indépendamment du héros)
 
 3) Case piège les monstres se déplacent plus vite pendant 5 secondes
 
 4) Cases pièges qui ralentissent le héros
+
+5)Case vie qui disparaît après (+100 par exemple)
+
+6)Ajouté par le prof : possibilité de tirer et tuer les monstres (et peut-être les cases pièges)
