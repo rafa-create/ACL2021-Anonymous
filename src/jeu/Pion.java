@@ -4,7 +4,6 @@ public class Pion {
 	int X;
 	int Y;
 	int Vie;
-	
 	public Pion(int X, int Y,int Vie) {
 		this.X=X;
 		this.Y=Y;
