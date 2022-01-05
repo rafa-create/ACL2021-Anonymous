@@ -1,0 +1,24 @@
+Voici un point pour chaque fonctionalité du backlog :
+
+
+1) Les monstres doivent se déplacer indépendamment du héro
+Fonctionalité validée (à l'aide d'un timer )
+Cependant les monstres sont encore "bête", il faudra les rendre "intelligen" (et leur appliquer les contraintes des murs) dans un prochain sprint.
+
+2) Case piège qui enléve de la vie au héro (de manière infinie, il faut passer vite avec assez de vie)
+Fonctionalité validée
+
+3) Afficher quelque chose à l'endroit ou le monstre est mort (tête de mort, os, ...)
+Fonctionalité validée 
+(la tête de mort disparait après quelques secondes)
+
+5) Case vie qui donne un nombre de points limité (+100 par exemple)
+Fonctionalité validée 
+La case ne disparait pas après être passé dessus, c'est à changer dans un prochain sprint.
+
+5) Améliorer les visules des cases vies, passage secret et des monstres
+Fonctionalité validée 
+
+6) Ajouté par le prof : possibilité de tirer et tuer les monstres avec un nombre de munitions limités
+Fonctionalité validée 
+Le héro tire dans toutes les diréctions et les balles sont invisibles. Il faudrait pouvoir changer la direction et voir les balles (à implémenter dans un prochain sprint).
