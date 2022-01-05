@@ -4,14 +4,14 @@ nous chercherons désormais à rendre le jeu plus intéressant pour l’utilisat
 
 Backlog S3 :
 
-1) Case qui ramène à la case départ
+1) Les monstres doivent se déplacer indépendamment du héro
 
-2) Certains monstres peuvent traverser les murs d'autres non (et bougent indépendamment du héros)
+2) Case piège qui enléve de la vie au héro (de manière infinie, il faut passer vite avec assez de vie)
 
-3) Case piège les monstres se déplacent plus vite pendant 5 secondes
+3) Afficher quelque chose à l'endroit ou le monstre est mort (tête de mort, os, ...)
 
-4) Cases pièges qui ralentissent le héros
+5) Case vie qui donne un nombre de points limité (+100 par exemple)
 
-5)Case vie qui disparaît après (+100 par exemple)
+5) Améliorer les visules des cases vies, passage secret et des monstres
 
-6)Ajouté par le prof : possibilité de tirer et tuer les monstres (et peut-être les cases pièges)
+6) Ajouté par le prof : possibilité de tirer et tuer les monstres avec un nombre de munitions limités
