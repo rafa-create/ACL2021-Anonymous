@@ -30,7 +30,7 @@ public class Niveaux extends JPanel implements ActionListener {
     int cmp2=1;
     int cmp3=1;
     int a1 =1;
-    int artillerie=1;
+    int artillerie=10;
     private boolean CanDead=true;
     private ImageIcon heros1=new ImageIcon(getClass().getResource(("/jeu/giphy.gif")));
     private Image heros;
@@ -1410,7 +1410,7 @@ public class Niveaux extends JPanel implements ActionListener {
             int key = e.getKeyCode();
 
             if (Enjeu) {
-            	if(key==KeyEvent.VK_Z && artillerie>=0) {
+            	if(key==KeyEvent.VK_Z && artillerie>=1) {
             		artillerie--;
             		Munition munition = new Munition(obi.getX(),obi.getY());
             		if(munition.GetX2()==ana.getX1()) {
