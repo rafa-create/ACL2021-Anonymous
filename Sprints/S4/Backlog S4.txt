@@ -10,7 +10,7 @@ BacKlog S4:
 
 4) Faire un niveau 3
 
-5) Ajouter des cases pièges pour accélerer/ralentir le héro
+5) Ajouter des cases pièges pour accélerer/ralentir le héro et cases munitions
 
 6) Limiter le temps pour faire un niveau (avec un compte à rebour pour les dernières secondes)
 

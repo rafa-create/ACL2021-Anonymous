@@ -21,4 +21,5 @@ Fonctionalité validée
 
 6) Ajouté par le prof : possibilité de tirer et tuer les monstres avec un nombre de munitions limités
 Fonctionalité validée 
-Le héro tire dans toutes les diréctions et les balles sont invisibles. Il faudrait pouvoir changer la direction et voir les balles (à implémenter dans un prochain sprint).
+Le héro tire dans toutes les diréctions et les balles sont invisibles et traversent les murs. 
+Il faudrait pouvoir changer la direction, voir les balles et faire en sorte qu'elle s'arrêtent au premier mur(à implémenter dans un prochain sprint).
