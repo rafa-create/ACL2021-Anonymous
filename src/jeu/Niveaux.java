@@ -30,7 +30,7 @@ public class Niveaux extends JPanel implements ActionListener {
     int cmp2=1;
     int cmp3=1;
     int a1 =1;
-    int artillerie=10;
+    int artillerie=5;
     private boolean CanDead=true;
     private ImageIcon heros1=new ImageIcon(getClass().getResource(("/jeu/giphy.gif")));
     private Image heros;
