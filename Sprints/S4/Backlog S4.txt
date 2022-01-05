@@ -13,3 +13,6 @@ BacKlog S4:
 5) Ajouter des cases pièges pour accélerer/ralentir le héro
 
 6) Limiter le temps pour faire un niveau (avec un compte à rebour pour les dernières secondes)
+
+7) Rendre inteligent certains monstes et leur appliquer les contraintes des murs (comme le boss final qui sera capable de chercher le héro)
+
