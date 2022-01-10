@@ -32,7 +32,7 @@ public class Niveaux extends JPanel implements ActionListener {
     int a1 =1;
     int artillerie=5;
     private boolean CanDead=true;
-    private ImageIcon heros1=new ImageIcon(getClass().getResource(("/jeu/giphy.gif")));
+    private ImageIcon heros1=new ImageIcon(getClass().getResource(("/jeu/kirby.gif")));
     private Image heros;
     private ImageIcon Mechant1=new ImageIcon(getClass().getResource(("/jeu/salameche.png")));
     private Image Mechant;
@@ -46,11 +46,21 @@ public class Niveaux extends JPanel implements ActionListener {
     private Image TP;
     private ImageIcon cle1=new ImageIcon(getClass().getResource(("/jeu/cle.gif")));
     private Image cle;
-    private boolean CanDead1=true;
-    private boolean CanDead2=true;
-    private boolean CanDead3=true;
     private boolean regen=true;
-    
+    private boolean Mouv_XH1;
+    private boolean Mouv_XB1;
+    private boolean Mouv_XD1;
+    private boolean Mouv_XG1;
+    private boolean Mouv_XH2;
+    private boolean Mouv_XB2;
+    private boolean Mouv_XD2;
+    private boolean Mouv_XG2;
+    private boolean Mouv_XH3;
+    private boolean Mouv_XB3;
+    private boolean Mouv_XD3;
+    private boolean Mouv_XG3;
+    private int dep=0;
+    private int Swap=0;
     
 
     private final short Niveau1[] = 
@@ -119,7 +129,6 @@ public class Niveaux extends JPanel implements ActionListener {
     Sith ana= new Sith(217,217);
     Sith ana1=new Sith(148,125);
     Sith ana2=new Sith(171,125);
-    Sith ana3=new Sith (125,217);
     
     
     public Niveaux() {
@@ -241,7 +250,7 @@ public class Niveaux extends JPanel implements ActionListener {
     		||((obi.getX()==10 || obi.getX()==79 || obi.getX()==102 || obi.getX()==125 || obi.getX()==263 || obi.getX()==286 || obi.getX()==309) && obi.getY()==148)
     		||((obi.getX()==10 || obi.getX()==125 || obi.getX()==148 || obi.getX()==171 || obi.getX()==194 || obi.getX()==263 || obi.getX()==286) && obi.getY()==171)
     		||((obi.getX()==10 || obi.getX()==33 || obi.getX()==56 || obi.getX()==79 || obi.getX()==102 || obi.getX()==125 || obi.getX()==148 || obi.getX()==171 || obi.getX()==194 || obi.getX()==240 || obi.getX()==263 || obi.getX()==286 || obi.getX()==309) && obi.getY()==194)
-    		||((obi.getX()==10 || obi.getX()==33 || obi.getX()==56 || obi.getX()==79 || obi.getX()==102 || obi.getX()==125 || obi.getX()==148 || obi.getX()==171 || obi.getX()==194 || obi.getX()==240 || obi.getX()==263 || obi.getX()==286 || obi.getX()==309) && obi.getY()==217)
+    		||((obi.getX()==10 || obi.getX()==33 || obi.getX()==56 || obi.getX()==79 || obi.getX()==102 || obi.getX()==125 || obi.getX()==148 || obi.getX()==171 || obi.getX()==194 || obi.getX()==240 || obi.getX()==217 ||obi.getX()==263 || obi.getX()==286 || obi.getX()==309) && obi.getY()==217)
     		||((obi.getX()==10 || obi.getX()==33 || obi.getX()==56 || obi.getX()==79 || obi.getX()==102 || obi.getX()==125 || obi.getX()==148 || obi.getX()==171 || obi.getX()==194 || obi.getX()==240 || obi.getX()==263 || obi.getX()==286 || obi.getX()==309) && obi.getY()==240)
     		||((obi.getX()==10 || obi.getX()==33 || obi.getX()==56 || obi.getX()==79 || obi.getX()==125 || obi.getX()==148 || obi.getX()==171 || obi.getX()==194 || obi.getX()==217 || obi.getX()==240 || obi.getX()==286) && obi.getY()==263 )
     		||((obi.getX()==10 || obi.getX()==33 || obi.getX()==263 || obi.getX()==79 || obi.getX()==125 || obi.getX()==148 || obi.getX()==171 || obi.getX()==194 || obi.getX()==217 || obi.getX()==240 || obi.getX()==286) && obi.getY()==286 )
@@ -260,35 +269,17 @@ public class Niveaux extends JPanel implements ActionListener {
     		||((ana.getX1()==79 || ana.getX1()==102 || ana.getX1()==240 || ana.getX1()==309 ) && ana.getY1()==102)
     		||((ana.getX1()==79 || ana.getX1()==102 || ana.getX1()==217 || ana.getX1()==263 || ana.getX1()==309) && ana.getY1()==125)
     		||((ana.getX1()==10 || ana.getX1()==79 || ana.getX1()==102 || ana.getX1()==125 || ana.getX1()==263 || ana.getX1()==286 || ana.getX1()==309) && ana.getY1()==148)
+    		||((ana.getX1()==10 || ana.getX1()==125 || ana.getX1()==148 || ana.getX1()==171 || ana.getX1()==194 || ana.getX1()==263 || ana.getX1()==286) && ana.getY1()==171)
     		||((ana.getX1()==10 || ana.getX1()==33 || ana.getX1()==56 || ana.getX1()==79 || ana.getX1()==102 || ana.getX1()==125 || ana.getX1()==148 || ana.getX1()==171 || ana.getX1()==194 || obi.getX()==240 || ana.getX1()==263 || ana.getX1()==286 || ana.getX1()==309) && ana.getY1()==194)
-    		||((ana.getX1()==10 || ana.getX1()==33 || ana.getX1()==56 || ana.getX1()==79 || ana.getX1()==102 || ana.getX1()==125 || ana.getX1()==148 || ana.getX1()==171 || ana.getX1()==194 || ana.getX1()==240 || ana.getX1()==263 || ana.getX1()==286 || ana.getX1()==309) && ana.getY1()==217)
+    		||((ana.getX1()==10 || ana.getX1()==33 || ana.getX1()==56 || ana.getX1()==79 || ana.getX1()==102 || ana.getX1()==125 || ana.getX1()==148 || ana.getX1()==171 || ana.getX1()==194 || ana.getX1()==240 || ana.getX1()==263 || ana.getX1()==217 ||ana.getX1()==286 || ana.getX1()==309) && ana.getY1()==217)
     		||((ana.getX1()==10 || ana.getX1()==33 || ana.getX1()==56 || ana.getX1()==79 || ana.getX1()==102 || ana.getX1()==125 || ana.getX1()==148 || ana.getX1()==171 || ana.getX1()==194 || ana.getX1()==240 || ana.getX1()==263 || ana.getX1()==286 || ana.getX1()==309) && ana.getY1()==240)
     		||((ana.getX1()==10 || ana.getX1()==33 || ana.getX1()==56 || ana.getX1()==79 || ana.getX1()==125 || ana.getX1()==148 || ana.getX1()==171 ||ana.getX1()==194 || ana.getX1()==217 || ana.getX1()==240 || ana.getX1()==286) && ana.getY1()==263 )
     		||((ana.getX1()==10 || ana.getX1()==33 || ana.getX1()==263 || ana.getX1()==79 || ana.getX1()==125 || ana.getX1()==148 || ana.getX1()==171 || ana.getX1()==194 || ana.getX1()==217 || ana.getX1()==240 || ana.getX1()==286) && ana.getY1()==286 )
     		||((ana.getX1()==79 || ana.getX1()==148 || ana.getX1()==217) && ana.getY1()==309 )
-    		||((ana.getX1()==79 || ana.getX1()==171) && ana.getY1()==332))&&CanDead==true ){
-    		int a = ana.genererInt2(-20,20);//pour les y
-    		int b = ana.genererInt(-20, 20);//pour les x
-    		if(a>0 && b>0) {
-    			ana.setY1(1);
-        		ana.setX1(0);
-    		}
-    		if(a>0 && b<0) {
-    			ana.setY1(1);
-        		ana.setX1(0);
-    		}
-    		if(a<0 && b>0) {
-    			ana.setY1(-1);
-        		ana.setX1(0);
-    		}
-    		if(a<0 && b<0) {
-    			ana.setY1(-1);
-        		ana.setX1(0);
-    		}
-    	}
-    	if(CanDead==false) {
-    		ana.setX1(0);
-    		ana.setY1(0);
+    		||((ana.getX1()==79 || ana.getX1()==171) && ana.getY1()==332))){
+    		Mouv_XD1=false;
+    	}else {
+    		Mouv_XD1=true;
     	}
     }
     private void Mouvement11D_M() {
@@ -299,35 +290,17 @@ public class Niveaux extends JPanel implements ActionListener {
     		||((ana1.getX1()==79 || ana1.getX1()==102 || ana1.getX1()==240 || ana1.getX1()==309 ) && ana1.getY1()==102)
     		||((ana1.getX1()==79 || ana1.getX1()==102 || ana1.getX1()==217 || ana1.getX1()==263 || ana1.getX1()==309) && ana1.getY1()==125)
     		||((ana1.getX1()==10 || ana1.getX1()==79 || ana1.getX1()==102 || ana1.getX1()==125 || ana1.getX1()==263 || ana1.getX1()==286 || ana1.getX1()==309) && ana1.getY1()==148)
-    		||((ana1.getX1()==10 || ana1.getX1()==33 || ana1.getX1()==56 || ana1.getX1()==79 || ana1.getX1()==102 || ana1.getX1()==125 || ana1.getX1()==148 || ana1.getX1()==171 || ana1.getX1()==194 || ana1.getX1()==240 || ana1.getX1()==263 || ana1.getX1()==286 || ana1.getX1()==309) && ana1.getY1()==194)
-    		||((ana1.getX1()==10 || ana1.getX1()==33 || ana1.getX1()==56 || ana1.getX1()==79 || ana1.getX1()==102 || ana1.getX1()==125 || ana1.getX1()==148 || ana1.getX1()==171 || ana1.getX1()==194 || ana1.getX1()==240 || ana1.getX1()==263 || ana1.getX1()==286 || ana1.getX1()==309) && ana1.getY1()==217)
-    		||((ana1.getX1()==10 || ana1.getX1()==33 || ana1.getX1()==56 || ana1.getX1()==79 || ana1.getX1()==102 || ana1.getX1()==125 || ana1.getX1()==148 || ana1.getX1()==171 || ana1.getX1()==194 || ana1.getX1()==240 || ana1.getX1()==263 || ana1.getX1()==286 || ana1.getX1()==309) && ana1.getY1()==240)
-    		||((ana1.getX1()==10 || ana1.getX1()==33 || ana1.getX1()==56 || ana1.getX1()==79 || ana1.getX1()==125 || ana1.getX1()==148 || ana1.getX1()==171 ||ana1.getX1()==194 || ana1.getX1()==217 || ana1.getX1()==240 || ana1.getX1()==286) && ana1.getY1()==263 )
-    		||((ana1.getX1()==10 || ana1.getX1()==33 || ana1.getX1()==263 || ana1.getX1()==79 || ana1.getX1()==125 || ana1.getX1()==148 || ana1.getX1()==171 || ana1.getX1()==194 || ana1.getX1()==217 || ana1.getX1()==240 || ana1.getX1()==286) && ana1.getY1()==286 )
+    		||((ana1.getX1()==10 || ana1.getX1()==125 || ana1.getX1()==148 || ana1.getX1()==171 || ana1.getX1()==194 || ana1.getX1()==263 || ana1.getX1()==286) && ana1.getY1()==171)
+    		||((ana1.getX1()==10 || ana1.getX1()==33 || ana1.getX1()==56 || ana1.getX1()==79 || ana1.getX1()==102 || ana1.getX1()==125 || ana1.getX1()==148 || ana1.getX1()==171 || ana.getX1()==194 || ana1.getX1()==240 || ana1.getX1()==263 || ana1.getX1()==286 || ana1.getX1()==309) && ana1.getY1()==194)
+    		||((ana1.getX1()==10 || ana1.getX1()==33 || ana1.getX1()==56 || ana1.getX1()==79 || ana1.getX1()==102 || ana1.getX1()==125 || ana1.getX1()==148 || ana1.getX1()==171 || ana.getX1()==194 || ana1.getX1()==240 || ana1.getX1()==263 || ana1.getX1()==217 ||ana1.getX1()==286 || ana1.getX1()==309) && ana1.getY1()==217)
+    		||((ana1.getX1()==10 || ana1.getX1()==33 || ana1.getX1()==56 || ana1.getX1()==79 || ana1.getX1()==102 || ana1.getX1()==125 || ana1.getX1()==148 || ana1.getX1()==171 || ana.getX1()==194 || ana1.getX1()==240 || ana1.getX1()==263 || ana1.getX1()==286 || ana1.getX1()==309) && ana1.getY1()==240)
+    		||((ana1.getX1()==10 || ana1.getX1()==33 || ana1.getX1()==56 || ana1.getX1()==79 || ana1.getX1()==125 || ana1.getX1()==148 || ana1.getX1()==171 ||ana1.getX1()==194 || ana.getX1()==217 || ana1.getX1()==240 || ana1.getX1()==286) && ana1.getY1()==263 )
+    		||((ana1.getX1()==10 || ana1.getX1()==33 || ana1.getX1()==263 || ana1.getX1()==79 || ana1.getX1()==125 || ana1.getX1()==148 || ana1.getX1()==171 || ana1.getX1()==194 || ana.getX1()==217 || ana1.getX1()==240 || ana1.getX1()==286) && ana1.getY1()==286 )
     		||((ana1.getX1()==79 || ana1.getX1()==148 || ana1.getX1()==217) && ana1.getY1()==309 )
-    		||((ana1.getX1()==79 || ana1.getX1()==171) && ana1.getY1()==332))&&CanDead1==true ){
-    		int a = ana1.genererInt2(-20,20);//pour les y
-    		int b = ana1.genererInt(-20, 20);//pour les x
-    		if(a>0 && b>0) {
-    			ana1.setY1(1);
-        		ana1.setX1(0);
-    		}
-    		if(a>0 && b<0) {
-    			ana1.setY1(1);
-        		ana1.setX1(0);
-    		}
-    		if(a<0 && b>0) {
-    			ana1.setY1(-1);
-        		ana1.setX1(0);
-    		}
-    		if(a<0 && b<0) {
-    			ana1.setY1(-1);
-        		ana1.setX1(0);
-    		}
-    	}
-    	if(CanDead1==false) {
-    		ana1.setX1(0);
-    		ana1.setY1(0);
+    		||((ana1.getX1()==79 || ana1.getX1()==171) && ana1.getY1()==332))){
+    		Mouv_XD2=false;
+    	}else {
+    		Mouv_XD2=true;
     	}
     }
     private void Mouvement12D_M() {
@@ -338,76 +311,20 @@ public class Niveaux extends JPanel implements ActionListener {
     		||((ana2.getX1()==79 || ana2.getX1()==102 || ana2.getX1()==240 || ana2.getX1()==309 ) && ana2.getY1()==102)
     		||((ana2.getX1()==79 || ana2.getX1()==102 || ana2.getX1()==217 || ana2.getX1()==263 || ana2.getX1()==309) && ana2.getY1()==125)
     		||((ana2.getX1()==10 || ana2.getX1()==79 || ana2.getX1()==102 || ana2.getX1()==125 || ana2.getX1()==263 || ana2.getX1()==286 || ana2.getX1()==309) && ana2.getY1()==148)
+    		||((ana2.getX1()==10 || ana2.getX1()==125 || ana2.getX1()==148 || ana2.getX1()==171 || ana2.getX1()==194 || ana2.getX1()==263 || ana2.getX1()==286) && ana2.getY1()==171)
     		||((ana2.getX1()==10 || ana2.getX1()==33 || ana2.getX1()==56 || ana2.getX1()==79 || ana2.getX1()==102 || ana2.getX1()==125 || ana2.getX1()==148 || ana2.getX1()==171 || ana2.getX1()==194 || ana2.getX1()==240 || ana2.getX1()==263 || ana2.getX1()==286 || ana2.getX1()==309) && ana2.getY1()==194)
-    		||((ana2.getX1()==10 || ana2.getX1()==33 || ana2.getX1()==56 || ana2.getX1()==79 || ana2.getX1()==102 || ana2.getX1()==125 || ana2.getX1()==148 || ana2.getX1()==171 || ana2.getX1()==194 || ana2.getX1()==240 || ana2.getX1()==263 || ana2.getX1()==286 || ana2.getX1()==309) && ana2.getY1()==217)
+    		||((ana2.getX1()==10 || ana2.getX1()==33 || ana2.getX1()==56 || ana2.getX1()==79 || ana2.getX1()==102 || ana2.getX1()==125 || ana2.getX1()==148 || ana2.getX1()==171 || ana2.getX1()==194 || ana2.getX1()==240 || ana2.getX1()==263 || ana2.getX1()==217 ||ana2.getX1()==286 || ana2.getX1()==309) && ana2.getY1()==217)
     		||((ana2.getX1()==10 || ana2.getX1()==33 || ana2.getX1()==56 || ana2.getX1()==79 || ana2.getX1()==102 || ana2.getX1()==125 || ana2.getX1()==148 || ana2.getX1()==171 || ana2.getX1()==194 || ana2.getX1()==240 || ana2.getX1()==263 || ana2.getX1()==286 || ana2.getX1()==309) && ana2.getY1()==240)
     		||((ana2.getX1()==10 || ana2.getX1()==33 || ana2.getX1()==56 || ana2.getX1()==79 || ana2.getX1()==125 || ana2.getX1()==148 || ana2.getX1()==171 ||ana2.getX1()==194 || ana2.getX1()==217 || ana2.getX1()==240 || ana2.getX1()==286) && ana2.getY1()==263 )
     		||((ana2.getX1()==10 || ana2.getX1()==33 || ana2.getX1()==263 || ana2.getX1()==79 || ana2.getX1()==125 || ana2.getX1()==148 || ana2.getX1()==171 || ana2.getX1()==194 || ana2.getX1()==217 || ana2.getX1()==240 || ana2.getX1()==286) && ana2.getY1()==286 )
     		||((ana2.getX1()==79 || ana2.getX1()==148 || ana2.getX1()==217) && ana2.getY1()==309 )
-    		||((ana2.getX1()==79 || ana2.getX1()==171) && ana2.getY1()==332))&&CanDead2==true ){
-    		int a = ana2.genererInt2(-20,20);//pour les y
-    		int b = ana2.genererInt(-20, 20);//pour les x
-    		if(a>0 && b>0) {
-    			ana2.setY1(1);
-        		ana2.setX1(0);
-    		}
-    		if(a>0 && b<0) {
-    			ana2.setY1(1);
-        		ana2.setX1(0);
-    		}
-    		if(a<0 && b>0) {
-    			ana2.setY1(-1);
-        		ana2.setX1(0);
-    		}
-    		if(a<0 && b<0) {
-    			ana2.setY1(-1);
-        		ana2.setX1(0);
-    		}
-    	}
-    	if(CanDead2==false) {
-    		ana2.setX1(0);
-    		ana2.setY1(0);
+    		||((ana2.getX1()==79 || ana2.getX1()==171) && ana2.getY1()==332))){
+    		Mouv_XD3=false;
+    	}else {
+    		Mouv_XD3=true;
     	}
     }
-    private void Mouvement13D_M() {
-    	//System.out.println(obi.getX() + " / " + obi.getY());
-    	if((((ana3.getX1()==33 || ana3.getX1()==56 || ana3.getX1()==79 ) && ana3.getY1()==33)
-    		||((ana3.getX1()==33 || ana3.getX1()==56 || ana3.getX1()==79 || ana3.getX1()==263) && ana3.getY1()==56)
-    		||((ana3.getX1()==33 || ana3.getX1()==56 || ana3.getX1()==79 || ana3.getX1()==102 || ana3.getX1()==148) && ana3.getY1()==79)
-    		||((ana3.getX1()==79 || ana3.getX1()==102 || ana3.getX1()==240 || ana3.getX1()==309 ) && ana3.getY1()==102)
-    		||((ana3.getX1()==79 || ana3.getX1()==102 || ana3.getX1()==217 || ana3.getX1()==263 || ana3.getX1()==309) && ana3.getY1()==125)
-    		||((ana3.getX1()==10 || ana3.getX1()==79 || ana3.getX1()==102 || ana3.getX1()==125 || ana3.getX1()==263 || ana3.getX1()==286 || ana3.getX1()==309) && ana3.getY1()==148)
-    		||((ana3.getX1()==10 || ana3.getX1()==33 || ana3.getX1()==56 || ana3.getX1()==79 || ana3.getX1()==102 || ana3.getX1()==125 || ana3.getX1()==148 || ana3.getX1()==171 || ana3.getX1()==194 || ana3.getX1()==240 || ana3.getX1()==263 || ana3.getX1()==286 || ana3.getX1()==309) && ana3.getY1()==194)
-    		||((ana3.getX1()==10 || ana3.getX1()==33 || ana3.getX1()==56 || ana3.getX1()==79 || ana3.getX1()==102 || ana3.getX1()==125 || ana3.getX1()==148 || ana3.getX1()==171 || ana3.getX1()==194 || ana3.getX1()==240 || ana3.getX1()==263 || ana3.getX1()==286 || ana3.getX1()==309) && ana3.getY1()==217)
-    		||((ana3.getX1()==10 || ana3.getX1()==33 || ana3.getX1()==56 || ana3.getX1()==79 || ana3.getX1()==102 || ana3.getX1()==125 || ana3.getX1()==148 || ana3.getX1()==171 || ana3.getX1()==194 || ana3.getX1()==240 || ana3.getX1()==263 || ana3.getX1()==286 || ana3.getX1()==309) && ana3.getY1()==240)
-    		||((ana3.getX1()==10 || ana3.getX1()==33 || ana3.getX1()==56 || ana3.getX1()==79 || ana3.getX1()==125 || ana3.getX1()==148 || ana3.getX1()==171 ||ana3.getX1()==194 || ana3.getX1()==217 || ana3.getX1()==240 || ana3.getX1()==286) && ana3.getY1()==263 )
-    		||((ana3.getX1()==10 || ana3.getX1()==33 || ana3.getX1()==263 || ana3.getX1()==79 || ana3.getX1()==125 || ana3.getX1()==148 || ana3.getX1()==171 || ana3.getX1()==194 || ana3.getX1()==217 || ana3.getX1()==240 || ana3.getX1()==286) && ana3.getY1()==286 )
-    		||((ana3.getX1()==79 || ana3.getX1()==148 || ana3.getX1()==217) && ana3.getY1()==309 )
-    		||((ana3.getX1()==79 || ana3.getX1()==171) && ana3.getY1()==332))&&CanDead2==true ){
-    		int a = ana3.genererInt2(-20,20);//pour les y
-    		int b = ana3.genererInt(-20, 20);//pour les x
-    		if(a>0 && b>0) {
-    			ana3.setY1(1);
-        		ana3.setX1(0);
-    		}
-    		if(a>0 && b<0) {
-    			ana3.setY1(1);
-        		ana3.setX1(0);
-    		}
-    		if(a<0 && b>0) {
-    			ana3.setY1(-1);
-        		ana3.setX1(0);
-    		}
-    		if(a<0 && b<0) {
-    			ana3.setY1(-1);
-        		ana3.setX1(0);
-    		}
-    	}
-    	if(CanDead3==false) {
-    		ana3.setX1(0);
-    		ana3.setY1(0);
-    	}
-    }
+
     
     
     
@@ -426,34 +343,10 @@ public class Niveaux extends JPanel implements ActionListener {
     		||((ana.getX1()==33 || ana.getX1()==56 || ana.getX1()==79 || ana.getX1()==102 || ana.getX1()==148 || ana.getX1()==171 || ana.getX1()==194 || ana.getX1()==217 || ana.getX1()==240 || ana.getX1()==263 || ana.getX1()==309  ) && ana.getY1()==263 )
     		||((ana.getX1()==33 || ana.getX1()==56 || ana.getX1()==286 || ana.getX1()==102 || ana.getX1()==148 || ana.getX1()==171 || ana.getX1()==194 || ana.getX1()==217 || ana.getX1()==240 || ana.getX1()==263 || ana.getX1()==309  ) && ana.getY1()==286 )
     		||((ana.getX1()==102 || ana.getX1()==171 || ana.getX1()==240  ) && ana.getY1()==309 )
-    		||((ana.getX1()==102 || ana.getX1()==194  ) && ana.getY1()==332))&& CanDead==true ){
-    		int a = ana.genererInt2(-20,20);//pour les y
-    		int b = ana.genererInt(-20, 20);//pour les x 
-    		if(a>0 && b>0) {
-    			ana.setY1(1);
-        		ana.setX1(1);
-    		}
-    		if(a>0 && b<0) {
-    			ana.setY1(1);
-        		ana.setX1(0);
-    		}
-    		if(a<0 && b>0) {
-    			ana.setY1(-1);
-        		ana.setX1(1);
-    		}
-    		if(a<0 && b<0) {
-    			ana.setY1(-1);
-        		ana.setX1(0);
-    		}
+    		||((ana.getX1()==102 || ana.getX1()==194  ) && ana.getY1()==332)) ){
+    		Mouv_XG1=false;
     	}else {
-    		int c = ana.genererInt2(-1,1);//x
-    		int d = ana.genererInt(-1, 1);//y
-    		ana.setY1(c);
-    		ana.setX1(d);
-    }
-    	if(CanDead==false) {
-    		ana.setX1(0);
-    		ana.setY1(0);
+    		Mouv_XG1=true;
     	}
   }
     private void Mouvement11G_M() {
@@ -471,34 +364,10 @@ public class Niveaux extends JPanel implements ActionListener {
     		||((ana1.getX1()==33 || ana1.getX1()==56 || ana1.getX1()==79 || ana1.getX1()==102 || ana1.getX1()==148 || ana1.getX1()==171 || ana1.getX1()==194 || ana1.getX1()==217 || ana1.getX1()==240 || ana1.getX1()==263 || ana1.getX1()==309  ) && ana1.getY1()==263 )
     		||((ana1.getX1()==33 || ana1.getX1()==56 || ana1.getX1()==286 || ana1.getX1()==102 || ana1.getX1()==148 || ana1.getX1()==171 || ana1.getX1()==194 || ana1.getX1()==217 || ana1.getX1()==240 || ana1.getX1()==263 || ana1.getX1()==309  ) && ana1.getY1()==286 )
     		||((ana1.getX1()==102 || ana1.getX1()==171 || ana1.getX1()==240  ) && ana1.getY1()==309 )
-    		||((ana1.getX1()==102 || ana1.getX1()==194  ) && ana1.getY1()==332))&& CanDead1==true ){
-    		int a = ana1.genererInt2(-20,20);//pour les y
-    		int b = ana1.genererInt(-20, 20);//pour les x 
-    		if(a>0 && b>0) {
-    			ana1.setY1(1);
-        		ana1.setX1(1);
-    		}
-    		if(a>0 && b<0) {
-    			ana1.setY1(1);
-        		ana1.setX1(0);
-    		}
-    		if(a<0 && b>0) {
-    			ana1.setY1(-1);
-        		ana1.setX1(1);
-    		}
-    		if(a<0 && b<0) {
-    			ana1.setY1(-1);
-        		ana1.setX1(0);
-    		}
+    		||((ana1.getX1()==102 || ana1.getX1()==194  ) && ana1.getY1()==332))){
+    		Mouv_XG2=false;
     	}else {
-    		int c = ana1.genererInt2(-1,1);//x
-    		int d = ana1.genererInt(-1, 1);//y
-    		ana1.setY1(c);
-    		ana1.setX1(d);
-    }
-    	if(CanDead1==false) {
-    		ana1.setX1(0);
-    		ana1.setY1(0);
+    		Mouv_XG2=true;
     	}
   }
     private void Mouvement12G_M() {
@@ -516,79 +385,10 @@ public class Niveaux extends JPanel implements ActionListener {
     		||((ana2.getX1()==33 || ana2.getX1()==56 || ana2.getX1()==79 || ana2.getX1()==102 || ana2.getX1()==148 || ana2.getX1()==171 || ana2.getX1()==194 || ana2.getX1()==217 || ana2.getX1()==240 || ana2.getX1()==263 || ana2.getX1()==309  ) && ana2.getY1()==263 )
     		||((ana2.getX1()==33 || ana2.getX1()==56 || ana2.getX1()==286 || ana2.getX1()==102 || ana2.getX1()==148 || ana2.getX1()==171 || ana2.getX1()==194 || ana2.getX1()==217 || ana2.getX1()==240 || ana2.getX1()==263 || ana2.getX1()==309  ) && ana2.getY1()==286 )
     		||((ana2.getX1()==102 || ana2.getX1()==171 || ana2.getX1()==240  ) && ana2.getY1()==309 )
-    		||((ana2.getX1()==102 || ana2.getX1()==194  ) && ana2.getY1()==332))&& CanDead2==true ){
-    		int a = ana2.genererInt2(-20,20);//pour les y
-    		int b = ana2.genererInt(-20, 20);//pour les x 
-    		if(a>0 && b>0) {
-    			ana2.setY1(1);
-        		ana2.setX1(1);
-    		}
-    		if(a>0 && b<0) {
-    			ana2.setY1(1);
-        		ana2.setX1(0);
-    		}
-    		if(a<0 && b>0) {
-    			ana2.setY1(-1);
-        		ana2.setX1(1);
-    		}
-    		if(a<0 && b<0) {
-    			ana2.setY1(-1);
-        		ana2.setX1(0);
-    		}
+    		||((ana2.getX1()==102 || ana2.getX1()==194  ) && ana2.getY1()==332))){
+    		Mouv_XG3=false;
     	}else {
-    		int c = ana2.genererInt2(-1,1);//x
-    		int d = ana2.genererInt(-1, 1);//y
-    		ana2.setY1(c);
-    		ana2.setX1(d);
-    }
-    	if(CanDead2==false) {
-    		ana2.setX1(0);
-    		ana2.setY1(0);
-    	}
-  }
-    private void Mouvement13G_M() {
-    	//System.out.println(obi.getX() + " / " + obi.getY());
-    	if((((ana3.getX1()==56 || ana3.getX1()==79 || ana3.getX1()==102) && ana3.getY1()==33)
-    		||((ana3.getX1()==56 || ana3.getX1()==79 ||ana3.getX1()==102 || ana3.getX1()==286) && ana3.getY1()==56)
-    		||((ana3.getX1()==56 || ana3.getX1()==79 || ana3.getX1()==102 || ana3.getX1()==125 || ana3.getX1()==171) && ana3.getY1()==79)
-    		||((ana3.getX1()==102 || ana3.getX1()==125 || ana3.getX1()==263 || ana3.getX1()==332 || ana3.getX1()-23==263) && ana3.getY1()==102)
-    		||((ana3.getX1()==102 || ana3.getX1()==125 || ana3.getX1()==240 || ana3.getX1()==286 || ana3.getX1()==332) && ana3.getY1()==125)
-    		||((ana3.getX1()==33 || ana3.getX1()==102 || ana3.getX1()==125 || ana3.getX1()==148 || ana3.getX1()==286 || ana3.getX1()==309 || ana3.getX1()==332) && ana3.getY1()==148)
-    		||((ana3.getX1()==33 || ana3.getX1()==148|| ana3.getX1()==171 || ana3.getX1()==194 || ana3.getX1()==217 || ana3.getX1()==286 || ana3.getX1()==309 ) && ana3.getY1()==171)
-    		||((ana3.getX1()==33 || ana3.getX1()==56 || ana3.getX1()==79 || ana3.getX1()==102 || ana3.getX1()==125 || ana3.getX1()==148 || ana3.getX1()==171 || ana3.getX1()==194 || ana3.getX1()==217 || ana3.getX1()==263 || ana3.getX1()==286 || ana3.getX1()==309 || ana3.getX1()==332 ) && ana3.getY1()==194)
-    		||((ana3.getX1()==33 || ana3.getX1()==56 || ana3.getX1()==79 || ana3.getX1()==102 || ana3.getX1()==125 || ana3.getX1()==148 || ana3.getX1()==171 || ana3.getX1()==194 || ana3.getX1()==217 || ana3.getX1()==263 || ana3.getX1()==286 || ana3.getX1()==309 || ana3.getX1()==332 ) && ana3.getY1()==217)
-    		||((ana3.getX1()==33 || ana3.getX1()==56 || ana3.getX1()==79 || ana3.getX1()==102 || ana3.getX1()==125 || ana3.getX1()==148 || ana3.getX1()==171 || ana3.getX1()==194 || ana3.getX1()==217 || ana3.getX1()==263 || ana3.getX1()==286 || ana3.getX1()==309 || ana3.getX1()==332 ) && ana3.getY1()==240)
-    		||((ana3.getX1()==33 || ana3.getX1()==56 || ana3.getX1()==79 || ana3.getX1()==102 || ana3.getX1()==148 || ana3.getX1()==171 || ana3.getX1()==194 || ana3.getX1()==217 || ana3.getX1()==240 || ana3.getX1()==263 || ana3.getX1()==309  ) && ana3.getY1()==263 )
-    		||((ana3.getX1()==33 || ana3.getX1()==56 || ana3.getX1()==286 || ana3.getX1()==102 || ana3.getX1()==148 || ana3.getX1()==171 || ana3.getX1()==194 || ana3.getX1()==217 || ana3.getX1()==240 || ana3.getX1()==263 || ana3.getX1()==309  ) && ana3.getY1()==286 )
-    		||((ana3.getX1()==102 || ana3.getX1()==171 || ana3.getX1()==240  ) && ana3.getY1()==309 )
-    		||((ana3.getX1()==102 || ana3.getX1()==194  ) && ana3.getY1()==332))&& CanDead3==true ){
-    		int a = ana3.genererInt2(-20,20);//pour les y
-    		int b = ana3.genererInt(-20, 20);//pour les x 
-    		if(a>0 && b>0) {
-    			ana3.setY1(1);
-        		ana3.setX1(1);
-    		}
-    		if(a>0 && b<0) {
-    			ana3.setY1(1);
-        		ana3.setX1(0);
-    		}
-    		if(a<0 && b>0) {
-    			ana3.setY1(-1);
-        		ana3.setX1(1);
-    		}
-    		if(a<0 && b<0) {
-    			ana3.setY1(-1);
-        		ana3.setX1(0);
-    		}
-    	}else {
-    		int c = ana3.genererInt2(-1,1);//x
-    		int d = ana3.genererInt(-1, 1);//y
-    		ana3.setY1(c);
-    		ana3.setX1(d);
-    }
-    	if(CanDead3==false) {
-    		ana3.setX1(0);
-    		ana3.setY1(0);
+    		Mouv_XG3=true;
     	}
   }
     private void Mouvement1G() {
@@ -651,28 +451,9 @@ public class Niveaux extends JPanel implements ActionListener {
     	   || (ana.getX1()==286 && (ana.getY1()==79 || ana.getY1()==102 || ana.getY1()==286 || ana.getY1()==309))
     	   || (ana.getX1()==309 && (ana.getY1()==79 || ana.getY1()== 240 || ana.getY1()==309))
     	   || (ana.getX1()==332 && (ana.getY1()==194 || ana.getY1()==309)))&&CanDead==true) {
-    		int a = ana.genererInt2(-20,20);//pour les y
-    		int b = ana.genererInt(-20, 20);//pour les x 
-    		if(a>0 && b>0) {
-    			ana.setY1(0);
-        		ana.setX1(1);
-    		}
-    		if(a>0 && b<0) {
-    			ana.setY1(0);
-        		ana.setX1(-1);
-    		}
-    		if(a<0 && b>0) {
-    			ana.setY1(-1);
-        		ana.setX1(1);
-    		}
-    		if(a<0 && b<0) {
-    			ana.setY1(-1);
-        		ana.setX1(-1);
-    		}
-    	}
-    	if(CanDead==false) {
-    		ana.setX1(0);
-    		ana.setY1(0);
+    		Mouv_XB1=false;
+    	}else {
+    		Mouv_XB1=true;
     	}
     	
     }
@@ -691,31 +472,11 @@ public class Niveaux extends JPanel implements ActionListener {
     	   || (ana1.getX1()==263 && (ana1.getY1()==10 || ana1.getY1()==33 || ana1.getY1()==79 || ana1.getY1()==102 || ana1.getY1()==148 ||  ana1.getY1()== 309))
     	   || (ana1.getX1()==286 && (ana1.getY1()==79 || ana1.getY1()==102 || ana1.getY1()==286 || ana1.getY1()==309))
     	   || (ana1.getX1()==309 && (ana1.getY1()==79 || ana1.getY1()== 240 || ana1.getY1()==309))
-    	   || (ana1.getX1()==332 && (ana1.getY1()==194 || ana1.getY1()==309)))&&CanDead1==true) {
-    		int a = ana1.genererInt2(-20,20);//pour les y
-    		int b = ana1.genererInt(-20, 20);//pour les x 
-    		if(a>0 && b>0) {
-    			ana1.setY1(0);
-        		ana1.setX1(1);
-    		}
-    		if(a>0 && b<0) {
-    			ana1.setY1(0);
-        		ana1.setX1(-1);
-    		}
-    		if(a<0 && b>0) {
-    			ana1.setY1(-1);
-        		ana1.setX1(1);
-    		}
-    		if(a<0 && b<0) {
-    			ana1.setY1(-1);
-        		ana1.setX1(-1);
-    		}
-    	}
-    	if(CanDead1==false) {
-    		ana1.setX1(0);
-    		ana1.setY1(0);
-    	}
-    	
+    	   || (ana1.getX1()==332 && (ana1.getY1()==194 || ana1.getY1()==309)))) {
+    		Mouv_XB2=false;
+    	}else {
+    		Mouv_XB2=true;
+    	}	
     }
     private void Mouvement12B_M() {
     	if(((ana2.getX1()==10 && (ana2.getY1()==148))
@@ -732,75 +493,16 @@ public class Niveaux extends JPanel implements ActionListener {
     	   || (ana2.getX1()==263 && (ana2.getY1()==10 || ana2.getY1()==33 || ana2.getY1()==79 || ana2.getY1()==102 || ana2.getY1()==148 ||  ana2.getY1()== 309))
     	   || (ana2.getX1()==286 && (ana2.getY1()==79 || ana2.getY1()==102 || ana2.getY1()==286 || ana2.getY1()==309))
     	   || (ana2.getX1()==309 && (ana2.getY1()==79 || ana2.getY1()== 240 || ana2.getY1()==309))
-    	   || (ana2.getX1()==332 && (ana2.getY1()==194 || ana2.getY1()==309)))&&CanDead2==true) {
-    		int a = ana2.genererInt2(-20,20);//pour les y
-    		int b = ana2.genererInt(-20, 20);//pour les x 
-    		if(a>0 && b>0) {
-    			ana2.setY1(0);
-        		ana2.setX1(1);
-    		}
-    		if(a>0 && b<0) {
-    			ana2.setY1(0);
-        		ana2.setX1(-1);
-    		}
-    		if(a<0 && b>0) {
-    			ana2.setY1(-1);
-        		ana2.setX1(1);
-    		}
-    		if(a<0 && b<0) {
-    			ana2.setY1(-1);
-        		ana2.setX1(-1);
-    		}
-    	}
-    	if(CanDead2==false) {
-    		ana2.setX1(0);
-    		ana2.setY1(0);
+    	   || (ana2.getX1()==332 && (ana2.getY1()==194 || ana2.getY1()==309)))) {
+    		Mouv_XB3=false;
+    	}else {
+    		Mouv_XB3=true;
     	}
     	
     }
-    private void Mouvement13B_M() {
-    	if(((ana3.getX1()==10 && (ana3.getY1()==148))
-    	   || (ana3.getX1()==33 &&(ana3.getY1()==125 ||ana3.getY1()==171))
-    	   || (ana3.getX1()==56 &&(ana3.getY1()==79 || ana3.getY1()==125 || ana3.getY1()==171))
-    	   || (ana3.getX1()==79 &&(ana3.getY1()==79 || ana3.getY1()==125))
-    	   || (ana3.getX1()== 102 &&(ana3.getY1()==10 || ana3.getY1()==33 || ana3.getY1()==171))
-    	   || (ana3.getX1()== 125 &&(ana3.getY1()==10 || ana3.getY1()==33 || ana3.getY1()==56))
-    	   || (ana3.getX1()==148 && (ana3.getY1()==10 ||ana3.getY1()==56 || ana3.getY1()==33 || ana3.getY1()==56 || ana3.getY1()==125))
-    	   || (ana3.getX1()==171 && (ana3.getY1()==10 || ana3.getY1()==33 || ana3.getY1()==79 || ana3.getY1()==102 || ana3.getY1()==125 || ana3.getY1()==148))
-    	   || (ana3.getX1()==194 && (ana3.getY1()==10 || ana3.getY1()==33 || ana3.getY1()==79 || ana3.getY1()==102 || ana3.getY1()==125 || ana3.getY1()==263))
-    	   || (ana3.getX1()==217 && (ana3.getY1()==10 || ana3.getY1()==33 || ana3.getY1()==79 || ana3.getY1()==102 || ana3.getY1()==125 || ana3.getY1()==148 || ana3.getY1()== 309))
-    	   || (ana3.getX1()==240 && (ana3.getY1()==10 || ana3.getY1()==33 || ana3.getY1()==79 || ana3.getY1()==125 || ana3.getY1()==148 || ana3.getY1()==171 || ana3.getY1()== 309))
-    	   || (ana3.getX1()==263 && (ana3.getY1()==10 || ana3.getY1()==33 || ana3.getY1()==79 || ana3.getY1()==102 || ana3.getY1()==148 ||  ana3.getY1()== 309))
-    	   || (ana3.getX1()==286 && (ana3.getY1()==79 || ana3.getY1()==102 || ana3.getY1()==286 || ana3.getY1()==309))
-    	   || (ana3.getX1()==309 && (ana3.getY1()==79 || ana3.getY1()== 240 || ana3.getY1()==309))
-    	   || (ana3.getX1()==332 && (ana3.getY1()==194 || ana3.getY1()==309)))&&CanDead3==true) {
-    		int a = ana3.genererInt2(-20,20);//pour les y
-    		int b = ana3.genererInt(-20, 20);//pour les x 
-    		if(a>0 && b>0) {
-    			ana3.setY1(0);
-        		ana3.setX1(1);
-    		}
-    		if(a>0 && b<0) {
-    			ana3.setY1(0);
-        		ana3.setX1(-1);
-    		}
-    		if(a<0 && b>0) {
-    			ana3.setY1(-1);
-        		ana3.setX1(1);
-    		}
-    		if(a<0 && b<0) {
-    			ana3.setY1(-1);
-        		ana3.setX1(-1);
-    		}
-    	}
-    	if(CanDead3==false) {
-    		ana3.setX1(0);
-    		ana3.setY1(0);
-    	}
-    	
-    }
+
     private void Mouvement1H() {
-    	if((obi.getX()==10 && (obi.getY()==171))
+    	if		    ((obi.getX()==10 && (obi.getY()==171))
     	    	   || (obi.getX()==33 &&(obi.getY()==148 || obi.getY()==194))
     	    	   || (obi.getX()==56 &&(obi.getY()==102 || obi.getY()==148 || obi.getY()==194))
     	    	   || (obi.getX()==79 &&(obi.getY()==102 || obi.getY()==148))
@@ -836,28 +538,9 @@ public class Niveaux extends JPanel implements ActionListener {
     	    	   || (ana.getX1()==286 && (ana.getY1()==102 || ana.getY1()==125 || ana.getY1()==309 || ana.getY1()==332))
     	    	   || (ana.getX1()==309 && (ana.getY1()==102 || ana.getY1()==263 || ana.getY1()==332))
     	    	   || (ana.getX1()==332 && (ana.getY1()==217 || ana.getY1()==332 )))&&CanDead==true) {
-    			int a = ana.genererInt2(-20,20);//pour les y
-    			int b = ana.genererInt(-20, 20);//pour les x 
-    			if(a>0 && b>0) {
-    			ana.setY1(1);
-        		ana.setX1(1);
-    			}
-    			if(a>0 && b<0) {
-    			ana.setY1(1);
-        		ana.setX1(-1);
-    			}
-    			if(a<0 && b>0) {
-    			ana.setY1(0);
-        		ana.setX1(1);
-    			}
-    			if(a<0 && b<0) {
-    			ana.setY1(0);
-        		ana.setX1(-1);
-    			}
-    		}
-    	if(CanDead==false) {
-    		ana.setX1(0);
-    		ana.setY1(0);
+    				Mouv_XH1=false;
+    			}else {
+    				Mouv_XH1=true;
     	}
     }
     private void Mouvement11H_M() {
@@ -875,29 +558,10 @@ public class Niveaux extends JPanel implements ActionListener {
     	    	   || (ana1.getX1()==263 && (ana1.getY1()==33 || ana1.getY1()==56 || ana1.getY1()==102 || ana1.getY1()==125 || ana1.getY1()==171 || ana1.getY1()==332))
     	    	   || (ana1.getX1()==286 && (ana1.getY1()==102 || ana1.getY1()==125 || ana1.getY1()==309 || ana1.getY1()==332))
     	    	   || (ana1.getX1()==309 && (ana1.getY1()==102 || ana1.getY1()==263 || ana1.getY1()==332))
-    	    	   || (ana1.getX1()==332 && (ana1.getY1()==217 || ana1.getY1()==332 )))&&CanDead1==true) {
-    			int a = ana1.genererInt2(-20,20);//pour les y
-    			int b = ana1.genererInt(-20, 20);//pour les x 
-    			if(a>0 && b>0) {
-    			ana1.setY1(1);
-        		ana1.setX1(1);
-    			}
-    			if(a>0 && b<0) {
-    			ana1.setY1(1);
-        		ana1.setX1(-1);
-    			}
-    			if(a<0 && b>0) {
-    			ana1.setY1(0);
-        		ana1.setX1(1);
-    			}
-    			if(a<0 && b<0) {
-    			ana1.setY1(0);
-        		ana1.setX1(-1);
-    			}
-    		}
-    	if(CanDead1==false) {
-    		ana1.setX1(0);
-    		ana1.setY1(0);
+    	    	   || (ana1.getX1()==332 && (ana1.getY1()==217 || ana1.getY1()==332 )))) {
+    				Mouv_XH2=false;
+    			}else {
+    				Mouv_XH2=true;
     	}
     }
     private void Mouvement12H_M() {
@@ -915,71 +579,13 @@ public class Niveaux extends JPanel implements ActionListener {
     	    	   || (ana2.getX1()==263 && (ana2.getY1()==33 || ana2.getY1()==56 || ana2.getY1()==102 || ana2.getY1()==125 || ana2.getY1()==171 || ana2.getY1()==332))
     	    	   || (ana2.getX1()==286 && (ana2.getY1()==102 || ana2.getY1()==125 || ana2.getY1()==309 || ana2.getY1()==332))
     	    	   || (ana2.getX1()==309 && (ana2.getY1()==102 || ana2.getY1()==263 || ana2.getY1()==332))
-    	    	   || (ana2.getX1()==332 && (ana2.getY1()==217 || ana2.getY1()==332 )))&&CanDead2==true) {
-    			int a = ana2.genererInt2(-20,20);//pour les y
-    			int b = ana2.genererInt(-20, 20);//pour les x 
-    			if(a>0 && b>0) {
-    			ana2.setY1(1);
-        		ana2.setX1(1);
-    			}
-    			if(a>0 && b<0) {
-    			ana2.setY1(1);
-        		ana2.setX1(-1);
-    			}
-    			if(a<0 && b>0) {
-    			ana2.setY1(0);
-        		ana2.setX1(1);
-    			}
-    			if(a<0 && b<0) {
-    			ana2.setY1(0);
-        		ana2.setX1(-1);
-    			}
-    		}
-    	if(CanDead2==false) {
-    		ana2.setX1(0);
-    		ana2.setY1(0);
+    	    	   || (ana2.getX1()==332 && (ana2.getY1()==217 || ana2.getY1()==332 )))) {
+    				Mouv_XH3=false;
+    			}else {
+    				Mouv_XH3=true;
     	}
     }
-    private void Mouvement13H_M() {
-    	if(		   ((ana3.getX1()==10 && (ana3.getY1()==171))
-    	    	   || (ana3.getX1()==33 &&(ana3.getY1()==148 || ana3.getY1()==194))
-    	    	   || (ana3.getX1()==56 &&(ana3.getY1()==102 ||ana3.getY1()==148 || ana3.getY1()==194))
-    	    	   || (ana3.getX1()==79 &&(ana3.getY1()==102 || ana3.getY1()==148))
-    	    	   || (ana3.getX1()== 102 &&(ana3.getY1()==33 || ana3.getY1()==56 || ana3.getY1()==194))
-    	    	   || (ana3.getX1()== 125 &&(ana3.getY1()==33 || ana3.getY1()==56 || ana3.getY1()==79))
-    	    	   || (ana3.getX1()==148 && (ana3.getY1()==33 || ana3.getY1()==79 || ana3.getY1()==56 || ana3.getY1()==79 || ana3.getY1()==148))
-    	    	   || (ana3.getX1()==171 && (ana3.getY1()==33 ||ana3.getY1()==56 || ana3.getY1()==102 || ana3.getY1()==125 || ana3.getY1()==148 || ana3.getY1()==171))
-    	    	   || (ana3.getX1()==194 && (ana3.getY1()==33 || ana3.getY1()==56 || ana3.getY1()==102 || ana3.getY1()==125 || ana3.getY1()==148 || ana3.getY1()==286))
-    	    	   || (ana3.getX1()==217 && (ana3.getY1()==33 || ana3.getY1()==56 || ana3.getY1()==102 || ana3.getY1()==125 || ana3.getY1()==148 || ana3.getY1()==171 || ana3.getY1()==332))
-    	    	   || (ana3.getX1()==240 && (ana3.getY1()==33 || ana3.getY1()==56 || ana3.getY1()==102 || ana3.getY1()==148 || ana3.getY1()==171 || ana3.getY1()==194 || ana3.getY1()==332))
-    	    	   || (ana3.getX1()==263 && (ana3.getY1()==33 || ana3.getY1()==56 || ana3.getY1()==102 || ana3.getY1()==125 || ana3.getY1()==171 || ana3.getY1()==332))
-    	    	   || (ana3.getX1()==286 && (ana3.getY1()==102 || ana3.getY1()==125 || ana3.getY1()==309 || ana3.getY1()==332))
-    	    	   || (ana3.getX1()==309 && (ana3.getY1()==102 || ana3.getY1()==263 || ana3.getY1()==332))
-    	    	   || (ana3.getX1()==332 && (ana3.getY1()==217 || ana3.getY1()==332 )))&&CanDead3==true) {
-    			int a = ana3.genererInt2(-20,20);//pour les y
-    			int b = ana3.genererInt(-20, 20);//pour les x 
-    			if(a>0 && b>0) {
-    			ana3.setY1(1);
-        		ana3.setX1(1);
-    			}
-    			if(a>0 && b<0) {
-    			ana3.setY1(1);
-        		ana3.setX1(-1);
-    			}
-    			if(a<0 && b>0) {
-    			ana3.setY1(0);
-        		ana3.setX1(1);
-    			}
-    			if(a<0 && b<0) {
-    			ana3.setY1(0);
-        		ana3.setX1(-1);
-    			}
-    		}
-    	if(CanDead3==false) {
-    		ana3.setX1(0);
-    		ana3.setY1(0);
-    	}
-    }
+    
     
     private void Mouvement2D() {
     	//System.out.println(obi.getX() + " / " + obi.getY());
@@ -1074,13 +680,13 @@ public class Niveaux extends JPanel implements ActionListener {
 
     private void Jouer(Graphics2D g2d) {
     	if(compteur==1) {
-    	if(((obi.getX()==ana.getX1() && obi.getY()==ana.getY1())&&CanDead==true||(obi.getX()==ana1.getX1() && obi.getY()==ana1.getY1())&&CanDead1==true||(obi.getX()==ana2.getX1() && obi.getY()==ana2.getY1())&&CanDead2==true||(obi.getX()==ana3.getX1() && obi.getY()==ana3.getY1() && CanDead3==true))) {
+    	if(((obi.getX()==ana.getX1() && obi.getY()==ana.getY1())&&Swap==0||(obi.getX()==ana1.getX1() && obi.getY()==ana1.getY1())&&Swap==1||(obi.getX()==ana2.getX1() && obi.getY()==ana2.getY1())&&Swap==2)) {
     		obi.setV(-1);
     	}
     else if (obi.getV()<=0) {
     		Enjeu=false;
     		System.out.println("Defaite");
-        	String Victoire = "Vous perdu";
+        	String Victoire = "Vous avez perdu";
             g2d.setColor(Color.RED);
             g2d.drawString(Victoire, (Taille_ecran)/4, 175);
     		
@@ -1095,7 +701,7 @@ public class Niveaux extends JPanel implements ActionListener {
             obi.setX(-14);
             obi.setY(-14);
         }
-    	else if(seconde >=3600) {
+    	else if(seconde >=60) {
     		Enjeu=false;
     		String Victoire = "Vous avez manqué de temps";
             g2d.setColor(Color.YELLOW);
@@ -1103,6 +709,7 @@ public class Niveaux extends JPanel implements ActionListener {
     		
     	}
          else {
+        	//System.out.println(ana.getX1()+"/ "+ana.getY1());
         	Teleportation();
         	Verif();
         	Dessine_jedi(g2d); 
@@ -1120,34 +727,18 @@ public class Niveaux extends JPanel implements ActionListener {
         	Dessine_cle(g2d);
         	Mouvement1H();
         	Affiche_Artillerie(g2d);
-        	//System.out.println(cmp +" " + a1+ " " + seconde);
-        	if(cmp<2 && a1==seconde-1 && CanDead==true) {
-        	cmp++;
-        	a1 = heure.getTime();
         	Mouvement1D_M();
-        	Mouvement11D_M();
-        	Mouvement12D_M();
-        	Mouvement13D_M();
         	Mouvement1G_M();
-        	Mouvement11G_M();
-        	Mouvement12G_M();
-        	Mouvement13G_M();
         	Mouvement1B_M();
-        	Mouvement12B_M();
-        	Mouvement11B_M();
-        	Mouvement13B_M();
         	Mouvement1H_M();
+        	Mouvement11D_M();
+        	Mouvement11G_M();
+        	Mouvement11B_M();
         	Mouvement11H_M();
+        	Mouvement12D_M();
+        	Mouvement12G_M();
+        	Mouvement12B_M();
         	Mouvement12H_M();
-        	Mouvement13H_M();
-        	//System.out.println("ta");
-        	}
-        	else if (a1!=seconde) {
-        		cmp=1;
-        	}
-        	
-        	
-        	
         	Dessine_Vie(g2d);
         	Verif2();
          }
@@ -1171,7 +762,7 @@ public class Niveaux extends JPanel implements ActionListener {
                }
     		else if(seconde >=3600) {
         		Enjeu=false;
-        		String Victoire = "Vous avez manqué de temps";
+        		String Victoire = "Vous avez gagné";
                 g2d.setColor(Color.YELLOW);
                 g2d.drawString(Victoire, (Taille_ecran)/4, 175);
         		
@@ -1206,7 +797,6 @@ public class Niveaux extends JPanel implements ActionListener {
     	g2d.drawImage(this.Mechant, ana.getX1()-7, ana.getY1()-7, 18, 18, null);
     	g2d.drawImage(this.Mechant, ana1.getX1()-7, ana1.getY1()-7, 18, 18, null);
     	g2d.drawImage(this.Mechant, ana2.getX1()-7, ana2.getY1()-7, 18, 18, null);
-    	g2d.drawImage(this.Mechant, ana3.getX1()-7, ana3.getY1()-7, 18, 18, null);
     	//g2d.drawImage(heros,ana.getX1()-7, ana.getY1()-7,this);
     	//System.out.println(ana.getX1()+"/ "+ ana.getY1());
     }
@@ -1330,21 +920,17 @@ public class Niveaux extends JPanel implements ActionListener {
 		g2d.drawImage(this.mortbis, 171-7, 309-7, 18, 18, null);
     }
     private void Dessine_mort(Graphics2D g2d) {
-    	if(CanDead==false) {
+    	if(Swap !=0) {
     		this.mort=this.mort1.getImage();
     		g2d.drawImage(this.mort, ana.getX1()-7, ana.getY1()-7, 18, 18, null);
     	}
-    	if(CanDead1==false) {
+    	if(Swap !=1) {
     		this.mort=this.mort1.getImage();
     		g2d.drawImage(this.mort, ana1.getX1()-7, ana1.getY1()-7, 18, 18, null);
     	}
-    	if(CanDead2==false) {
+    	if(Swap !=2) {
     		this.mort=this.mort1.getImage();
     		g2d.drawImage(this.mort, ana2.getX1()-7, ana2.getY1()-7, 18, 18, null);
-    	}
-    	if(CanDead3==false) {
-    		this.mort=this.mort1.getImage();
-    		g2d.drawImage(this.mort, ana3.getX1()-7, ana3.getY1()-7, 18, 18, null);
     	}
     }
     private void initNiveau() {
@@ -1410,44 +996,26 @@ public class Niveaux extends JPanel implements ActionListener {
             int key = e.getKeyCode();
 
             if (Enjeu) {
-            	if(key==KeyEvent.VK_Z && artillerie>=1) {
-            		artillerie--;
-            		Munition munition = new Munition(obi.getX(),obi.getY());
-            		if(munition.GetX2()==ana.getX1()) {
-            			CanDead=false;
-            		} 
-            		if(munition.GetX2()==ana1.getX1()) {
-            			CanDead1=false;
-            		}
-            		if(munition.GetX2()==ana2.getX1()) {
-            			CanDead2=false;
-            		}
-            		if(munition.GetX2()==ana3.getX1()) {
-            			CanDead3=false;
-            		}
-            	}
-            	if(key==KeyEvent.VK_D  && artillerie>=0) {
-            		artillerie--;
-            		Munition munition = new Munition(obi.getX(),obi.getY());
-            		if(munition.GetY2()==ana.getY1()) {
-            			CanDead=false;
-            		}
-            		if(munition.GetY2()==ana1.getY1()) {
-            			CanDead1=false;
-            		}
-            		if(munition.GetY2()==ana2.getY1()) {
-            			CanDead2=false;
-            		}
-            		if(munition.GetY2()==ana3.getY1()) {
-            			CanDead3=false;
-            		}
+            	if(artillerie>0) {
+            	if (key == KeyEvent.VK_P) {
+                	artillerie--;
+                	if(((ana.getX1()==obi.getX()&&(ana.getY1()==obi.getY()+23|| ana.getY1()==obi.getY()-23))||(ana.getY1()==obi.getY()&&(ana.getX1()==obi.getX()+23|| ana.getX1()==obi.getX()-23)))&& Swap==0&& artillerie>0) {
+                		Swap=1;
+                	}
+                	if(((ana1.getX1()==obi.getX()&&(ana1.getY1()==obi.getY()+23|| ana1.getY1()==obi.getY()-23))||(ana1.getY1()==obi.getY()&&(ana1.getX1()==obi.getX()+23|| ana1.getX1()==obi.getX()-23)))&& Swap==1&& artillerie>0) {
+                		Swap=2;
+                	}
+                	if(((ana2.getX1()==obi.getX()&&(ana2.getY1()==obi.getY()+23|| ana2.getY1()==obi.getY()-23))||(ana2.getY1()==obi.getY()&&(ana2.getX1()==obi.getX()+23|| ana2.getX1()==obi.getX()-23)))&& Swap==2&& artillerie>0) {
+                		Swap=0;
+                	}
+                }
             	}
                 if (key == KeyEvent.VK_LEFT) {
                 	if (Mouv_XG==true) {
                 		obi.setX(-1);
-                	}else {
-                   obi.setX(0);
-                	}
+                		}else {
+                			obi.setX(0);
+                		}
                 }
                 	else if (key == KeyEvent.VK_RIGHT) {
                 	if(Mouv_XD==true) {
@@ -1462,16 +1030,122 @@ public class Niveaux extends JPanel implements ActionListener {
                 		obi.setY(0);
                 	}
                 	
-                } else if (key == KeyEvent.VK_DOWN) {
-                	if(Mouv_XB==true) {
+                } else if (key == KeyEvent.VK_DOWN)
+                {
+                		if(Mouv_XB==true) 
+                		{
                 		obi.setY(1);
-                	}else {
+                		}	else 
+                		{
                 		obi.setY(0);
+                		}
                 	}
-                } else if (key == KeyEvent.VK_ESCAPE && temps.isRunning()) {
+            	 else if (key==KeyEvent.VK_Z) {
+            		dep=81;
+            	System.out.println("Z");
+            	if(Mouv_XH1 && dep==81 && Swap==0) {
+            		ana.setY1(-1);
+            	}else {
+            		ana.setY1(0);
+            	}
+            	if(Mouv_XH2 && dep==81 && Swap==1) {
+            		ana1.setY1(-1);
+            	}else {
+            		ana1.setY1(0);
+            	}
+            	if(Mouv_XH3 && dep==81 && Swap==2) {
+            		ana2.setY1(-1);
+            	}else {
+            		ana2.setY1(0);
+            	}
+            }
+
+            	 else if (key==KeyEvent.VK_Q) {
+            		dep=80;
+            	System.out.println("Z");
+            	if(Swap==0) 
+            	{
+            	if(Mouv_XG1&&dep==80)
+            		{
+            			ana.setX1(-1);
+            		}else {
+            		ana.setX1(0);
+            		}	
+            	}
+            	if(Swap==2) 
+            	{
+            	if(Mouv_XG3&&dep==80)
+            		{
+            			ana2.setX1(-1);
+            		}else {
+            		ana2.setX1(0);
+            		}	
+            	}
+            	if(Swap==1) 
+            	{
+            	if(Mouv_XG2&&dep==80)
+            		{
+            			ana1.setX1(-1);
+            		}else {
+            		ana1.setX1(0);
+            		}	
+            	}
+            	 }
+            	 else if (key==KeyEvent.VK_D) {
+            		dep=79;
+            	System.out.println("Z");
+            	if(Mouv_XD1&& dep==79 && Swap==0) {
+            		ana.setX1(1);
+            	}else {
+            		ana.setX1(0);
+            	}
+            	if(Mouv_XD2&& dep==79 && Swap==1) {
+            		ana1.setX1(1);
+            	}else {
+            		ana1.setX1(0);
+            	}
+            	if(Mouv_XD3&& dep==79 && Swap==2) {
+            		ana2.setX1(1);
+            	}else {
+            		ana2.setX1(0);
+            	}
+            	 }
+
+            	 else if (key==KeyEvent.VK_S) {
+            		dep=78;
+            	System.out.println("Z");
+            	if(Mouv_XB1&&dep==78 && Swap==0) {
+            		ana.setY1(1);
+            	}else {
+            		ana.setY1(0);
+            	}
+            	if(Mouv_XB2&&dep==78 && Swap==1) {
+            		ana1.setY1(1);
+            	}else {
+            		ana1.setY1(0);
+            	}
+            	if(Mouv_XB3&&dep==78 && Swap==2) {
+            		ana2.setY1(1);
+            	}else {
+            		ana2.setY1(0);
+            	}
+            }
+
+            	 else if (key==KeyEvent.VK_R) {
+            		if (Swap==0) {
+            			Swap=1;
+            		}else if(Swap==1) {
+            			Swap=2;
+            		}else if(Swap==2) {
+            			Swap=0;
+            		}
+            		System.out.println(Swap);
+            }
+            }
+            else if (key == KeyEvent.VK_ESCAPE && temps.isRunning()) {
                 	Enjeu = false;
                 } 
-            } else {
+             else {
                 if (key == KeyEvent.VK_SPACE) {
                 	Enjeu = true;
                     initJeu();
