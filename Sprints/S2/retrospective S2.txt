@@ -1,18 +1,5 @@
-Le travail a correctement fonctionné, nous avons mis le temps qu'il fallait et avons réussi à faire ce que nous voulions. 
-Nous sommes confiants quant à la bonne avancée du projet. 
+Nous sommes très contents du travail effectué malgré le fait que certaines fonctionnalités n'ont pas été implémentées à la perfection comme nous l'espérions .
+Maven fonctionne enfin, la version utilisée rendait impossible la compilation sur certains ordinateurs.
+Même si nous avons passé un peu trop de temps sur des étapes simples comme la création d’un nouveau niveau, nous sommes satisfait de notre avancée durant ce sprint.
 
 
-1)	Perte de vie quand on croise un monstre
-Fonctionnalité validée 
-
-2)	Faire le 2eme niveau 
-Fonctionnalité validée 
-
-3)	Les monstres se déplacent 
-Fonctionnalité validée 
-
-4)	Cases vie (qui rendent de la vie) 
-Fonctionnalité validée 
-
-5)	Cases piege (qui font perdre de la vie)
-Fonctionnalité validée 

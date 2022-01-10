@@ -1,5 +1,18 @@
-Review : 
-Les fonctionnalités que l'on voulait implémenter au S1 fonctionnent.
-On a aussi ajouté d'autres fonctionnalités (nous nous sommes sous-estimé au début du S1)
+Faire la matrice du  niveau 1 
+Fonctionnalité validée 
 
-Notre objectif principal durant le S2 est de se tenir strictement au Backlog S2.
+Déplacer le héros dans le labyrinthe avec les touches du clavier
+Fonctionnalité validée
+
+Faire une case de téléportation
+Fonctionnalité validée 
+
+Le héros à des PV
+Fonctionnalité validée 
+S’il en a assez il ne meurt pas au contacte d’une case piège.
+
+Cases qui ajoutent de la vie
+Fonctionnalité validée 
+Ces cases ajoutent de la vie de manière infinie, il faudra changer cela dans un prochain sprint.
+
+
