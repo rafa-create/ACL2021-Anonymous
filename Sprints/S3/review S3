@@ -3,7 +3,7 @@ Voici un point pour chaque fonctionalité du backlog :
 
 1) Les monstres doivent se déplacer indépendamment du héro
 Fonctionalité validée (à l'aide d'un timer )
-Cependant les monstres sont encore "bête", il faudra les rendre "intelligen" (et leur appliquer les contraintes des murs) dans un prochain sprint.
+Cependant les monstres se déplacent à travers les murs
 
 2) Case piège qui enléve de la vie au héro (de manière infinie, il faut passer vite avec assez de vie)
 Fonctionalité validée
@@ -21,5 +21,4 @@ Fonctionalité validée
 
 6) Ajouté par le prof : possibilité de tirer et tuer les monstres avec un nombre de munitions limités
 Fonctionalité validée 
-Le héro tire dans toutes les diréctions et les balles sont invisibles et traversent les murs. 
-Il faudrait pouvoir changer la direction, voir les balles et faire en sorte qu'elle s'arrêtent au premier mur(à implémenter dans un prochain sprint).
+Il faudrait faire en sorte que les balles s'arrêtent au premier mur(à implémenter dans un prochain sprint).
